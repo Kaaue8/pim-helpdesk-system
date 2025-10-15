@@ -1,0 +1,6 @@
+# Banco de Dados do Sistema de Help Desk (MS SQL Server)
+
+Esta pasta contém os scripts SQL para a modelagem do banco de dados (schema.sql) e scripts de migração, utilizando MS SQL Server.
+
+## Como Começar
+[Instruções detalhadas sobre como configurar o banco de dados e executar os scripts]
