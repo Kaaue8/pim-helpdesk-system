@@ -1,0 +1,6 @@
+# Backend do Sistema de Help Desk (C# ASP.NET Core)
+
+Esta pasta contém o código-fonte da API RESTful do sistema, desenvolvida em C# com ASP.NET Core. Ela é responsável pela lógica de negócios, comunicação com o banco de dados e exposição dos serviços para as aplicações frontend (Web, Mobile, Desktop).
+
+## Como Começar
+[Instruções detalhadas sobre como configurar e rodar o backend]
