@@ -37,71 +37,7 @@ LICENÇA: O arquivo de licença do projeto (MIT License).
 •
 LEIA-ME.md: Este arquivo, com informações gerais sobre o projeto.
 
-Fluxo de Trabalho de Integração Contínua (CI)
-
-Um workflow de Integração Contínua (CI) foi configurado usando GitHub Actions para garantir a qualidade e a integridade do código. Este workflow é executado automaticamente em cada push (envio de código) e pull request (solicitação de revisão de código) para as branches main ou master.
-
-O que o Workflow Faz:
-
-•
-Verifica o código: Garante que o código enviado esteja de acordo com as regras de formatação e padrões.
-
-•
-Instala dependências: Baixa todas as bibliotecas e pacotes necessários para cada parte do projeto.
-
-•
-Compila o código: Para projetos C# (Backend, Mobile, Desktop) e o Frontend Web, verifica se o código pode ser construído sem erros.
-
-•
-Roda testes (opcional, mas recomendado): Se configurado, executa testes automatizados para garantir que as novas mudanças não introduzam bugs.
-
-O objetivo é simples: Detectar problemas no código o mais cedo possível, antes que eles se tornem maiores e mais difíceis de corrigir. Se o workflow falhar, significa que há algo que precisa ser ajustado no código antes que ele possa ser integrado à branch principal.
-
-Entendendo .gitignore e .gitkeep
-
-Esses dois arquivos são essenciais para o controle de versão com Git, especialmente em projetos grandes com diversas tecnologias.
-
-.gitignore
-
-•
-Função: O arquivo .gitignore informa ao Git quais arquivos e pastas não devem ser rastreados e, portanto, não devem ser incluídos no repositório. Isso é crucial para evitar que arquivos desnecessários (como dependências de pacotes, arquivos temporários de build, configurações locais, etc.) sejam versionados.
-
-•
-Necessidade:
-
-•
-Reduzir o tamanho do repositório: Evita que arquivos grandes e gerados automaticamente sejam armazenados no histórico do Git.
-
-•
-Evitar conflitos: Impede que arquivos de configuração específicos de cada desenvolvedor ou ambiente sejam enviados, causando conflitos.
-
-•
-Segurança: Garante que informações sensíveis (como chaves de API, senhas) não sejam acidentalmente commitadas.
-
-
-
-•
-No seu projeto: O .gitignore foi configurado com o template .NET, que já ignora padrões comuns de projetos C# (ex: bin/, obj/, node_modules/, etc.). Você não precisa adicionar nada a ele a menos que encontre um novo tipo de arquivo que o Git esteja rastreando indevidamente.
-
-•
-Como Usar: Não é necessário alterá-lo diretamente, a menos que haja uma necessidade específica. Ele já está funcionando para você.
-
-.gitkeep
-
-•
-Função: O Git não rastreia pastas vazias. Se você criar uma pasta (como backend/src/) e ela estiver vazia, o Git a ignorará e ela não será incluída no repositório. O .gitkeep é um arquivo vazio (ou com um comentário) que é colocado dentro de uma pasta vazia para forçar o Git a rastrear essa pasta.
-
-•
-Necessidade: Garante que a estrutura de diretórios planejada seja mantida no repositório, mesmo que algumas pastas ainda não contenham arquivos de código. Isso é útil para padronizar a estrutura para a equipe.
-
-•
-No seu projeto: Você já tem arquivos .gitkeep nas subpastas que foram criadas vazias (ex: backend/src/, frontend-web/src/).
-
-•
-Como Usar: Uma vez que você adicione arquivos de código reais a uma pasta que contém um .gitkeep, você pode remover o arquivo .gitkeep dessa pasta, pois o Git passará a rastrear a pasta devido aos novos arquivos.
-
-
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Como Começar a Trabalhar (Para a Equipe)
 
