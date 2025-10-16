@@ -1,6 +1,52 @@
-# Frontend Mobile do Sistema de Help Desk (C# Xamarin/.NET MAUI)
+# Frontend Mobile do Sistema de Help Desk
 
-Esta pasta contém o código-fonte da aplicação mobile do sistema, desenvolvida em C# com Xamarin ou .NET MAUI, para dispositivos iOS e Android.
+Bem-vindo à pasta do **Frontend Mobile**! Aqui você encontrará o código da nossa aplicação para celulares e tablets (iOS e Android).
 
-## Como Começar
-[Instruções detalhadas sobre como configurar e rodar a aplicação mobile]
+## O que você vai encontrar aqui?
+
+*   **Tecnologia:** C# com Xamarin ou .NET MAUI.
+*   **Função:** Esta aplicação é a interface que os usuários (clientes, técnicos) irão interagir diretamente em seus dispositivos móveis para abrir chamados, acompanhar status, etc.
+*   **`src/`:** Contém o código-fonte principal da aplicação mobile (arquivos `.xaml`, `.cs`, etc.).
+*   **`assets/`:** Armazena recursos visuais como imagens, ícones e fontes específicas para a aplicação mobile.
+*   **`tests/`:** Contém os testes automatizados para garantir o funcionamento correto da aplicação mobile.
+
+## Como Começar a Trabalhar no Frontend Mobile
+
+### 1. Pré-requisitos
+
+Certifique-se de ter o **.NET SDK** e o **Visual Studio** (com as cargas de trabalho de desenvolvimento mobile, como Xamarin ou .NET MAUI) instalados na sua máquina. Pode ser necessário configurar emuladores ou dispositivos físicos para testar.
+
+### 2. Abrir o Projeto
+
+*   Abra o **Visual Studio**.
+*   Vá em `File > Open > Project/Solution...` e selecione o arquivo `.csproj` ou `.sln` que estará dentro desta pasta `frontend-mobile/` (ex: `frontend-mobile/SeuProjetoMobile.csproj` ou `frontend-mobile/SeuProjetoMobile.sln`).
+
+### 3. Restaurar Dependências
+
+No terminal, dentro da pasta `frontend-mobile/`:
+
+```bash
+dotnet restore
+```
+
+### 4. Compilar e Rodar o Projeto
+
+Para compilar e executar a aplicação mobile (geralmente em um emulador ou dispositivo conectado):
+
+```bash
+dotnet build
+dotnet run
+```
+
+*   **Observação:** O comando `dotnet run` para mobile pode exigir a especificação do target framework ou dispositivo. Consulte a documentação do Xamarin ou .NET MAUI para detalhes específicos.
+
+### 5. Ciclo de Trabalho com Git (Lembrete)
+
+*   **Antes de começar:** `git pull origin main` (para pegar as últimas alterações).
+*   **Quando terminar uma parte:** `git add .`, `git commit -m "sua mensagem"`.
+*   **Para enviar para o GitHub:** `git push origin main`.
+
+---
+
+**Dúvidas?** Não hesite em perguntar ao líder do projeto ou aos colegas de equipe!
+
