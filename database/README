@@ -1,6 +1,42 @@
-# Banco de Dados do Sistema de Help Desk (MS SQL Server)
+# Banco de Dados do Sistema de Help Desk
 
-Esta pasta contém os scripts SQL para a modelagem do banco de dados (schema.sql) e scripts de migração, utilizando MS SQL Server.
+Bem-vindo à pasta do **Banco de Dados**! Aqui você encontrará tudo relacionado à estrutura e gerenciamento dos dados do nosso sistema de Help Desk. O banco de dados é onde todas as informações importantes (usuários, chamados, soluções, etc.) são armazenadas de forma organizada e segura.
 
-## Como Começar
-[Instruções detalhadas sobre como configurar o banco de dados e executar os scripts]
+## O que você vai encontrar aqui?
+
+*   **Tecnologia:** MS SQL Server.
+*   **`schema.sql`:** Este arquivo conterá o script SQL para criar a estrutura inicial do nosso banco de dados (tabelas, chaves primárias e estrangeiras, índices).
+*   **`migrations/`:** Esta subpasta será usada para scripts de migração, que são pequenas alterações no esquema do banco de dados ao longo do tempo (ex: adicionar uma nova coluna, alterar um tipo de dado). Cada migração deve ser um arquivo SQL separado.
+
+## Como Começar a Trabalhar com o Banco de Dados
+
+### 1. Pré-requisitos
+
+*   Acesso a uma instância do **MS SQL Server** (local ou remota).
+*   Uma ferramenta para gerenciar o SQL Server, como **SQL Server Management Studio (SSMS)** ou **Azure Data Studio**.
+
+### 2. Criar o Banco de Dados
+
+1.  Abra o SSMS (ou Azure Data Studio) e conecte-se à sua instância do SQL Server.
+2.  Crie um novo banco de dados com um nome apropriado para o projeto (ex: `HelpDeskPIM_DB`).
+
+### 3. Aplicar o Esquema Inicial
+
+1.  Abra o arquivo `schema.sql` no seu editor de SQL.
+2.  Execute o script no banco de dados que você acabou de criar. Isso irá gerar todas as tabelas e relacionamentos iniciais.
+
+### 4. Gerenciar Migrações (Futuramente)
+
+*   Conforme o projeto evoluir, novas funcionalidades podem exigir mudanças na estrutura do banco de dados.
+*   Crie um novo arquivo SQL dentro de `migrations/` para cada alteração.
+*   **Importante:** Sempre faça backup do seu banco de dados antes de aplicar migrações!
+
+## Ciclo de Trabalho com Git (Lembrete)
+
+*   **Antes de começar:** `git pull origin main` (para pegar as últimas alterações).
+*   **Quando terminar uma parte:** `git add .`, `git commit -m "sua mensagem"`.
+*   **Para enviar para o GitHub:** `git push origin main`.
+
+---
+
+**Dúvidas?** Não hesite em perguntar ao líder do projeto ou aos colegas de equipe!
