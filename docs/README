@@ -1,8 +1,29 @@
 # Documentação do Projeto PIM - Sistema de Help Desk
 
-Esta pasta contém toda a documentação relevante para o projeto, incluindo o trabalho final, especificações técnicas e manuais.
+Bem-vindo à pasta de **Documentação** do nosso projeto! Este é o local central para todos os documentos importantes que descrevem o sistema, suas especificações, requisitos e o trabalho final.
 
-## Conteúdo
-*   [Trabalho Final (PDF)](./UNIVERSIDADEPAULISTA-versãofinal.docx.pdf) - *Será adicionado no próximo passo*
+## O que você vai encontrar aqui?
 
-feat: Adiciona pasta docs e README inicial
+*   **`UNIVERSIDADEPAULISTA-versãofinal.docx.pdf`**: Este é o documento principal do Projeto Integrado Multidisciplinar (PIM), contendo a análise, especificações, protótipos e modelagem do sistema de Help Desk.
+*   **Outros documentos:** Futuramente, esta pasta poderá conter outros documentos como manuais de usuário, guias de instalação, relatórios de teste, etc.
+
+## Como Acessar os Documentos
+
+Basta navegar até esta pasta no seu explorador de arquivos ou diretamente no GitHub e abrir o arquivo PDF.
+
+## Importância da Documentação
+
+A documentação é crucial para:
+*   **Entendimento do Projeto:** Ajuda todos os membros da equipe e stakeholders a compreenderem o escopo, objetivos e funcionamento do sistema.
+*   **Referência:** Serve como um guia para o desenvolvimento, garantindo que a implementação esteja alinhada com as especificações.
+*   **Manutenção:** Facilita a manutenção futura do sistema, pois todas as decisões de design e implementação estão registradas.
+
+## Ciclo de Trabalho com Git (Lembrete)
+
+*   **Antes de começar:** `git pull origin main` (para pegar as últimas alterações).
+*   **Quando terminar uma parte:** `git add .`, `git commit -m "sua mensagem"`.
+*   **Para enviar para o GitHub:** `git push origin main`.
+
+---
+
+**Dúvidas?** Não hesite em perguntar ao líder do projeto ou aos colegas de equipe!
