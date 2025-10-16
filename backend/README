@@ -1,6 +1,57 @@
-# Backend do Sistema de Help Desk (C# ASP.NET Core)
+# Backend do Sistema de Help Desk
 
-Esta pasta contém o código-fonte da API RESTful do sistema, desenvolvida em C# com ASP.NET Core. Ela é responsável pela lógica de negócios, comunicação com o banco de dados e exposição dos serviços para as aplicações frontend (Web, Mobile, Desktop).
+Bem-vindo à pasta do **Backend** do nosso Sistema de Help Desk! Aqui é onde toda a "inteligência" do nosso sistema acontece. Pense no backend como o cérebro que processa as informações, conversa com o banco de dados e envia os dados para as aplicações (Web, Mobile, Desktop).
 
-## Como Começar
-[Instruções detalhadas sobre como configurar e rodar o backend]
+## O que você vai encontrar aqui?
+
+*   **Tecnologia:** C# com ASP.NET Core.
+*   **Função:** O backend é uma API (Application Programming Interface). Isso significa que ele fornece um conjunto de "serviços" que as outras partes do sistema (os "frontends") podem usar. Por exemplo, quando você abre um chamado na aplicação web, é o backend que recebe essa informação e a salva no banco de dados.
+*   **Lógica de Negócios:** Regras sobre como os chamados devem ser criados, atualizados, quem pode ver o quê, como a IA vai triar os chamados, etc.
+*   **Comunicação com o Banco de Dados:** Ele se conecta ao MS SQL Server para guardar e buscar todas as informações do sistema.
+
+## Como Começar a Trabalhar no Backend
+
+### 1. Pré-requisitos
+
+Certifique-se de ter o **.NET SDK** instalado na sua máquina. Você pode baixá-lo do site oficial da Microsoft.
+
+### 2. Abrir o Projeto
+
+*   Abra o **Visual Studio** (ou Visual Studio Code com as extensões C#).
+*   Vá em `File > Open > Project/Solution...` e selecione o arquivo `.csproj` ou `.sln` que estará dentro desta pasta `backend/` (ex: `backend/SeuProjetoBackend.csproj` ou `backend/SeuProjetoBackend.sln`).
+
+### 3. Restaurar Dependências
+
+Antes de compilar e rodar, você precisa restaurar as dependências do projeto. No terminal, dentro da pasta `backend/`:
+
+```bash
+dotnet restore
+```
+
+### 4. Compilar o Projeto
+
+Para verificar se o código está sem erros e pode ser transformado em um programa executável:
+
+```bash
+dotnet build
+```
+
+### 5. Rodar o Backend (API)
+
+Para iniciar o servidor da API:
+
+```bash
+dotnet run
+```
+
+Isso fará com que a API fique disponível, geralmente em um endereço como `https://localhost:5001` (pode variar). As aplicações frontend se conectarão a este endereço.
+
+### 6. Ciclo de Trabalho com Git (Lembrete)
+
+*   **Antes de começar:** `git pull origin main` (para pegar as últimas alterações).
+*   **Quando terminar uma parte:** `git add .`, `git commit -m "sua mensagem"`.
+*   **Para enviar para o GitHub:** `git push origin main`.
+
+---
+
+**Dúvidas?** Não hesite em perguntar ao líder do projeto ou aos colegas de equipe!
