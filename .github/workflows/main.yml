@@ -12,42 +12,38 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4 # Faz o checkout do seu código no runner
-      with:
-        fetch-depth: 0 # Necessário para algumas ferramentas de análise de código, se for usar no futuro
 
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x' # **AJUSTE AQUI:** Use a versão do .NET que seu projeto utiliza (ex: '6.0.x', '7.0.x')
+        dotnet-version: '8.0.x' # <-- IMPORTANTE: AJUSTE AQUI a versão do .NET que seu projeto utiliza (ex: '6.0.x', '7.0.x', '8.0.x')
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20.x' # **AJUSTE AQUI:** Use a versão do Node.js que seu projeto utiliza
+        node-version: '20.x' # <-- IMPORTANTE: AJUSTE AQUI a versão do Node.js que seu projeto utiliza (ex: '18.x', '20.x')
 
     - name: Restaurar Dependências e Construir Backend (C# ASP.NET Core)
       run: |
-        # **AJUSTE AQUI:** Substitua 'backend/SeuProjetoBackend.csproj' pelo caminho real do seu arquivo .csproj do backend.
-        # Se você tiver um arquivo .sln na raiz do backend, pode usar 'dotnet restore backend/SeuProjetoBackend.sln'
-        dotnet restore backend/SeuProjetoBackend.csproj
-        dotnet build backend/SeuProjetoBackend.csproj --no-restore --configuration Release
+        # O projeto backend estará em 'backend/HelpDesk.Api/HelpDesk.Api.csproj'
+        dotnet restore backend/HelpDesk.Api/HelpDesk.Api.csproj
+        dotnet build backend/HelpDesk.Api/HelpDesk.Api.csproj --no-restore --configuration Release
 
     - name: Restaurar Dependências e Construir Frontend Web (HTML/CSS/JS)
       run: |
         cd frontend-web
-        npm install # **AJUSTE AQUI:** Use 'yarn install' ou 'pnpm install' se for o caso
-        npm run build # **AJUSTE AQUI:** Use 'yarn build' ou 'pnpm build' se for o caso, ou o comando de build do seu framework
+        # Assume-se que o projeto web está diretamente na pasta 'frontend-web'
+        npm install # Ou yarn install, pnpm install
+        npm run build # Ou yarn build, pnpm build
 
-    - name: Restaurar Dependências Frontend Mobile (C# Xamarin/.NET MAUI)
+    - name: Restaurar Dependências Frontend Mobile (C# .NET MAUI)
       run: |
-        # **AJUSTE AQUI:** Substitua 'frontend-mobile/SeuProjetoMobile.csproj' pelo caminho real do seu arquivo .csproj mobile.
-        # Se você tiver um arquivo .sln na raiz do frontend-mobile, pode usar 'dotnet restore frontend-mobile/SeuProjetoMobile.sln'
-        dotnet restore frontend-mobile/SeuProjetoMobile.csproj
+        # O projeto mobile estará em 'frontend-mobile/HelpDesk.Mobile/HelpDesk.Mobile.csproj'
+        dotnet restore frontend-mobile/HelpDesk.Mobile/HelpDesk.Mobile.csproj
 
-    - name: Restaurar Dependências Frontend Desktop (C# WPF/WinForms/.NET MAUI)
+    - name: Restaurar Dependências Frontend Desktop (C# Windows Forms)
       run: |
-        # **AJUSTE AQUI:** Substitua 'frontend-desktop/SeuProjetoDesktop.csproj' pelo caminho real do seu arquivo .csproj desktop.
-        # Se você tiver um arquivo .sln na raiz do frontend-desktop, pode usar 'dotnet restore frontend-desktop/SeuProjetoDesktop.sln'
-        dotnet restore frontend-desktop/SeuProjetoDesktop.csproj
+        # O projeto desktop estará em 'frontend-desktop/HelpDesk.Desktop/HelpDesk.Desktop.csproj'
+        dotnet restore frontend-desktop/HelpDesk.Desktop/HelpDesk.Desktop.csproj
 
     # Você pode adicionar mais passos aqui, como rodar testes, análise de código, etc.
