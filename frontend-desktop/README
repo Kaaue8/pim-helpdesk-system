@@ -1,6 +1,49 @@
-# Frontend Desktop do Sistema de Help Desk (C# WPF/WinForms/.NET MAUI)
+# Frontend Desktop do Sistema de Help Desk
 
-Esta pasta contém o código-fonte da aplicação desktop do sistema, desenvolvida em C# com WPF, WinForms ou .NET MAUI.
+Bem-vindo à pasta do **Frontend Desktop**! Aqui você encontrará o código da nossa aplicação para computadores (Windows, e futuramente macOS).
 
-## Como Começar
-[Instruções detalhadas sobre como configurar e rodar a aplicação desktop]
+## O que você vai encontrar aqui?
+
+*   **Tecnologia:** C# com WPF (Windows Presentation Foundation), WinForms ou .NET MAUI.
+*   **Função:** Esta aplicação é a interface que os usuários (administradores, técnicos) irão interagir diretamente em seus computadores para gerenciar chamados, usuários, etc.
+*   **`src/`:** Contém o código-fonte principal da aplicação desktop (arquivos `.xaml`, `.cs`, etc.).
+*   **`assets/`:** Armazena recursos visuais como imagens, ícones e fontes específicas para a aplicação desktop.
+*   **`tests/`:** Contém os testes automatizados para garantir o funcionamento correto da aplicação desktop.
+
+## Como Começar a Trabalhar no Frontend Desktop
+
+### 1. Pré-requisitos
+
+Certifique-se de ter o **.NET SDK** e o **Visual Studio** (com as cargas de trabalho de desenvolvimento desktop) instalados na sua máquina.
+
+### 2. Abrir o Projeto
+
+*   Abra o **Visual Studio**.
+*   Vá em `File > Open > Project/Solution...` e selecione o arquivo `.csproj` ou `.sln` que estará dentro desta pasta `frontend-desktop/` (ex: `frontend-desktop/SeuProjetoDesktop.csproj` ou `frontend-desktop/SeuProjetoDesktop.sln`).
+
+### 3. Restaurar Dependências
+
+No terminal, dentro da pasta `frontend-desktop/`:
+
+```bash
+dotnet restore
+```
+
+### 4. Compilar e Rodar o Projeto
+
+Para compilar e executar a aplicação desktop:
+
+```bash
+dotnet build
+dotnet run
+```
+
+### 5. Ciclo de Trabalho com Git (Lembrete)
+
+*   **Antes de começar:** `git pull origin main` (para pegar as últimas alterações).
+*   **Quando terminar uma parte:** `git add .`, `git commit -m "sua mensagem"`.
+*   **Para enviar para o GitHub:** `git push origin main`.
+
+---
+
+**Dúvidas?** Não hesite em perguntar ao líder do projeto ou aos colegas de equipe!
