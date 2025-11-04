@@ -1,29 +1,33 @@
-# Documentação do Projeto PIM - Sistema de Help Desk
+# Sistema de Help Desk Multi-Plataforma (PIM IV)
 
-Bem-vindo à pasta de **Documentação** do nosso projeto! Este é o local central para todos os documentos importantes que descrevem o sistema, suas especificações, requisitos e o trabalho final.
+Este repositório contém o código-fonte e a documentação do Projeto Integrado Multidisciplinar (PIM IV) para a criação de um sistema de Help Desk com múltiplas plataformas.
 
-## O que você vai encontrar aqui?
+## 🎯 Objetivo do Projeto
 
-*   **`UNIVERSIDADEPAULISTA-versãofinal.docx.pdf`**: Este é o documento principal do Projeto Integrado Multidisciplinar (PIM), contendo a análise, especificações, protótipos e modelagem do sistema de Help Desk.
-*   **Outros documentos:** Futuramente, esta pasta poderá conter outros documentos como manuais de usuário, guias de instalação, relatórios de teste, etc.
+Desenvolver um sistema de Help Desk moderno, centralizado e multi-plataforma, aderente à LGPD, com foco em:
+*   **Backend Centralizado:** API RESTful para servir todas as plataformas.
+*   **Frontends:** Web (React/Vite), Mobile (Android com .NET MAUI) e Desktop (Windows Forms).
+*   **Inteligência Artificial:** Integração para geração de FAQs, sugestões automáticas e roteamento de tickets.
 
-## Como Acessar os Documentos
+## 💻 Estrutura do Repositório
 
-Basta navegar até esta pasta no seu explorador de arquivos ou diretamente no GitHub e abrir o arquivo PDF.
+A estrutura de pastas foi organizada para facilitar a colaboração e a separação de responsabilidades:
 
-## Importância da Documentação
+| Pasta | Descrição | Tecnologia Principal |
+| :--- | :--- | :--- |
+| `backend/` | API RESTful centralizada para todas as plataformas. | C# ASP.NET Core Web API |
+| `frontend-web/` | Interface do usuário para acesso via navegador. | React com Vite |
+| `frontend-mobile/` | Aplicação móvel (Android) para técnicos e usuários. | C# .NET MAUI |
+| `frontend-desktop/` | Aplicação desktop (Windows) para administração e relatórios. | C# Windows Forms |
+| `database/` | Scripts SQL, migrações e esquema do banco de dados. | MS SQL Server |
+| `docs/` | Documentação do projeto, requisitos, diagramas e manuais. | Markdown, PDF |
 
-A documentação é crucial para:
-*   **Entendimento do Projeto:** Ajuda todos os membros da equipe e stakeholders a compreenderem o escopo, objetivos e funcionamento do sistema.
-*   **Referência:** Serve como um guia para o desenvolvimento, garantindo que a implementação esteja alinhada com as especificações.
-*   **Manutenção:** Facilita a manutenção futura do sistema, pois todas as decisões de design e implementação estão registradas.
+## 🚀 Próximos Passos para a Equipe
 
-## Ciclo de Trabalho com Git (Lembrete)
-
-*   **Antes de começar:** `git pull origin main` (para pegar as últimas alterações).
-*   **Quando terminar uma parte:** `git add .`, `git commit -m "sua mensagem"`.
-*   **Para enviar para o GitHub:** `git push origin main`.
+1.  **Clonar o Repositório:** `git clone [URL do seu repositório]`
+2.  **Backend:** Abrir a solução em `backend/HelpDesk.Api/HelpDesk.Api.csproj` no Visual Studio.
+3.  **Frontend Web:** Acessar a pasta `frontend-web` e executar `npm install` e depois `npm run dev`.
+4.  **Desktop/Mobile:** Abrir as soluções em suas respectivas pastas no Visual Studio.
 
 ---
-
-**Dúvidas?** Não hesite em perguntar ao líder do projeto ou aos colegas de equipe!
+**Documentação do Projeto Acadêmico:** Consulte o arquivo `docs/UNIVERSIDADEPAULISTA-versãofinal.docx.pdf` para os requisitos completos.
