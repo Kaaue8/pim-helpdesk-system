@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { Search, ChevronDown, CheckCircle, Edit2 } from "lucide-react";
+import { Search, ChevronDown, X, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Header from "@/components/Header";
-import { useLocation } from "wouter";
 
-// Dados de exemplo - chamados do admin (Em andamento + Resolvido)
 const CHAMADOS_EXEMPLO = [
   {
     id: "CH-0004",
@@ -22,6 +20,9 @@ const CHAMADOS_EXEMPLO = [
     abertohá: "-",
     abertaEm: "14/05/2025 - 12:32",
     ultimaAtualizacao: "14/05/2025 - 14:40",
+    anexos: [
+      { nome: "Print_Erro_1.jpeg", tamanho: "2.5 MB", url: "#" },
+    ],
   },
   {
     id: "CH-0003",
@@ -38,6 +39,7 @@ const CHAMADOS_EXEMPLO = [
     abertohá: "09h15",
     abertaEm: "14/05/2025 - 08:00",
     ultimaAtualizacao: "14/05/2025 - 14:30",
+    anexos: [],
   },
   {
     id: "CH-0002",
@@ -54,6 +56,7 @@ const CHAMADOS_EXEMPLO = [
     abertohá: "6h22",
     abertaEm: "14/05/2025 - 08:15",
     ultimaAtualizacao: "14/05/2025 - 14:25",
+    anexos: [],
   },
   {
     id: "CH-0001",
@@ -70,12 +73,13 @@ const CHAMADOS_EXEMPLO = [
     abertohá: "-",
     abertaEm: "13/05/2025 - 10:00",
     ultimaAtualizacao: "13/05/2025 - 11:30",
+    anexos: [],
   },
 ];
 
-export default function HistoricoChamados() {
-  const [, setLocation] = useLocation();
+const TECNICOS_DISPONIVEIS = ["Loro José", "João Alves", "Maria Silva"];
 
+export default function HistoricoChamados() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterTipo, setFilterTipo] = useState("Todos");
   const [filterStatus, setFilterStatus] = useState("Todos");
@@ -84,16 +88,15 @@ export default function HistoricoChamados() {
   const [filterPrioridade, setFilterPrioridade] = useState("Todos");
   const [filterUsuario, setFilterUsuario] = useState("Todos");
   const [filterAvaliacao, setFilterAvaliacao] = useState("Todos");
+  
   const [isDetalhesOpen, setIsDetalhesOpen] = useState(false);
   const [chamadoSelecionado, setChamadoSelecionado] = useState<typeof CHAMADOS_EXEMPLO[0] | null>(null);
-  const [isEditingTecnico, setIsEditingTecnico] = useState(false);
-  const [isEditingSolucao, setIsEditingSolucao] = useState(false);
   const [tecnicoEditado, setTecnicoEditado] = useState("");
+  const [isEditingTecnico, setIsEditingTecnico] = useState(false);
   const [solucaoEditada, setSolucaoEditada] = useState("");
+  const [isEditingSolucao, setIsEditingSolucao] = useState(false);
 
-  // Filtrar chamados - apenas Em andamento e Resolvido
   const chamadosFiltrados = CHAMADOS_EXEMPLO.filter((chamado) => {
-    // Filtro de status - apenas Em andamento e Resolvido
     if (chamado.status === "Aberto") return false;
 
     const matchSearch =
@@ -150,7 +153,32 @@ export default function HistoricoChamados() {
     setIsDetalhesOpen(true);
   };
 
-  // Extrair usuários únicos para o filtro
+  const handleFecharDetalhes = () => {
+    setIsDetalhesOpen(false);
+    setChamadoSelecionado(null);
+  };
+
+  const handleSalvarTecnico = () => {
+    if (chamadoSelecionado) {
+      chamadoSelecionado.tecnico = tecnicoEditado;
+      setIsEditingTecnico(false);
+    }
+  };
+
+  const handleSalvarSolucao = () => {
+    if (chamadoSelecionado) {
+      chamadoSelecionado.solucao = solucaoEditada;
+      setIsEditingSolucao(false);
+    }
+  };
+
+  const handleEncerrarChamado = () => {
+    if (chamadoSelecionado && chamadoSelecionado.status === "Em andamento") {
+      chamadoSelecionado.status = "Resolvido";
+      setChamadoSelecionado({ ...chamadoSelecionado });
+    }
+  };
+
   const usuariosUnicos = Array.from(new Set(CHAMADOS_EXEMPLO.map((c) => c.usuario)));
 
   return (
@@ -158,23 +186,16 @@ export default function HistoricoChamados() {
       <Header userName="Admin" />
 
       <div className="max-w-7xl mx-auto px-4 py-8">
-        {/* Header Section */}
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-4xl font-bold text-purple-900">HISTÓRICO DE CHAMADOS</h1>
-          <Button
-            onClick={() => {}}
-            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-full transition"
-          >
+          <Button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-full transition">
             + Novo Chamado
           </Button>
         </div>
 
-        {/* Filtros e Busca */}
         <Card className="mb-6 p-6 bg-white">
           <div className="space-y-4">
-            {/* Primeira linha de filtros */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-              {/* Filtro Tipo */}
               <div>
                 <label className="block text-xs font-semibold text-gray-700 mb-2">Tipo</label>
                 <div className="relative">
@@ -185,16 +206,13 @@ export default function HistoricoChamados() {
                   >
                     <option>Todos</option>
                     <option>Sem conexão com a internet</option>
-                    <option>Problema com email</option>
                     <option>Criação/Alteração de acessos</option>
                     <option>Solicitação de equipamento</option>
-                    <option>Dúvida sobre sistema</option>
                   </select>
                   <ChevronDown size={16} className="absolute right-2 top-3 text-gray-600 pointer-events-none" />
                 </div>
               </div>
 
-              {/* Filtro Status */}
               <div>
                 <label className="block text-xs font-semibold text-gray-700 mb-2">Status</label>
                 <div className="relative">
@@ -211,7 +229,6 @@ export default function HistoricoChamados() {
                 </div>
               </div>
 
-              {/* Filtro SLA */}
               <div>
                 <label className="block text-xs font-semibold text-gray-700 mb-2">SLA Atual</label>
                 <div className="relative">
@@ -222,16 +239,13 @@ export default function HistoricoChamados() {
                   >
                     <option>Todos</option>
                     <option>2h</option>
-                    <option>4h</option>
                     <option>6h</option>
-                    <option>8h</option>
                     <option>9h</option>
                   </select>
                   <ChevronDown size={16} className="absolute right-2 top-3 text-gray-600 pointer-events-none" />
                 </div>
               </div>
 
-              {/* Filtro Técnico */}
               <div>
                 <label className="block text-xs font-semibold text-gray-700 mb-2">Técnico</label>
                 <div className="relative">
@@ -248,7 +262,6 @@ export default function HistoricoChamados() {
                 </div>
               </div>
 
-              {/* Filtro Prioridade */}
               <div>
                 <label className="block text-xs font-semibold text-gray-700 mb-2">Prioridade</label>
                 <div className="relative">
@@ -267,73 +280,34 @@ export default function HistoricoChamados() {
               </div>
             </div>
 
-            {/* Segunda linha de filtros */}
-            <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
-              {/* Filtro Usuário */}
-              <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-2">Usuário</label>
-                <div className="relative">
-                  <select
-                    value={filterUsuario}
-                    onChange={(e) => setFilterUsuario(e.target.value)}
-                    className="appearance-none w-full px-4 py-2 pr-8 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer"
-                  >
-                    <option>Todos</option>
-                    {usuariosUnicos.map((usuario) => (
-                      <option key={usuario}>{usuario}</option>
-                    ))}
-                  </select>
-                  <ChevronDown size={16} className="absolute right-2 top-3 text-gray-600 pointer-events-none" />
-                </div>
-              </div>
-
-              {/* Filtro Avaliação */}
-              <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-2">Avaliação</label>
-                <div className="relative">
-                  <select
-                    value={filterAvaliacao}
-                    onChange={(e) => setFilterAvaliacao(e.target.value)}
-                    className="appearance-none w-full px-4 py-2 pr-8 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer"
-                  >
-                    <option>Todos</option>
-                    <option>Avaliado</option>
-                    <option>Pendente</option>
-                  </select>
-                  <ChevronDown size={16} className="absolute right-2 top-3 text-gray-600 pointer-events-none" />
-                </div>
-              </div>
-            </div>
-
-            {/* Barra de busca */}
-            <div className="relative">
-              <Search size={20} className="absolute left-3 top-3 text-gray-400" />
+            <div className="flex gap-2">
               <input
                 type="text"
                 placeholder="Busque pelo ID do chamado"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
+              <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 rounded-lg transition">
+                🔍
+              </Button>
             </div>
           </div>
         </Card>
 
-        {/* Tabela de Chamados */}
         <Card className="overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-100 border-b">
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Chamado</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Usuário</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Tipo</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Técnico</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Prioridade</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Aberto há</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">SLA Atual</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Status</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Avaliação</th>
+                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Chamado</th>
+                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Tipo</th>
+                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Técnico</th>
+                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Prioridade</th>
+                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Aberto há</th>
+                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">SLA Atual</th>
+                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Status</th>
+                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Avaliação</th>
                 </tr>
               </thead>
               <tbody>
@@ -344,7 +318,6 @@ export default function HistoricoChamados() {
                     className="border-b hover:bg-gray-50 cursor-pointer transition"
                   >
                     <td className="px-4 py-3 text-sm font-semibold text-purple-600">{chamado.id}</td>
-                    <td className="px-4 py-3 text-sm text-gray-700">{chamado.usuario}</td>
                     <td className="px-4 py-3 text-sm text-gray-700">{chamado.tipo}</td>
                     <td className="px-4 py-3 text-sm text-gray-700">{chamado.tecnico}</td>
                     <td className="px-4 py-3 text-sm font-semibold text-gray-900">{chamado.prioridade}</td>
@@ -380,194 +353,210 @@ export default function HistoricoChamados() {
         </Card>
       </div>
 
-      {/* Modal de Detalhes do Chamado - RESPONSIVO 50/50 */}
+      {/* MODAL DE DETALHES */}
       {isDetalhesOpen && chamadoSelecionado && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <Card className="bg-white rounded-2xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
-
-            {/* Header com título e botão fechar */}
-            <div className="p-6 flex justify-between items-center border-b pb-4">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 overflow-y-auto">
+          <Card className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full my-8 max-h-[90vh] overflow-y-auto">
+            {/* Header */}
+            <div className="sticky top-0 bg-white p-6 flex justify-between items-center border-b pb-4 rounded-t-2xl z-10">
               <h2 className="text-2xl font-bold text-purple-900">Chamado: {chamadoSelecionado.id}</h2>
               <button
-                onClick={() => setIsDetalhesOpen(false)}
-                className="text-gray-600 hover:text-gray-900 p-2 rounded transition"
+                onClick={handleFecharDetalhes}
+                className="text-gray-500 hover:text-gray-700 transition"
               >
-                ✕
+                <X size={24} />
               </button>
             </div>
 
-            {/* Topo - Datas e Status lado a lado */}
-            <div className="p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 border-b pb-4">
-              {/* Lado esquerdo - Datas */}
+            {/* Conteúdo */}
+            <div className="p-6 space-y-6">
+              {/* Datas */}
               <div className="text-sm text-gray-700 space-y-1">
                 <p>Chamado aberto em: {chamadoSelecionado.abertaEm}</p>
                 <p>Última atualização: {chamadoSelecionado.ultimaAtualizacao}</p>
               </div>
 
-              {/* Lado direito - Status, Aberto há e Técnico */}
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 sm:justify-end">
-                <div className="text-sm">
-                  <p className="text-gray-600 mb-1"><strong>Status:</strong></p>
-                  <p className={`font-bold ${chamadoSelecionado.status === "Resolvido" ? "text-green-600" : "text-yellow-600"}`}>
+              {/* Status e Aberto há - NO TOPO, LADO A LADO */}
+              <div className="flex justify-between items-start gap-8">
+                <div>
+                  <p className="text-sm text-gray-600 mb-1"><strong>Status:</strong></p>
+                  <p className={`font-bold text-lg ${chamadoSelecionado.status === "Resolvido" ? "text-green-600" : "text-yellow-600"}`}>
                     {chamadoSelecionado.status}
                   </p>
                 </div>
-                <div className="text-sm">
-                  <p className="text-gray-600 mb-1"><strong>Aberto há:</strong></p>
-                  <p className="font-bold text-gray-900">{chamadoSelecionado.abertohá}</p>
-                </div>
-                <div className="text-sm">
-                  <p className="text-gray-600 mb-1"><strong>Técnico responsável:</strong></p>
-                  <div className="flex items-center gap-2">
-                    <p className="font-semibold text-gray-900">{chamadoSelecionado.tecnico}</p>
-                    <span className="text-purple-600 cursor-pointer">✏️</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Conteúdo principal - 50/50 */}
-            <div className="p-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Lado esquerdo - 50% */}
-              <div className="space-y-4">
-                {/* Dados do usuário */}
-                <div className="space-y-2">
-                  <p className="font-semibold text-gray-900"><strong>Nome:</strong> {chamadoSelecionado.usuario}</p>
-                  <p className="text-gray-600 text-sm"><strong>Setor:</strong> {chamadoSelecionado.setor}</p>
-                </div>
-
-                {/* Descrição */}
                 <div>
-                  <h3 className="font-bold text-purple-600 mb-2">Descrição do problema:</h3>
-                  <p className="text-gray-700 bg-gray-50 p-4 rounded">{chamadoSelecionado.descricao}</p>
-                </div>
-
-                {/* Categoria */}
-                <div>
-                  <label className="block font-semibold text-gray-900 mb-2">Categoria:</label>
-                  <div className="relative">
-                    <select
-                      disabled
-                      value={chamadoSelecionado.tipo}
-                      className="appearance-none w-full px-4 py-2 pr-8 bg-gray-100 border border-gray-300 rounded-lg cursor-not-allowed"
-                    >
-                      <option>{chamadoSelecionado.tipo}</option>
-                    </select>
-                    <ChevronDown size={16} className="absolute right-2 top-3 text-gray-600 pointer-events-none" />
-                  </div>
-                </div>
-
-                {/* Info box */}
-                <div className="bg-gray-100 p-4 rounded grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-                  <div>
-                    <p className="text-gray-600"><strong>ID Chamado:</strong> {chamadoSelecionado.id}</p>
-                    <p className="text-gray-600"><strong>Nível de Suporte:</strong> N1</p>
-                  </div>
-                  <div>
-                    <p className="text-gray-600"><strong>Prioridade:</strong> <span className="font-semibold">{chamadoSelecionado.prioridade}</span></p>
-                    <p className="text-gray-600"><strong>SLA:</strong> {chamadoSelecionado.sla}</p>
-                  </div>
-                </div>
-
-                {/* Detalhes Adicionais */}
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-2">Detalhes Adicionais</h3>
-                  <p className="text-gray-700 bg-gray-50 p-4 rounded">Minha máquina ficou localizada na sala 09, estou disponível na empresa durante o horário comercial. IP Máquina: 192.168.0.101</p>
-                </div>
-
-                {/* Anexo */}
-                <div className="flex items-center gap-2 text-purple-600">
-                  <span>📎</span>
-                  <span>Print_Erro_Limpeg</span>
+                  <p className="text-sm text-gray-600 mb-1"><strong>Aberto há:</strong></p>
+                  <p className="font-bold text-lg text-gray-900">{chamadoSelecionado.abertohá}</p>
                 </div>
               </div>
 
-              {/* Lado direito - 50% */}
-              <div className="space-y-4">
-                {/* Técnico responsável */}
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <p className="text-sm text-gray-600"><strong>Técnico responsável:</strong></p>
-                    {(chamadoSelecionado.status === "Aberto" || chamadoSelecionado.status === "Em andamento") && (
-                      <button
-                        onClick={() => setIsEditingTecnico(!isEditingTecnico)}
-                        className="text-purple-600 hover:text-purple-700 transition"
-                      >
-                        <Edit2 size={18} />
-                      </button>
-                    )}
+              {/* Grid 2 colunas */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* COLUNA ESQUERDA */}
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <p className="text-sm"><strong>Nome:</strong> {chamadoSelecionado.usuario}</p>
+                    <p className="text-sm"><strong>Setor:</strong> {chamadoSelecionado.setor}</p>
                   </div>
-                  <input
-                    type="text"
-                    disabled={!isEditingTecnico}
-                    value={tecnicoEditado}
-                    onChange={(e) => setTecnicoEditado(e.target.value)}
-                    className={`w-full px-4 py-2 border border-gray-300 rounded-lg transition ${
-                      isEditingTecnico
-                        ? "bg-white cursor-text focus:outline-none focus:ring-2 focus:ring-purple-500"
-                        : "bg-gray-100 cursor-not-allowed"
-                    }`}
-                  />
-                </div>
 
-                {/* Solução */}
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <p className="text-sm text-gray-600"><strong>Solução:</strong></p>
-                    {(chamadoSelecionado.status === "Aberto" || chamadoSelecionado.status === "Em andamento") && (
-                      <button
-                        onClick={() => setIsEditingSolucao(!isEditingSolucao)}
-                        className="text-purple-600 hover:text-purple-700 transition"
-                      >
-                        <Edit2 size={18} />
-                      </button>
-                    )}
-                  </div>
-                  <textarea
-                    disabled={!isEditingSolucao}
-                    value={solucaoEditada}
-                    onChange={(e) => setSolucaoEditada(e.target.value)}
-                    className={`w-full px-4 py-2 border border-gray-300 rounded-lg h-24 resize-none transition ${
-                      isEditingSolucao
-                        ? "bg-white cursor-text focus:outline-none focus:ring-2 focus:ring-purple-500"
-                        : "bg-gray-100 cursor-not-allowed"
-                    }`}
-                  />
-                </div>
-
-                {/* Botão Encerrar Chamado */}
-                {(chamadoSelecionado.status === "Aberto" || chamadoSelecionado.status === "Em andamento") && (
-                  <Button
-                    onClick={() => alert("Chamado encerrado!")}
-                    className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full transition"
-                  >
-                    Encerrar Chamado
-                  </Button>
-                )}
-
-                {/* Avaliação do atendimento - sempre visível */}
-                <div className="space-y-4 border-t pt-4">
                   <div>
-                    <p className="font-semibold text-gray-900 mb-2">Avaliação do atendimento:</p>
-                    <div className="flex gap-2">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <span
-                          key={star}
-                          className={`text-2xl ${
-                            star <= chamadoSelecionado.avaliacao ? "text-yellow-400" : "text-gray-300"
-                          }`}
+                    <p className="text-sm font-bold text-purple-600 mb-2">Descrição do problema:</p>
+                    <div className="bg-gray-100 p-4 rounded text-sm text-gray-700">
+                      {chamadoSelecionado.descricao}
+                    </div>
+                  </div>
+
+                  <div>
+                    <p className="text-sm font-bold text-purple-600 mb-2">Categoria:</p>
+                    <div className="bg-gray-100 p-4 rounded text-sm text-gray-700">
+                      {chamadoSelecionado.tipo}
+                    </div>
+                  </div>
+
+                  <div className="bg-gray-100 p-4 rounded grid grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <p className="text-gray-600">ID Chamado: <strong>{chamadoSelecionado.id}</strong></p>
+                      <p className="text-gray-600">Nível de Suporte: <strong>N1</strong></p>
+                    </div>
+                    <div>
+                      <p className="text-gray-600">Prioridade: <strong className="text-red-600">{chamadoSelecionado.prioridade}</strong></p>
+                      <p className="text-gray-600">SLA: <strong>{chamadoSelecionado.sla}</strong></p>
+                    </div>
+                  </div>
+
+                  {/* DETALHES ADICIONAIS - ANEXOS */}
+                  {chamadoSelecionado.anexos && chamadoSelecionado.anexos.length > 0 && (
+                    <div>
+                      <p className="text-sm font-bold text-purple-600 mb-2">Detalhes Adicionais</p>
+                      <div className="bg-gray-100 p-4 rounded space-y-2">
+                        {chamadoSelecionado.anexos.map((anexo, index) => (
+                          <div key={index} className="flex items-center justify-between gap-2">
+                            <div className="flex items-center gap-2">
+                              <span className="text-purple-600">📎</span>
+                              <div className="text-sm">
+                                <p className="text-gray-700 font-semibold">{anexo.nome}</p>
+                                <p className="text-gray-500 text-xs">{anexo.tamanho}</p>
+                              </div>
+                            </div>
+                            <button className="text-purple-600 hover:text-purple-700 transition">
+                              <Download size={16} />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* COLUNA DIREITA */}
+                <div className="space-y-6">
+                  {/* Técnico Responsável - EDITÁVEL SE EM ANDAMENTO */}
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <p className="text-sm text-gray-600"><strong>Técnico responsável:</strong></p>
+                      {chamadoSelecionado.status === "Em andamento" && !isEditingTecnico && (
+                        <button
+                          onClick={() => setIsEditingTecnico(true)}
+                          className="text-purple-600 hover:text-purple-700 text-xs"
                         >
-                          ★
-                        </span>
-                      ))}
+                          ✏️ Editar
+                        </button>
+                      )}
                     </div>
+
+                    {isEditingTecnico && chamadoSelecionado.status === "Em andamento" ? (
+                      <div className="space-y-2">
+                        <select
+                          value={tecnicoEditado}
+                          onChange={(e) => setTecnicoEditado(e.target.value)}
+                          className="w-full px-4 py-2 border border-gray-300 rounded text-sm text-gray-900 bg-white"
+                        >
+                          {TECNICOS_DISPONIVEIS.map((tecnico) => (
+                            <option key={tecnico} value={tecnico}>
+                              {tecnico}
+                            </option>
+                          ))}
+                        </select>
+                        <div className="flex gap-2">
+                          <Button
+                            onClick={handleSalvarTecnico}
+                            className="flex-1 bg-purple-600 hover:bg-purple-700 text-white text-sm py-1 rounded transition"
+                          >
+                            Salvar
+                          </Button>
+                          <Button
+                            onClick={() => setIsEditingTecnico(false)}
+                            className="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-900 text-sm py-1 rounded transition"
+                          >
+                            Cancelar
+                          </Button>
+                        </div>
+                      </div>
+                    ) : (
+                      <input
+                        type="text"
+                        value={tecnicoEditado}
+                        disabled
+                        className="w-full px-4 py-2 border border-gray-300 rounded text-sm text-gray-900 bg-gray-50"
+                      />
+                    )}
                   </div>
 
-                  {/* Comentário da avaliação */}
-                  {chamadoSelecionado.avaliacao > 0 && (
-                    <div className="bg-gray-50 p-4 rounded">
-                      <p className="text-gray-700 text-sm">Muito bom! Me chamado via teams, rapidamente fizeram testes comigo e identificaram que precisava de uma atualização na máquina. Agora não estou mais com problemas.</p>
+                  {/* Solução - EDITÁVEL SE EM ANDAMENTO */}
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <p className="text-sm text-gray-600"><strong>Solução:</strong></p>
+                      {chamadoSelecionado.status === "Em andamento" && !isEditingSolucao && (
+                        <button
+                          onClick={() => setIsEditingSolucao(true)}
+                          className="text-purple-600 hover:text-purple-700 text-xs"
+                        >
+                          ✏️ Editar
+                        </button>
+                      )}
                     </div>
+
+                    {isEditingSolucao && chamadoSelecionado.status === "Em andamento" ? (
+                      <div className="space-y-2">
+                        <textarea
+                          value={solucaoEditada}
+                          onChange={(e) => setSolucaoEditada(e.target.value)}
+                          className="w-full px-4 py-2 border border-gray-300 rounded text-sm text-gray-700 bg-white resize-none"
+                          rows={6}
+                        />
+                        <div className="flex gap-2">
+                          <Button
+                            onClick={handleSalvarSolucao}
+                            className="flex-1 bg-purple-600 hover:bg-purple-700 text-white text-sm py-1 rounded transition"
+                          >
+                            Salvar
+                          </Button>
+                          <Button
+                            onClick={() => setIsEditingSolucao(false)}
+                            className="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-900 text-sm py-1 rounded transition"
+                          >
+                            Cancelar
+                          </Button>
+                        </div>
+                      </div>
+                    ) : (
+                      <textarea
+                        value={solucaoEditada}
+                        disabled
+                        className="w-full px-4 py-2 border border-gray-300 rounded text-sm text-gray-700 bg-gray-50 resize-none"
+                        rows={6}
+                      />
+                    )}
+                  </div>
+
+                  {/* Botão Encerrar Chamado - APENAS SE EM ANDAMENTO */}
+                  {chamadoSelecionado.status === "Em andamento" && (
+                    <Button
+                      onClick={handleEncerrarChamado}
+                      className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded transition"
+                    >
+                      ✓ Encerrar Chamado
+                    </Button>
                   )}
                 </div>
               </div>
