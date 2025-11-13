@@ -11,16 +11,16 @@ namespace HelpDesk.Api.Models
         public int Id { get; set; }
 
         [Required, MaxLength(100)]
-        public required string Titulo { get; set; }
+        public string Titulo { get; set; } = string.Empty;
 
         [Required]
-        public required string Descricao { get; set; }
+        public string Descricao { get; set; } = string.Empty;
 
         [Required, MaxLength(20)]
-        public required string Status { get; set; }
+        public string Status { get; set; } = string.Empty;
 
         [Required, MaxLength(20)]
-        public required string Prioridade { get; set; }
+        public string Prioridade { get; set; } = string.Empty;
 
         public int UsuarioId { get; set; }
 
@@ -36,5 +36,13 @@ namespace HelpDesk.Api.Models
         public DateTime DataAbertura { get; set; }
 
         public DateTime? DataFechamento { get; set; }
+
+        // Campos de Triagem da IA
+        [MaxLength(50)]
+        public string? SetorRecomendado { get; set; }
+
+        public string? ResumoTriagem { get; set; }
+
+        public string? SolucaoSugerida { get; set; }
     }
 }

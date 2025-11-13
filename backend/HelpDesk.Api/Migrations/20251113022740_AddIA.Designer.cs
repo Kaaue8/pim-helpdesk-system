@@ -4,6 +4,7 @@ using HelpDesk.Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HelpDesk.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251113022740_AddIA")]
+    partial class AddIA
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -263,7 +266,7 @@ namespace HelpDesk.Api.Migrations
                             Email = "kaue@empresa.com",
                             Nome = "Kaue",
                             Perfil = "Analista",
-                            SenhaHash = "$2b$10$BtrBZpxLvcisdmK295Cri.G3by.duKeWX/Og6uEGxQmuBxs9l6aWG",
+                            SenhaHash = "$2b$10$CMnXwo5bW8fyV/RBX2kRL.wTWEqF6vuan5Iew3/SH6IeLtS0FWBae",
                             SetorIdSetor = 1
                         },
                         new
@@ -273,7 +276,7 @@ namespace HelpDesk.Api.Migrations
                             Email = "julia.castro@empresa.com",
                             Nome = "Julia Castro",
                             Perfil = "Analista",
-                            SenhaHash = "$2b$10$BtrBZpxLvcisdmK295Cri.G3by.duKeWX/Og6uEGxQmuBxs9l6aWG",
+                            SenhaHash = "$2b$10$CMnXwo5bW8fyV/RBX2kRL.wTWEqF6vuan5Iew3/SH6IeLtS0FWBae",
                             SetorIdSetor = 1
                         },
                         new
@@ -283,7 +286,7 @@ namespace HelpDesk.Api.Migrations
                             Email = "vinicius.wayna@empresa.com",
                             Nome = "Vinicius Wayna",
                             Perfil = "Usuario",
-                            SenhaHash = "$2b$10$BtrBZpxLvcisdmK295Cri.G3by.duKeWX/Og6uEGxQmuBxs9l6aWG",
+                            SenhaHash = "$2b$10$CMnXwo5bW8fyV/RBX2kRL.wTWEqF6vuan5Iew3/SH6IeLtS0FWBae",
                             SetorIdSetor = 3
                         },
                         new
@@ -293,7 +296,7 @@ namespace HelpDesk.Api.Migrations
                             Email = "vinicius.macedo@empresa.com",
                             Nome = "Vinicius Macedo",
                             Perfil = "Admin",
-                            SenhaHash = "$2b$10$BtrBZpxLvcisdmK295Cri.G3by.duKeWX/Og6uEGxQmuBxs9l6aWG",
+                            SenhaHash = "$2b$10$CMnXwo5bW8fyV/RBX2kRL.wTWEqF6vuan5Iew3/SH6IeLtS0FWBae",
                             SetorIdSetor = 4
                         },
                         new
@@ -303,7 +306,7 @@ namespace HelpDesk.Api.Migrations
                             Email = "irineu.julio@empresa.com",
                             Nome = "Irineu Julio",
                             Perfil = "Usuario",
-                            SenhaHash = "$2b$10$BtrBZpxLvcisdmK295Cri.G3by.duKeWX/Og6uEGxQmuBxs9l6aWG",
+                            SenhaHash = "$2b$10$CMnXwo5bW8fyV/RBX2kRL.wTWEqF6vuan5Iew3/SH6IeLtS0FWBae",
                             SetorIdSetor = 2
                         },
                         new
@@ -313,7 +316,7 @@ namespace HelpDesk.Api.Migrations
                             Email = "samuel.nobre@empresa.com",
                             Nome = "Samuel NObRe",
                             Perfil = "Usuario",
-                            SenhaHash = "$2b$10$BtrBZpxLvcisdmK295Cri.G3by.duKeWX/Og6uEGxQmuBxs9l6aWG",
+                            SenhaHash = "$2b$10$CMnXwo5bW8fyV/RBX2kRL.wTWEqF6vuan5Iew3/SH6IeLtS0FWBae",
                             SetorIdSetor = 3
                         });
                 });
