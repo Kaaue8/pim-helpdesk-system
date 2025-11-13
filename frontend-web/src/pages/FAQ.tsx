@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Header from "@/components/Header";
 import { useAuth } from "@/contexts/AuthContext";
-import { useLocation } from "wouter";
 import { toast } from "sonner";
 
 const FAQS_INICIAIS = [
@@ -72,19 +71,11 @@ const FAQS_INICIAIS = [
 
 export default function FAQ() {
   const { userName, userType } = useAuth();
-  const [, navigate] = useLocation();
-
-  // Redirecionar user para página de FAQ pública
-  if (userType === "user") {
-    navigate("/faq-publica");
-    return null;
-  }
+  const isAdmin = userType === "admin";
 
   const [faqs, setFaqs] = useState(FAQS_INICIAIS);
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
-
-  // FAQ selecionada para edição
   const [selectedFaq, setSelectedFaq] = useState<typeof FAQS_INICIAIS[0] | null>(null);
   const [editingTitle, setEditingTitle] = useState("");
   const [editingAnswer, setEditingAnswer] = useState("");
@@ -124,6 +115,8 @@ export default function FAQ() {
 
     toast.success("FAQ atualizada com sucesso!");
     setSelectedFaq(null);
+    setEditingTitle("");
+    setEditingAnswer("");
   };
 
   const handleDeleteFaq = () => {
@@ -133,6 +126,8 @@ export default function FAQ() {
       setFaqs(faqs.filter((faq) => faq.id !== selectedFaq.id));
       toast.success("FAQ deletada com sucesso!");
       setSelectedFaq(null);
+      setEditingTitle("");
+      setEditingAnswer("");
     }
   };
 
@@ -156,30 +151,163 @@ export default function FAQ() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header userName={userName || "Admin"} />
+      <Header userName={userName || "Usuário"} />
 
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className={`max-w-7xl mx-auto px-4 py-8 ${isAdmin ? "" : "max-w-4xl"}`}>
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-purple-900">FAQ - Dúvidas Frequentes</h1>
-          <p className="text-gray-600 mt-2">Gerencie as perguntas frequentes do sistema</p>
+          <p className="text-gray-600 mt-2">
+            {isAdmin ? "Gerencie as perguntas frequentes do sistema" : "Encontre respostas para suas dúvidas"}
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* COLUNA ESQUERDA - LISTA DE FAQs */}
-          <div className="lg:col-span-2 space-y-4">
-            {/* Filtros */}
-            <Card className="p-4 bg-white">
+        {/* LAYOUT ADMIN - COM EDIÇÃO */}
+        {isAdmin ? (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* COLUNA ESQUERDA - LISTA DE FAQs */}
+            <div className="lg:col-span-2 space-y-4">
+              {/* Filtros */}
+              <Card className="p-4 bg-white">
+                <div className="space-y-3">
+                  <input
+                    type="text"
+                    placeholder="Buscar..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  />
+                </div>
+              </Card>
+
+              {/* Lista de FAQs */}
               <div className="space-y-3">
-                <input
-                  type="text"
-                  placeholder="Buscar..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                />
+                {filteredFaqs.length > 0 ? (
+                  filteredFaqs.map((faq) => (
+                    <Card
+                      key={faq.id}
+                      className={`overflow-hidden cursor-pointer transition ${
+                        selectedFaq?.id === faq.id
+                          ? "ring-2 ring-purple-600 shadow-md"
+                          : "hover:shadow-md"
+                      }`}
+                      onClick={() => handleSelectFaq(faq)}
+                    >
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setExpandedId(expandedId === faq.id ? null : faq.id);
+                        }}
+                        className="w-full p-4 text-left flex items-start justify-between gap-3 hover:bg-gray-50 transition"
+                      >
+                        <div className="flex-1">
+                          <h3 className="text-sm font-semibold text-gray-900">{faq.question}</h3>
+                        </div>
+                        <ChevronDown
+                          size={20}
+                          className={`text-gray-400 flex-shrink-0 transition ${
+                            expandedId === faq.id ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
 
-
+                      {expandedId === faq.id && (
+                        <div className="px-4 pb-4 border-t border-gray-100 bg-gray-50">
+                          <p className="text-sm text-gray-700 leading-relaxed">{faq.answer}</p>
+                        </div>
+                      )}
+                    </Card>
+                  ))
+                ) : (
+                  <Card className="p-6 text-center text-gray-500">
+                    Nenhuma FAQ encontrada
+                  </Card>
+                )}
               </div>
+            </div>
+
+            {/* COLUNA DIREITA - PAINEL DE EDIÇÃO */}
+            <div>
+              {selectedFaq ? (
+                <Card className="p-6 bg-white sticky top-8">
+                  <div className="flex justify-between items-center mb-4">
+                    <h2 className="text-lg font-bold text-purple-900">Editar FAQ</h2>
+                    <button
+                      onClick={handleClearSelection}
+                      className="text-gray-500 hover:text-gray-700"
+                    >
+                      <X size={20} />
+                    </button>
+                  </div>
+
+                  <div className="space-y-4">
+                    {/* Título */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Título:
+                      </label>
+                      <input
+                        type="text"
+                        value={editingTitle}
+                        onChange={(e) => setEditingTitle(e.target.value)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      />
+                    </div>
+
+                    {/* Artigo */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Artigo:
+                      </label>
+                      <textarea
+                        value={editingAnswer}
+                        onChange={(e) => setEditingAnswer(e.target.value)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+                        rows={8}
+                      />
+                    </div>
+
+                    {/* Botões */}
+                    <div className="flex gap-2">
+                      <Button
+                        onClick={handleDeleteFaq}
+                        className="flex-1 bg-red-600 hover:bg-red-700 text-white text-sm py-2 rounded transition"
+                      >
+                        Excluir FAQ
+                      </Button>
+                      <Button
+                        onClick={handleSaveFaq}
+                        className="flex-1 bg-purple-600 hover:bg-purple-700 text-white text-sm py-2 rounded transition"
+                      >
+                        Salvar Alterações
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
+              ) : (
+                <Card className="p-6 bg-white sticky top-8 text-center">
+                  <p className="text-gray-500 mb-4">Selecione uma FAQ para editar</p>
+                  <Button
+                    onClick={handleCreateNewFaq}
+                    className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded transition"
+                  >
+                    + Nova FAQ
+                  </Button>
+                </Card>
+              )}
+            </div>
+          </div>
+        ) : (
+          /* LAYOUT USER - APENAS LEITURA */
+          <div className="space-y-6">
+            {/* Busca */}
+            <Card className="p-4 bg-white">
+              <input
+                type="text"
+                placeholder="Buscar..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
             </Card>
 
             {/* Lista de FAQs */}
@@ -188,22 +316,15 @@ export default function FAQ() {
                 filteredFaqs.map((faq) => (
                   <Card
                     key={faq.id}
-                    className={`overflow-hidden cursor-pointer transition ${
-                      selectedFaq?.id === faq.id
-                        ? "ring-2 ring-purple-600 shadow-md"
-                        : "hover:shadow-md"
-                    }`}
-                    onClick={() => handleSelectFaq(faq)}
+                    className="overflow-hidden hover:shadow-md transition"
                   >
                     <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setExpandedId(expandedId === faq.id ? null : faq.id);
-                      }}
+                      onClick={() =>
+                        setExpandedId(expandedId === faq.id ? null : faq.id)
+                      }
                       className="w-full p-4 text-left flex items-start justify-between gap-3 hover:bg-gray-50 transition"
                     >
                       <div className="flex-1">
-  
                         <h3 className="text-sm font-semibold text-gray-900">{faq.question}</h3>
                       </div>
                       <ChevronDown
@@ -227,81 +348,26 @@ export default function FAQ() {
                 </Card>
               )}
             </div>
-          </div>
 
-          {/* COLUNA DIREITA - PAINEL DE EDIÇÃO */}
-          <div>
-            {selectedFaq ? (
-              <Card className="p-6 bg-white sticky top-8">
-                <div className="flex justify-between items-center mb-4">
-                  <h2 className="text-lg font-bold text-purple-900">Editar FAQ</h2>
-                  <button
-                    onClick={handleClearSelection}
-                    className="text-gray-500 hover:text-gray-700"
-                  >
-                    <X size={20} />
+            {/* Seção de Contato */}
+            <Card className="p-8 bg-gradient-to-r from-purple-600 to-purple-700 text-white">
+              <div className="text-center">
+                <h2 className="text-2xl font-bold mb-3">Não encontrou sua resposta?</h2>
+                <p className="text-purple-100 mb-6">
+                  Nossa equipe de suporte está pronta para ajudá-lo
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button className="px-6 py-2 bg-white text-purple-600 font-semibold rounded-lg hover:bg-purple-50 transition">
+                    Abrir Chamado
+                  </button>
+                  <button className="px-6 py-2 border-2 border-white text-white font-semibold rounded-lg hover:bg-purple-600 transition">
+                    Enviar Email
                   </button>
                 </div>
-
-                <div className="space-y-4">
-                  {/* Título */}
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Título:
-                    </label>
-                    <input
-                      type="text"
-                      value={editingTitle}
-                      onChange={(e) => setEditingTitle(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
-                    />
-                  </div>
-
-
-
-                  {/* Artigo */}
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Artigo:
-                    </label>
-                    <textarea
-                      value={editingAnswer}
-                      onChange={(e) => setEditingAnswer(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
-                      rows={8}
-                    />
-                  </div>
-
-                  {/* Botões */}
-                  <div className="flex gap-2">
-                    <Button
-                      onClick={handleDeleteFaq}
-                      className="flex-1 bg-red-600 hover:bg-red-700 text-white text-sm py-2 rounded transition"
-                    >
-                      Excluir FAQ
-                    </Button>
-                    <Button
-                      onClick={handleSaveFaq}
-                      className="flex-1 bg-purple-600 hover:bg-purple-700 text-white text-sm py-2 rounded transition"
-                    >
-                      Salvar Alterações
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-            ) : (
-              <Card className="p-6 bg-white sticky top-8 text-center">
-                <p className="text-gray-500 mb-4">Selecione uma FAQ para editar</p>
-                <Button
-                  onClick={handleCreateNewFaq}
-                  className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded transition"
-                >
-                  + Nova FAQ
-                </Button>
-              </Card>
-            )}
+              </div>
+            </Card>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

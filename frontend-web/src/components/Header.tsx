@@ -22,10 +22,11 @@ export default function Header({ userName = "Usuário" }: HeaderProps) {
     ? [
         { label: "Fila Chamados", href: "/fila-chamados" },
         { label: "Histórico Chamados", href: "/historico-chamados" },
-        { label: "Dashboard", href: "/" },
-        { label: "Usuários", href: "/admin" },
+        { label: "Dashboard", href: "/dashboard" },
+        { label: "Usuários", href: "/Usuarios" },
         { label: "FAQ", href: "/faq" },
-        { label: "Categorias", href: "/admin" },
+        { label: "Categorias", href: "/categorias" },
+        
       ]
     : [
         { label: "Todos os Chamados", href: "/chamados" },
@@ -54,14 +55,14 @@ export default function Header({ userName = "Usuário" }: HeaderProps) {
             ))}
           </nav>
 
-          {/* User Profile - Desktop */}
+         {/* User Profile - Desktop */}
           <div className="hidden md:flex items-center gap-4 whitespace-nowrap">
-            <div className="flex items-center gap-2">
+            <Link href="/perfil" className="flex items-center gap-2 hover:opacity-80 transition">
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center border-2 border-white">
                 <span className="text-sm font-bold">{userName.charAt(0).toUpperCase()}</span>
               </div>
               <span className="text-sm font-medium">{userName}</span>
-            </div>
+            </Link>
             <button 
               onClick={handleLogout}
               className="p-2 hover:bg-white/10 rounded-lg transition"
@@ -93,21 +94,22 @@ export default function Header({ userName = "Usuário" }: HeaderProps) {
                 {item.label}
               </Link>
             ))}
-            <div className="px-4 py-2 border-t border-white/20 mt-2 pt-2">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center border-2 border-white">
-                  <span className="text-xs font-bold">{userName.charAt(0).toUpperCase()}</span>
-                </div>
-                <span className="text-sm font-medium">{userName}</span>
+          <div className="px-4 py-2 border-t border-white/20 mt-2 pt-2">
+            <Link href="/perfil" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 mb-2 hover:opacity-80 transition">
+              <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center border-2 border-white">
+                <span className="text-xs font-bold">{userName.charAt(0).toUpperCase()}</span>
               </div>
-              <button 
-                onClick={handleLogout}
-                className="w-full flex items-center gap-2 px-4 py-2 text-sm hover:bg-white/10 rounded-lg transition"
-              >
-                <LogOut size={16} />
-                Sair
-              </button>
-            </div>
+              <span className="text-sm font-medium">{userName}</span>
+            </Link>
+            <button 
+              onClick={handleLogout}
+              className="w-full flex items-center gap-2 px-4 py-2 text-sm hover:bg-white/10 rounded-lg transition"
+            >
+              <LogOut size={16} />
+              Sair
+            </button>
+          </div>
+
           </nav>
         )}
       </div>

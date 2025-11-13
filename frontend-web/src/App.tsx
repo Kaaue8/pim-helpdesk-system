@@ -13,9 +13,13 @@ import TodosChamados from "./pages/TodosChamados";
 import HistoricoChamados from "./pages/HistoricoChamados";
 import FAQ from "./pages/FAQ";
 import FilaChamados from "./pages/FilaChamados";
+import Dashboard from "./pages/Dashboard"; 
+import Profile from "./pages/Profile";
 import Usuarios from "./pages/Usuarios";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
+import Categorias from "./pages/Categorias";
+
 
 function Router() {
   return (
@@ -23,10 +27,11 @@ function Router() {
       {/* Rota pública */}
       <Route path="/login" component={Login} />
 
-      {/* Rotas protegidas */}
-      <Route path="/">
-        <ProtectedRoute>
-          <Home />
+      {/* --- ROTAS PROTEGIDAS --- */}
+
+      <Route path="/dashboard">
+        <ProtectedRoute requiredRole="admin">
+          <Dashboard />
         </ProtectedRoute>
       </Route>
 
@@ -48,9 +53,9 @@ function Router() {
         </ProtectedRoute>
       </Route>
 
-      <Route path="/usuarios">
-        <ProtectedRoute requiredRole="admin">
-          <Usuarios />
+      <Route path={"/perfil"}>
+        <ProtectedRoute>
+          <Profile />
         </ProtectedRoute>
       </Route>
 
@@ -66,6 +71,24 @@ function Router() {
         </ProtectedRoute>
       </Route>
 
+      <Route path="/">
+        <ProtectedRoute>
+          <Home />
+        </ProtectedRoute>
+      </Route>
+
+      <Route path={"/usuarios"}>
+        <ProtectedRoute requiredRole="admin">
+          <Usuarios />
+        </ProtectedRoute>
+      </Route>
+
+      <Route path={"/categorias"}>
+        <ProtectedRoute requiredRole="admin">
+          <Categorias />
+        </ProtectedRoute>
+      </Route>
+      
       {/* Rota 404 */}
       <Route component={NotFound} />
     </Switch>

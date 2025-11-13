@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
+import { useAuth } from "@/contexts/AuthContext"; // IMPORTADO para pegar o tipo de usuário
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,21 +10,28 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [location] = useLocation();
+  //  'userType'
+  const { userType } = useAuth(); 
 
   const navItems = [
-    { label: "Dashboard", path: "/" },
+    { label: "Home", path: "/" },
     { label: "Meu Perfil", path: "/perfil" },
     { label: "Abrir Chamado", path: "/chamado" },
     { label: "Meus Chamados", path: "/chamados" },
+    { label: "Dashboard", path: "/dashboard" },
+    { label: "Categorias", path: "/Categorias" },
     { label: "FAQ", path: "/faq" },
     { label: "Admin", path: "/admin" },
   ];
 
   const isActive = (path: string) => location === path;
 
+  const currentPage = navItems.find((item) => isActive(item.path));
+  const pageTitle = currentPage ? currentPage.label : "Home";
+
   return (
     <div className="flex h-screen bg-gray-50">
-      {/* Sidebar */}
+      {/* Barra Lateral */}
       <aside
         className={`${
           sidebarOpen ? "w-64" : "w-20"
@@ -31,7 +39,7 @@ export default function Layout({ children }: LayoutProps) {
       >
         {/* Logo */}
         <div className="p-6 border-b border-purple-700 flex items-center justify-between">
-          {sidebarOpen && <h1 className="text-xl font-bold">PIM 3</h1>}
+          {sidebarOpen && <h1 className="text-xl font-bold">Helpdesk</h1>}
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="p-1 hover:bg-purple-700 rounded transition"
@@ -40,35 +48,46 @@ export default function Layout({ children }: LayoutProps) {
           </button>
         </div>
 
-        {/* Navigation */}
+        {/* Itens de Navegação */}
         <nav className="flex-1 py-6 px-3 space-y-2 overflow-y-auto">
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              href={item.path}
-              className={`block px-4 py-3 rounded-lg transition ${
-                isActive(item.path)
-                  ? "bg-purple-600 text-white font-semibold"
-                  : "text-purple-100 hover:bg-purple-700"
-              } ${!sidebarOpen && "text-center"}`}
-            >
-              {sidebarOpen ? item.label : item.label.charAt(0)}
-            </Link>
-          ))}
+          {navItems
+            .filter(item => {
+              if (item.path === "/dashboard" || item.path === "/admin") {
+                return userType === 'admin';
+              }
+              return true;
+            })
+            .map((item) => (
+              <Link
+                key={item.path}
+                href={item.path}
+                className={`flex items-center px-4 py-3 rounded-lg transition ${
+                  isActive(item.path)
+                    ? "bg-purple-600 text-white font-semibold"
+                    : "text-purple-100 hover:bg-purple-700"
+                } ${!sidebarOpen && "justify-center"}`}
+              >
+                {sidebarOpen ? (
+                  <span>{item.label}</span>
+                ) : (
+                  <span className="text-lg font-bold">{item.label.charAt(0)}</span>
+                )}
+              </Link>
+            ))}
         </nav>
 
-        {/* Footer */}
+        {/* Rodapé da Barra Lateral */}
         <div className="p-4 border-t border-purple-700 text-sm text-purple-200">
-          {sidebarOpen && <p>© 2025 PIM 3</p>}
+          {sidebarOpen && <p>© 2025 Helpdesk</p>}
         </div>
       </aside>
 
-      {/* Main Content */}
+      {/* Conteúdo Principal */}
       <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Header */}
+        {/* Cabeçalho */}
         <header className="bg-white border-b border-gray-200 shadow-sm px-8 py-4 flex items-center justify-between">
           <h2 className="text-2xl font-bold text-gray-800">
-            {navItems.find((item) => isActive(item.path))?.label || "Dashboard"}
+            {pageTitle}
           </h2>
           <div className="flex items-center space-x-4">
             <button className="p-2 hover:bg-gray-100 rounded-lg transition">
@@ -86,16 +105,16 @@ export default function Layout({ children }: LayoutProps) {
                 />
               </svg>
             </button>
+            {/* CORRIGIDO: Voltando para o avatar estático para evitar o erro */}
             <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
               U
             </div>
           </div>
         </header>
 
-        {/* Page Content */}
+        {/* Conteúdo da Página */}
         <main className="flex-1 overflow-auto p-8">{children}</main>
       </div>
     </div>
   );
 }
-

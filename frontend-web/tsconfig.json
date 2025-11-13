@@ -1,23 +1,19 @@
 {
-  "include": ["client/src/**/*", "shared/**/*", "server/**/*"],
-  "exclude": ["node_modules", "build", "dist", "**/*.test.ts"],
   "compilerOptions": {
-    "incremental": true,
-    "tsBuildInfoFile": "./node_modules/typescript/tsbuildinfo",
-    "noEmit": true,
-    "module": "ESNext",
     "strict": true,
     "lib": ["esnext", "dom", "dom.iterable"],
     "jsx": "preserve",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "allowImportingTsExtensions": true,
-    "moduleResolution": "bundler",
+    // "allowImportingTsExtensions": true, // REMOVIDA: Opção não suportada
+    "moduleResolution": "node", // CORRIGIDO: Usando "node" em vez de "bundler"
     "baseUrl": ".",
     "types": ["node", "vite/client"],
     "paths": {
-      "@/*": ["./client/src/*"],
-      "@shared/*": ["./shared/*"]
+      "@/*": ["./src/*"],
+      "@shared/*": ["../shared/*"] // CORRIGIDO: Caminho para a pasta shared
     }
-  }
+  },
+  "include": ["src", "../shared"], // CORRIGIDO: Caminho para a pasta shared
+  "exclude": ["node_modules", "build", "dist", "**/*.test.ts"]
 }

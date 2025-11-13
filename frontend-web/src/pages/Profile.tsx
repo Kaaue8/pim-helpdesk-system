@@ -1,152 +1,281 @@
-import Layout from "@/components/Layout";
-import { Card } from "@/components/ui/card";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Edit2 } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Edit2, LogOut, Eye, EyeOff } from "lucide-react";
+import { toast } from "sonner";
+import { useAuth } from "@/contexts/AuthContext";
+import { useLocation } from "wouter";
+import Header from "@/components/Header";
 
 export default function Profile() {
-  const user = {
-    name: "João Silva",
-    email: "joao.silva@example.com",
-    phone: "(11) 98765-4321",
-    location: "São Paulo, SP",
-    department: "Tecnologia",
-    role: "Analista de Sistemas",
-    joinDate: "2023-01-15",
-    avatar: "JS",
+  const { userName, userEmail, userType, logout } = useAuth();
+  const [, setLocation] = useLocation();
+
+  // Estados de edição
+  const [isEditingNome, setIsEditingNome] = useState(false);
+  const [isEditingEmail, setIsEditingEmail] = useState(false);
+  const [isEditingCelular, setIsEditingCelular] = useState(false);
+  const [isEditingSetor, setIsEditingSetor] = useState(false);
+
+  // Estados de valores
+  const [nome, setNome] = useState(userName || "");
+  const [email, setEmail] = useState(userEmail || "");
+  const [celular, setCelular] = useState("(11) 99999-9999");
+  const [setor, setSetor] = useState("Financeiro");
+
+  // Estados de modais
+  const [isLGPDOpen, setIsLGPDOpen] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const isAdmin = userType === "admin";
+
+  const handleSalvar = () => {
+    toast.success("Dados atualizados com sucesso!");
+    setIsEditingNome(false);
+    setIsEditingEmail(false);
+    setIsEditingCelular(false);
+    setIsEditingSetor(false);
+  };
+
+  const handleRedefinirSenha = () => {
+    toast.success("Link de redefinição enviado para seu email!");
+  };
+
+  const handleLogout = () => {
+    logout();
+    setLocation("/login");
   };
 
   return (
-    <Layout>
-      <div className="space-y-8">
-        {/* Profile Header */}
-        <div className="bg-gradient-to-r from-purple-600 to-purple-700 rounded-lg p-8 text-white">
-          <div className="flex items-start justify-between">
-            <div className="flex items-center gap-6">
-              <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center text-3xl font-bold text-purple-600">
-                {user.avatar}
-              </div>
-              <div>
-                <h1 className="text-3xl font-bold">{user.name}</h1>
-                <p className="text-purple-100 mt-1">{user.role}</p>
-                <p className="text-purple-100 text-sm">
-                  Membro desde {user.joinDate}
-                </p>
-              </div>
+    <div className="min-h-screen bg-gray-100">
+      <Header userName={userName} />
+
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <h1 className="text-4xl font-bold text-purple-900 mb-8 text-center">
+          Editar perfil
+        </h1>
+
+        {/* Formulário Principal */}
+        <Card className={`p-8 mb-8 ${isAdmin ? "border-2 border-grey-500" : ""}`}>
+          {/* Matrícula */}
+          <div className="mb-6">
+            <label className="block text-purple-900 font-semibold mb-2">
+              Matrícula:
+            </label>
+            <input
+              type="text"
+              value="MAT-001"
+              disabled
+              className="w-full px-4 py-2 bg-gray-200 text-gray-700 rounded border border-gray-300"
+            />
+          </div>
+
+          {/* Nome & Sobrenome */}
+          <div className="mb-2">
+            <label className="block text-purple-900 font-semibold mb-2">
+              Nome & Sobrenome:
+            </label>
+            <div className="flex items-center gap-2">
+              <input
+                type="text"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+                disabled={!isEditingNome || !isAdmin}
+                className={`flex-1 px-4 py-2 rounded border border-gray-300 ${
+                  isEditingNome && isAdmin
+                    ? "bg-white text-gray-900"
+                    : "bg-gray-200 text-gray-700"
+                }`}
+              />
+              {isAdmin && (
+                <button
+                  onClick={() => setIsEditingNome(!isEditingNome)}
+                  className="text-orange-500 hover:text-orange-700 p-2"
+                >
+                  <Edit2 size={20} className="text-purple-600 hover:text-purple-800" />
+                </button>
+              )}
             </div>
-            <Button className="bg-white text-purple-600 hover:bg-purple-50 flex items-center gap-2">
-              <Edit2 size={18} />
-              Editar Perfil
+          </div>
+
+          {/* Email Corporativo */}
+          <div className="mb-2">
+            <label className="block text-purple-900 font-semibold mb-2">
+              Email corporativo:
+            </label>
+            <div className="flex items-center gap-2">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={!isEditingEmail || !isAdmin}
+                className={`flex-1 px-4 py-2 rounded border border-gray-300 ${
+                  isEditingEmail && isAdmin
+                    ? "bg-white text-gray-900"
+                    : "bg-gray-200 text-gray-700"
+                }`}
+              />
+              {isAdmin && (
+                <button
+                  onClick={() => setIsEditingEmail(!isEditingEmail)}
+                  className="text-orange-500 hover:text-orange-700 p-2"
+                >
+                  <Edit2 size={20} className="text-purple-600 hover:text-purple-800"/>
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Celular */}
+          <div className="mb-2">
+            <label className="block text-purple-900 font-semibold mb-2">
+              Celular:
+            </label>
+            <div className="flex items-center gap-2">
+              <input
+                type="tel"
+                value={celular}
+                onChange={(e) => setCelular(e.target.value)}
+                disabled={!isEditingCelular}
+                className={`flex-1 px-4 py-2 rounded border border-gray-300 ${
+                  isEditingCelular
+                    ? "bg-white text-gray-900"
+                    : "bg-gray-200 text-gray-700"
+                }`}
+              />
+              <button
+                onClick={() => setIsEditingCelular(!isEditingCelular)}
+                className="text-orange-500 hover:text-orange-700 p-2"
+              >
+                <Edit2 size={20} className="text-purple-600 hover:text-purple-800"/>
+              </button>
+            </div>
+          </div>
+
+          {/* Setor */}
+          <div className="mb-6">
+            <label className="block text-purple-900 font-semibold mb-2">
+              Setor:
+            </label>
+            {isAdmin && isEditingSetor ? (
+              <div className="flex items-center gap-2">
+                <select
+                  value={setor}
+                  onChange={(e) => setSetor(e.target.value)}
+                  className="flex-1 px-4 py-2 border border-gray-300 rounded bg-white text-gray-900"
+                >
+                  <option>Financeiro</option>
+                  <option>RH</option>
+                  <option>TI</option>
+                  <option>Suporte</option>
+                </select>
+                <button
+                  onClick={() => setIsEditingSetor(!isEditingSetor)}
+                  className="text-orange-500 hover:text-orange-700 p-2"
+                >
+                  <Edit2 size={20} className="text-purple-600 hover:text-purple-800" />
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center gap-2">
+                <input
+                  type="text"
+                  value={setor}
+                  disabled
+                  className="flex-1 px-4 py-2 bg-gray-200 text-gray-700 rounded border border-gray-300"
+                />
+                {isAdmin && (
+                  <button
+                    onClick={() => setIsEditingSetor(!isEditingSetor)}
+                    className="text-orange-500 hover:text-orange-700 p-2"
+                  >
+                    <Edit2 size={20} className="text-purple-600 hover:text-purple-800" />
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* Botão Salvar */}
+          <div className="mb-6">
+            <Button
+              onClick={handleSalvar}
+              className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded"
+            >
+              Salvar Alterações
             </Button>
           </div>
-        </div>
 
-        {/* Profile Information */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Contact Information */}
-          <Card className="p-6">
-            <h2 className="text-lg font-bold text-gray-900 mb-6">
-              Informações de Contato
-            </h2>
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-purple-100 rounded-lg">
-                  <Mail className="text-purple-600" size={20} />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600">Email</p>
-                  <p className="text-gray-900 font-medium">{user.email}</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-blue-100 rounded-lg">
-                  <Phone className="text-blue-600" size={20} />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600">Telefone</p>
-                  <p className="text-gray-900 font-medium">{user.phone}</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-green-100 rounded-lg">
-                  <MapPin className="text-green-600" size={20} />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600">Localização</p>
-                  <p className="text-gray-900 font-medium">{user.location}</p>
-                </div>
-              </div>
-            </div>
-          </Card>
+          {/* Links de Ação */}
+          <div className="space-y-3 border-t pt-6">
+            <button
+              onClick={handleRedefinirSenha}
+              className="block w-full text-left text-purple-600 hover:text-purple-800 font-semibold py-2 px-4 bg-purple-50 rounded hover:bg-purple-100 transition"
+            >
+              Redefinir Senha
+            </button>
 
-          {/* Professional Information */}
-          <Card className="p-6">
-            <h2 className="text-lg font-bold text-gray-900 mb-6">
-              Informações Profissionais
-            </h2>
-            <div className="space-y-6">
-              <div>
-                <label className="text-sm text-gray-600 font-medium">
-                  Departamento
-                </label>
-                <p className="text-gray-900 mt-1">{user.department}</p>
-              </div>
-              <div>
-                <label className="text-sm text-gray-600 font-medium">
-                  Cargo
-                </label>
-                <p className="text-gray-900 mt-1">{user.role}</p>
-              </div>
-              <div>
-                <label className="text-sm text-gray-600 font-medium">
-                  Status
-                </label>
-                <span className="inline-block mt-1 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
-                  Ativo
-                </span>
-              </div>
-            </div>
-          </Card>
-        </div>
+            <button
+              onClick={() => setIsLGPDOpen(true)}
+              className="block w-full text-left text-purple-600 hover:text-purple-800 font-semibold py-2 px-4 bg-purple-50 rounded hover:bg-purple-100 transition"
+            >
+              Ver termos de uso e consentimento (LGPD)
+            </button>
 
-        {/* Activity */}
-        <Card className="p-6">
-          <h2 className="text-lg font-bold text-gray-900 mb-6">
-            Atividade Recente
-          </h2>
-          <div className="space-y-4">
-            {[
-              {
-                action: "Abriu um novo chamado",
-                description: "Problema de acesso ao sistema",
-                date: "2025-10-25 14:30",
-              },
-              {
-                action: "Atualizou seu perfil",
-                description: "Alterou número de telefone",
-                date: "2025-10-24 10:15",
-              },
-              {
-                action: "Respondeu a um chamado",
-                description: "Ticket TK-002",
-                date: "2025-10-23 16:45",
-              },
-            ].map((activity, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-4 pb-4 border-b border-gray-100 last:border-0"
-              >
-                <div className="w-2 h-2 rounded-full bg-purple-600 mt-2"></div>
-                <div>
-                  <p className="font-medium text-gray-900">{activity.action}</p>
-                  <p className="text-sm text-gray-600">{activity.description}</p>
-                  <p className="text-xs text-gray-500 mt-1">{activity.date}</p>
-                </div>
-              </div>
-            ))}
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-2 w-full text-left text-red-600 hover:text-red-800 font-semibold py-2 px-4 bg-red-50 rounded hover:bg-red-100 transition"
+            >
+              <LogOut size={18} />
+              Sair da conta
+            </button>
           </div>
         </Card>
       </div>
-    </Layout>
+
+      {/* Modal LGPD */}
+      {isLGPDOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <Card className="w-full max-w-2xl p-8 max-h-96 overflow-y-auto mx-4">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-2xl font-bold text-purple-900">
+                Termos de Uso e Consentimento
+              </h2>
+              <button
+                onClick={() => setIsLGPDOpen(false)}
+                className="text-gray-600 hover:text-gray-900 text-2xl"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="text-sm text-gray-700 space-y-4 mb-6">
+              <p>
+                <strong>Lei Geral de Proteção de Dados (LGPD)</strong>
+              </p>
+              <p>
+                O sistema está totalmente em conformidade com a LGPD (Lei Geral de Proteção de Dados). Todos os dados pessoais fornecidos durante a abertura e o acompanhamento de chamados — como nome, e-mail, IP, setor e informações do problema — são armazenados de forma segura, criptografada e acessível apenas por usuários autorizados.
+              </p>
+              <p>
+                A coleta de dados é feita exclusivamente para fins de atendimento técnico, análise de desempenho e melhoria do serviço. Nenhuma informação é compartilhada com terceiros sem consentimento.
+              </p>
+              <p>
+                Além disso, mantemos políticas rígidas de segurança da informação, com controles de acesso, registros de auditoria e monitoramento constante para prevenir qualquer tipo de vazamento ou uso indevido.
+              </p>
+              <p>
+                <strong>Transparência, sigilo e responsabilidade</strong> fazem parte da nossa política de proteção de dados.
+              </p>
+            </div>
+
+            <Button
+              onClick={() => setIsLGPDOpen(false)}
+              className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded"
+            >
+              Entendi
+            </Button>
+          </Card>
+        </div>
+      )}
+    </div>
   );
 }
-
