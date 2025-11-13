@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
+using HelpDesk.Api.Models;
 
 namespace HelpDesk.Api.Models
 {
@@ -12,17 +13,17 @@ namespace HelpDesk.Api.Models
         public int Id { get; set; }
 
         [Required, MaxLength(100)]
-        public required string Nome { get; set; }
+        public string Nome { get; set; } = string.Empty;
 
         [Required, MaxLength(150)]
-        public required string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
         // Armazenará o hash da senha. NUNCA a senha em texto puro!
         [Required, MaxLength(255)]
-        public required string SenhaHash { get; set; }
+        public string SenhaHash { get; set; } = string.Empty;
 
         [Required, MaxLength(50)]
-        public required string Perfil { get; set; }
+        public string Perfil { get; set; } = string.Empty;
 
         // Data de criação do registro. Removido o valor padrão dinâmico (DateTime.UtcNow)
         public DateTime DataCriacao { get; set; }

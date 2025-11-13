@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿// /home/ubuntu/backend/HelpDesk.Api/Controllers/TicketsController.cs
+
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HelpDesk.Api.Data;
 using HelpDesk.Api.Models;
@@ -7,7 +9,8 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System;
 using Microsoft.AspNetCore.Authorization;
-using System.Security.Claims; // Adicionado para Claims
+using System.Security.Claims;
+using HelpDesk.Api.Services; // Adicionado para HoustonService
 
 namespace HelpDesk.Api.Controllers
 {
@@ -17,10 +20,12 @@ namespace HelpDesk.Api.Controllers
     public class TicketsController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly HoustonService _houstonService; // Adicionado para injeção
 
-        public TicketsController(AppDbContext context)
+        public TicketsController(AppDbContext context, HoustonService houstonService) // Injeção do HoustonService
         {
             _context = context;
+            _houstonService = houstonService;
         }
 
         // --- Métodos Auxiliares para RBAC ---
@@ -154,6 +159,16 @@ namespace HelpDesk.Api.Controllers
             // Define o status inicial e a data de abertura
             ticket.Status = "Aberto";
             ticket.DataAbertura = DateTime.UtcNow;
+
+            // --- 2. Triagem com a IA (Houston) ---
+            var triageResult = await _houstonService.TriageTicketAsync(ticket.Titulo, ticket.Descricao);
+
+            // 3. Aplicar resultados da triagem ao ticket
+            ticket.Prioridade = triageResult.Prioridade;
+            ticket.SetorRecomendado = triageResult.SetorRecomendado;
+            ticket.ResumoTriagem = triageResult.ResumoTriagem;
+            ticket.SolucaoSugerida = triageResult.SolucaoSugerida;
+
 
             _context.Tickets.Add(ticket);
             await _context.SaveChangesAsync();
