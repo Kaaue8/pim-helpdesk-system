@@ -1,49 +1,48 @@
-name: CI Build do Projeto PIM
+# /pim-helpdesk-system/.github/workflows/azure-deploy.yml
+
+name: Deploy API to Azure App Service
 
 on:
   push:
-    branches: [ main, master ] # Aciona o workflow em push para as branches main ou master
-  pull_request:
-    branches: [ main, master ] # Aciona o workflow em pull request para as branches main ou master
+    branches:
+      - main # Altere para o nome do seu branch principal, se for diferente
+
+env:
+  AZURE_WEBAPP_NAME: helpdesk-pim-api-prod # <-- Mude para o nome que você dará ao seu App Service no Azure
+  AZURE_WEBAPP_PACKAGE_PATH: 'backend/HelpDesk.Api/publish' # Caminho onde o projeto será publicado
+  DOTNET_VERSION: '8.0.x' # Versão do .NET que você está usando
 
 jobs:
-  build:
-    runs-on: ubuntu-latest # O ambiente onde o workflow será executado
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: Production
 
     steps:
-    - uses: actions/checkout@v4 # Faz o checkout do seu código no runner
+    - uses: actions/checkout@v4
 
-    - name: Setup .NET SDK
+    # 1. Configurar o ambiente .NET
+    - name: Set up .NET Core
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x' # <-- IMPORTANTE: AJUSTE AQUI a versão do .NET que seu projeto utiliza (ex: '6.0.x', '7.0.x', '8.0.x')
+        dotnet-version: ${{ env.DOTNET_VERSION }}
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
+    # 2. Restaurar dependências
+    - name: Restore dependencies
+      run: dotnet restore backend/HelpDesk.Api/HelpDesk.Api.csproj
+
+    # 3. Construir o projeto
+    - name: Build project
+      run: dotnet build backend/HelpDesk.Api/HelpDesk.Api.csproj --configuration Release --no-restore
+
+    # 4. Publicar (Gerar os arquivos de deployment)
+    - name: Publish project
+      run: dotnet publish backend/HelpDesk.Api/HelpDesk.Api.csproj -c Release -o ${{ env.AZURE_WEBAPP_PACKAGE_PATH }} --no-build
+
+    # 5. Implantar no Azure App Service
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
       with:
-        node-version: '20.x' # <-- IMPORTANTE: AJUSTE AQUI a versão do Node.js que seu projeto utiliza (ex: '18.x', '20.x')
-
-    - name: Restaurar Dependências e Construir Backend (C# ASP.NET Core)
-      run: |
-        # O projeto backend estará em 'backend/HelpDesk.Api/HelpDesk.Api.csproj'
-        dotnet restore backend/HelpDesk.Api/HelpDesk.Api.csproj
-        dotnet build backend/HelpDesk.Api/HelpDesk.Api.csproj --no-restore --configuration Release
-
-    - name: Restaurar Dependências e Construir Frontend Web (HTML/CSS/JS)
-      run: |
-        cd frontend-web
-        # Assume-se que o projeto web está diretamente na pasta 'frontend-web'
-        npm install # Ou yarn install, pnpm install
-        npm run build # Ou yarn build, pnpm build
-
-    - name: Restaurar Dependências Frontend Mobile (C# .NET MAUI)
-      run: |
-        # O projeto mobile estará em 'frontend-mobile/HelpDesk.Mobile/HelpDesk.Mobile.csproj'
-        dotnet restore frontend-mobile/HelpDesk.Mobile/HelpDesk.Mobile.csproj
-
-    - name: Restaurar Dependências Frontend Desktop (C# Windows Forms)
-      run: |
-        # O projeto desktop estará em 'frontend-desktop/HelpDesk.Desktop/HelpDesk.Desktop.csproj'
-        dotnet restore frontend-desktop/HelpDesk.Desktop/HelpDesk.Desktop.csproj
-
-    # Você pode adicionar mais passos aqui, como rodar testes, análise de código, etc.
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+        # O segredo AZURE_WEBAPP_PUBLISH_PROFILE será configurado no GitHub
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
