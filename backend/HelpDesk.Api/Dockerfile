@@ -3,12 +3,14 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copia o arquivo de projeto e restaura as dependências
-COPY ["backend/HelpDesk.Api/HelpDesk.Api.csproj", "backend/HelpDesk.Api/"]
-RUN dotnet restore "backend/HelpDesk.Api/HelpDesk.Api.csproj"
+# O caminho é relativo ao Root Directory do Render (backend/HelpDesk.Api)
+COPY ["HelpDesk.Api.csproj", "./"]
+RUN dotnet restore "HelpDesk.Api.csproj"
 
 # Copia o restante dos arquivos do projeto e constrói
 COPY . .
-WORKDIR "/src/backend/HelpDesk.Api"
+# O WORKDIR é o diretório raiz do projeto dentro do contêiner
+WORKDIR "/src"
 RUN dotnet build "HelpDesk.Api.csproj" -c Release -o /app/build
 
 # Publica a aplicação
