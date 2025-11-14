@@ -1,80 +1,77 @@
-// /home/ubuntu/backend/HelpDesk.Api/Program.cs
-
 using HelpDesk.Api.Data;
 using HelpDesk.Api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using Microsoft.OpenApi.Models;
+using Microsoft.SemanticKernel.Services;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Adiciona serviços ao contêiner.
+// Configuração: Garante que as variáveis de ambiente sejam lidas
+// O ASP.NET Core 8.0 já prioriza variáveis de ambiente, mas garantimos a leitura correta.
+var configuration = builder.Configuration;
 
-// 1. Configuração do DbContext com SQL Server
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-// 2. Adiciona o serviço de Autenticação
-builder.Services.AddScoped<AuthService>();
-
-// 3. Adiciona o serviço de IA (HoustonService) como Singleton
-builder.Services.AddSingleton<HoustonService>();
-
-
-// 4. Configuração do JWT
-var jwtSection = builder.Configuration.GetSection("Jwt");
-var jwtKey = jwtSection["Key"];
-var jwtIssuer = jwtSection["Issuer"];
-var jwtAudience = jwtSection["Audience"];
-
-if (string.IsNullOrEmpty(jwtKey))
+// 1. Configuração do Banco de Dados (Lendo da variável de ambiente ConnectionStrings__DefaultConnection)
+var connectionString = configuration.GetConnectionString("DefaultConnection");
+if (string.IsNullOrEmpty(connectionString))
 {
-    throw new InvalidOperationException("Jwt:Key não configurado em appsettings.json");
+    // Em um ambiente de produção, isso deve ser um erro fatal.
+    // Para o Render, a variável de ambiente será 'ConnectionStrings__DefaultConnection'.
+    throw new InvalidOperationException("Connection string 'DefaultConnection' not configured. Ensure 'ConnectionStrings__DefaultConnection' environment variable is set.");
 }
-var key = Encoding.ASCII.GetBytes(jwtKey);
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(connectionString));
 
-builder.Services.AddAuthentication(x =>
+// 2. Configuração do JWT (Lendo das variáveis de ambiente Jwt__Key, Jwt__Issuer, Jwt__Audience)
+var jwtKey = configuration["Jwt:Key"];
+var jwtIssuer = configuration["Jwt:Issuer"];
+var jwtAudience = configuration["Jwt:Audience"];
+
+if (string.IsNullOrEmpty(jwtKey) || string.IsNullOrEmpty(jwtIssuer) || string.IsNullOrEmpty(jwtAudience))
 {
-    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    throw new InvalidOperationException("JWT configuration (Key, Issuer, or Audience) is missing. Ensure Jwt__Key, Jwt__Issuer, and Jwt__Audience environment variables are set.");
+}
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 })
-.AddJwtBearer(x =>
+.AddJwtBearer(options =>
 {
-    x.RequireHttpsMetadata = false;
-    x.SaveToken = true;
-    x.TokenValidationParameters = new TokenValidationParameters
+    options.TokenValidationParameters = new TokenValidationParameters
     {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(key),
         ValidateIssuer = true,
-        ValidIssuer = jwtIssuer,
         ValidateAudience = true,
-        ValidAudience = jwtAudience,
         ValidateLifetime = true,
-        ClockSkew = TimeSpan.Zero // Remove o desvio de tempo padrão de 5 minutos
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtIssuer,
+        ValidAudience = jwtAudience,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
     };
 });
 
+// Adicionar serviços ao contêiner.
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+// Configuração do Swagger/OpenAPI
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "HelpDesk.Api", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "HelpDesk PIM API", Version = "v1" });
 
-    // 1. Configuração de Segurança JWT (CORREÇÃO FINAL PARA O 401)
+    // Adiciona a segurança JWT ao Swagger
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = "JWT Authorization header usando o esquema Bearer. **Insira 'Bearer ' + seu token**",
+        Description = "Insira o token JWT no formato: Bearer {token}",
         Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
         In = ParameterLocation.Header,
-        Type = SecuritySchemeType.Http, // MUDANÇA CRÍTICA: Usar Http para garantir o prefixo Bearer
         Scheme = "Bearer"
     });
 
-    // 2. Requisito de Segurança
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
@@ -86,26 +83,73 @@ builder.Services.AddSwaggerGen(c =>
                     Id = "Bearer"
                 }
             },
-            new string[] {}
+            Array.Empty<string>()
         }
     });
 });
 
+// Adicionar serviços personalizados
+builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<HoustonService>();
+
+// Configuração do Semantic Kernel (Lendo da variável de ambiente OPENAI_API_KEY)
+// Linhas 96-100 (Restauradas)
+var openAiApiKey = configuration["OPENAI_API_KEY"];
+if (string.IsNullOrEmpty(openAiApiKey))
+{
+    throw new InvalidOperationException("OPENAI_API_KEY environment variable is not set.");
+}
+
+// Linha 101 (Ajustada para injeção simples)
+builder.Services.AddSingleton<HoustonService>(); // Sem argumentos no construtor
+
+
+// Configuração do CORS para permitir acesso do frontend (ajustar conforme o domínio do Render)
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy =>
+        {
+            policy.AllowAnyOrigin() // Permitir qualquer origem (para testes iniciais)
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        });
+});
+
 var app = builder.Build();
 
-// Configura o pipeline de requisição HTTP.
+// Configurar o pipeline de requisição HTTP.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// Aplicar o CORS
+app.UseCors("AllowAll");
 
-// Adiciona a autenticação e autorização
+// app.UseHttpsRedirection(); // O Render lida com HTTPS no proxy
+
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Aplica as migrações do banco de dados automaticamente (opcional, mas útil para o primeiro deploy)
+// Isso garante que o banco de dados seja criado/atualizado no primeiro deploy.
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    try
+    {
+        dbContext.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        // Logar o erro ou lidar com ele. Para o propósito do PIM, um log simples é suficiente.
+        Console.WriteLine($"Erro ao aplicar migrações: {ex.Message}");
+        // Em um ambiente real, você pode querer relançar a exceção ou parar a aplicação.
+    }
+}
 
 app.Run();
