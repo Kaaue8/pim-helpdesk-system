@@ -1,8 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <ItemGroup>
-        <Compile Update="Form1.cs">
-            <SubType>Form</SubType>
-        </Compile>
-    </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\SetorEdicaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\SetoresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\TicketEdicaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\TicketsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\UsuariosEdicaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\UsuariosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SetorEdicaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SetoresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="TicketEdicaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="TicketsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UsuarioEdicaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UsuariosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
 </Project>

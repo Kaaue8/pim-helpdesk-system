@@ -21,3 +21,4 @@ namespace HelpDesk.Api.Models
         public ICollection<Usuario>? Usuarios { get; set; } // Adicionado '?' para ICollection
     }
 }
+{

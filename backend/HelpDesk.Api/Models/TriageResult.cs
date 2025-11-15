@@ -5,7 +5,7 @@ namespace HelpDesk.Api.Models
     /// <summary>
     /// Representa o resultado da triagem automática de um ticket realizada pela IA.
     /// </summary>
-    public class TriageResult
+    public class TriageResultcibtub
     {
         [JsonPropertyName("prioridade")]
         public string Prioridade { get; set; } = string.Empty;

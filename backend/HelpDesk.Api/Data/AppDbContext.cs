@@ -5,6 +5,7 @@ using System; // Adicionado para DateTime
 
 namespace HelpDesk.Api.Data
 {
+{
     public class AppDbContext : DbContext
     {
         // Adicionado para suprimir o erro de modelo não determinístico

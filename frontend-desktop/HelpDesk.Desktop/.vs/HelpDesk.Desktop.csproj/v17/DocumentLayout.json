@@ -1,0 +1,595 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\ticketedicaoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:ticketedicaoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\ticketedicaoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:ticketedicaoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\setoredicaoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:setoredicaoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\setoredicaoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:setoredicaoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\setoresform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:setoresform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\setoresform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:setoresform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\usuarioedicaoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:usuarioedicaoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\usuarioedicaoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:usuarioedicaoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\ticketsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:ticketsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\ticketsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:ticketsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\loginform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:loginform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:models\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:models\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\setor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:models\\setor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\ticketsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\ticketsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\ticketedicaoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\ticketedicaoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\setoredicaoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\setoredicaoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\setoresform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\setoresform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\setoresform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\setoresform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\usuariosedicaoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\usuariosedicaoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\kaue.rodrigues\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAADwvw8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:08:25.055Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TicketEdicaoForm.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\TicketEdicaoForm.cs",
+              "RelativeDocumentMoniker": "TicketEdicaoForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\TicketEdicaoForm.cs",
+              "RelativeToolTip": "TicketEdicaoForm.cs",
+              "ViewState": "AgIAACEBAAAAAAAAAAAuwDcBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:55:57.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TicketEdicaoForm.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\TicketEdicaoForm.cs",
+              "RelativeDocumentMoniker": "TicketEdicaoForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\TicketEdicaoForm.cs [Projeto]",
+              "RelativeToolTip": "TicketEdicaoForm.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:55:46.978Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SetorEdicaoForm.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\SetorEdicaoForm.cs",
+              "RelativeDocumentMoniker": "SetorEdicaoForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\SetorEdicaoForm.cs",
+              "RelativeToolTip": "SetorEdicaoForm.cs",
+              "ViewState": "AgIAALQAAAAAAAAAAAAmwMUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:49:14.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginForm.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\LoginForm.cs",
+              "RelativeDocumentMoniker": "LoginForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\LoginForm.cs [Projeto]",
+              "RelativeToolTip": "LoginForm.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:21:29.634Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginForm.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\LoginForm.cs",
+              "RelativeDocumentMoniker": "LoginForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\LoginForm.cs",
+              "RelativeToolTip": "LoginForm.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAUwCAAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:25:35.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SetorEdicaoForm.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\SetorEdicaoForm.cs",
+              "RelativeDocumentMoniker": "SetorEdicaoForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\SetorEdicaoForm.cs [Projeto]",
+              "RelativeToolTip": "SetorEdicaoForm.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:49:05.107Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SetoresForm.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\SetoresForm.cs",
+              "RelativeDocumentMoniker": "SetoresForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\SetoresForm.cs",
+              "RelativeToolTip": "SetoresForm.cs",
+              "ViewState": "AgIAAOkAAAAAAAAAAAAwwP0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:48:13.056Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SetoresForm.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\SetoresForm.cs",
+              "RelativeDocumentMoniker": "SetoresForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\SetoresForm.cs [Projeto]",
+              "RelativeToolTip": "SetoresForm.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:48:07.861Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UsuarioEdicaoForm.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\UsuarioEdicaoForm.cs",
+              "RelativeDocumentMoniker": "UsuarioEdicaoForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\UsuarioEdicaoForm.cs",
+              "RelativeToolTip": "UsuarioEdicaoForm.cs",
+              "ViewState": "AgIAACcBAAAAAAAAAAAwwDwBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:47:27.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UsuarioEdicaoForm.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\UsuarioEdicaoForm.cs",
+              "RelativeDocumentMoniker": "UsuarioEdicaoForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\UsuarioEdicaoForm.cs [Projeto]",
+              "RelativeToolTip": "UsuarioEdicaoForm.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:47:15.84Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UsuariosForm.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\UsuariosForm.cs",
+              "RelativeDocumentMoniker": "UsuariosForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\UsuariosForm.cs",
+              "RelativeToolTip": "UsuariosForm.cs",
+              "ViewState": "AgIAAAMBAAAAAAAAAAAwwBgBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:46:08.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UsuariosForm.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\UsuariosForm.cs",
+              "RelativeDocumentMoniker": "UsuariosForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\UsuariosForm.cs [Projeto]",
+              "RelativeToolTip": "UsuariosForm.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:46:05.86Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TicketsForm.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\TicketsForm.cs",
+              "RelativeDocumentMoniker": "TicketsForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\TicketsForm.cs",
+              "RelativeToolTip": "TicketsForm.cs",
+              "ViewState": "AgIAAAsBAAAAAAAAAAAwwCABAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:44:38.978Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "TicketsForm.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\TicketsForm.cs",
+              "RelativeDocumentMoniker": "TicketsForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\TicketsForm.cs [Projeto]",
+              "RelativeToolTip": "TicketsForm.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:44:32.55Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\MainForm.cs",
+              "RelativeDocumentMoniker": "MainForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\MainForm.cs",
+              "RelativeToolTip": "MainForm.cs",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAA9wKcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:43:47.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MainForm.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\MainForm.cs",
+              "RelativeDocumentMoniker": "MainForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\MainForm.cs [Projeto]",
+              "RelativeToolTip": "MainForm.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:43:25.69Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "LoginForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\LoginForm.Designer.cs",
+              "RelativeDocumentMoniker": "LoginForm.Designer.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\LoginForm.Designer.cs",
+              "RelativeToolTip": "LoginForm.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:22:18.392Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "TicketsForm.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\TicketsForm.cs",
+              "RelativeDocumentMoniker": "Forms\\TicketsForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\TicketsForm.cs [Projeto]",
+              "RelativeToolTip": "Forms\\TicketsForm.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T17:43:50.216Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "Models\\LoginRequest.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\LoginRequest.cs",
+              "RelativeToolTip": "Models\\LoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T17:23:05.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Usuario.cs",
+              "RelativeToolTip": "Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:37:12.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Ticket.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Ticket.cs",
+              "RelativeDocumentMoniker": "Models\\Ticket.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Ticket.cs",
+              "RelativeToolTip": "Models\\Ticket.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAcwBUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:37:48.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Setor.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Setor.cs",
+              "RelativeDocumentMoniker": "Models\\Setor.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Setor.cs",
+              "RelativeToolTip": "Models\\Setor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:41:18.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "LoginResponse.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\LoginResponse.cs",
+              "RelativeDocumentMoniker": "Models\\LoginResponse.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\LoginResponse.cs",
+              "RelativeToolTip": "Models\\LoginResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T17:23:34.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ApiService.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Services\\ApiService.cs",
+              "RelativeDocumentMoniker": "Services\\ApiService.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Services\\ApiService.cs",
+              "RelativeToolTip": "Services\\ApiService.cs",
+              "ViewState": "AgIAANAAAAAAAAAAAAAqwOAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:38:26.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "LoginForm.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\LoginForm.cs",
+              "RelativeDocumentMoniker": "Forms\\LoginForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\LoginForm.cs",
+              "RelativeToolTip": "Forms\\LoginForm.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:39:30.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "LoginForm.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\LoginForm.cs",
+              "RelativeDocumentMoniker": "Forms\\LoginForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\LoginForm.cs [Projeto]",
+              "RelativeToolTip": "Forms\\LoginForm.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T17:40:46.59Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\MainForm.cs",
+              "RelativeDocumentMoniker": "Forms\\MainForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\MainForm.cs",
+              "RelativeToolTip": "Forms\\MainForm.cs",
+              "ViewState": "AgIAAKMAAAAAAAAAAAAmwKsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:39:47.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "TicketEdicaoForm.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\TicketEdicaoForm.cs",
+              "RelativeDocumentMoniker": "Forms\\TicketEdicaoForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\TicketEdicaoForm.cs",
+              "RelativeToolTip": "Forms\\TicketEdicaoForm.cs",
+              "ViewState": "AgIAABQBAAAAAAAAAAAmwCYBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:43:48.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "SetorEdicaoForm.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\SetorEdicaoForm.cs",
+              "RelativeDocumentMoniker": "Forms\\SetorEdicaoForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\SetorEdicaoForm.cs",
+              "RelativeToolTip": "Forms\\SetorEdicaoForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:44:44.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "SetoresForm.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\SetoresForm.cs",
+              "RelativeDocumentMoniker": "Forms\\SetoresForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\SetoresForm.cs",
+              "RelativeToolTip": "Forms\\SetoresForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAPIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:44:29.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "SetoresForm.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\SetoresForm.cs",
+              "RelativeDocumentMoniker": "Forms\\SetoresForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\SetoresForm.cs [Projeto]",
+              "RelativeToolTip": "Forms\\SetoresForm.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T17:01:33.101Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "UsuariosEdicaoForm.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\UsuariosEdicaoForm.cs",
+              "RelativeDocumentMoniker": "Forms\\UsuariosEdicaoForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\UsuariosEdicaoForm.cs",
+              "RelativeToolTip": "Forms\\UsuariosEdicaoForm.cs",
+              "ViewState": "AgIAABgBAAAAAAAAAAAmwCoBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:44:17.083Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "UsuariosForm.cs",
+              "DocumentMoniker": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\UsuariosForm.cs",
+              "RelativeDocumentMoniker": "Forms\\UsuariosForm.cs",
+              "ToolTip": "C:\\Users\\kaue.rodrigues\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\UsuariosForm.cs",
+              "RelativeToolTip": "Forms\\UsuariosForm.cs",
+              "ViewState": "AgIAAOkAAAAAAAAAAAAmwPsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:44:03.222Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
