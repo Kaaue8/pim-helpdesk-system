@@ -46,8 +46,8 @@ namespace HelpDesk.Api.Controllers
                 return Unauthorized(new { message = "Email ou senha inválidos." });
             }
 
-            // 2. ✅ Verifica a senha usando o campo Senha (texto plano)
-            if (!_authService.VerifyPassword(dto.Senha, usuario.Senha))
+            // 2. ✅ Verifica a senha usando BCrypt com SenhaHash
+            if (!_authService.VerifyPassword(dto.Senha, usuario.SenhaHash))
             {
                 return Unauthorized(new { message = "Email ou senha inválidos." });
             }

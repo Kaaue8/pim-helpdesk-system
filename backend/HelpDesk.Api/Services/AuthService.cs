@@ -18,12 +18,25 @@ namespace HelpDesk.Api.Services
             _configuration = configuration;
         }
 
-        // ✅ Método para verificar a senha (TEXTO PLANO - temporário)
-        // TODO: Implementar BCrypt em produção
-        public bool VerifyPassword(string password, string senhaArmazenada)
+        // ✅ Método para verificar a senha com BCrypt
+        public bool VerifyPassword(string password, string senhaHash)
         {
-            // Validação em texto plano (compatível com dados atuais)
-            return password == senhaArmazenada;
+            try
+            {
+                // Validação com BCrypt (seguro)
+                return BCrypt.Net.BCrypt.Verify(password, senhaHash);
+            }
+            catch (Exception)
+            {
+                // Se falhar (senha inválida ou hash corrompido)
+                return false;
+            }
+        }
+
+        // ✅ Método para gerar hash de senha com BCrypt
+        public string HashPassword(string password)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(password);
         }
 
         // ✅ Método para gerar o JWT

@@ -18,9 +18,9 @@ namespace HelpDesk.Api.Models
         [Required, MaxLength(150)]
         public string Email { get; set; } = string.Empty;
 
-        // ✅ Campo Senha com S maiúsculo, conforme banco
+        // ✅ Campo SenhaHash para armazenar senha criptografada com BCrypt
         [Required, MaxLength(255)]
-        public string Senha { get; set; } = string.Empty;
+        public string SenhaHash { get; set; } = string.Empty;
 
         [Required, MaxLength(50)]
         public string Perfil { get; set; } = string.Empty; // Admin ou Usuario (Admin removido)

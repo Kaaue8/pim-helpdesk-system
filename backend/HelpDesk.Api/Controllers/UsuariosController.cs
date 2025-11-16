@@ -70,7 +70,7 @@ namespace HelpDesk.Api.Controllers
                 Nome = dto.Nome,
                 Email = dto.Email,
                 Perfil = dto.Perfil,
-                SetorIdSetor = dto.SetorIdSetor,
+                SetorId = dto.SetorId,
                 DataCriacao = System.DateTime.UtcNow,
                 SenhaHash = string.Empty // Inicializa o membro requerido
             };
@@ -86,14 +86,14 @@ namespace HelpDesk.Api.Controllers
             // Limpa o SenhaHash antes de retornar para evitar exposição
             usuario.SenhaHash = string.Empty;
 
-            return CreatedAtAction(nameof(GetUsuario), new { id = usuario.Id }, usuario);
+            return CreatedAtAction(nameof(GetUsuario), new { id = usuario.IdUsuario }, usuario);
         }
 
         // PUT: api/Usuarios/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
         {
-            if (id != usuario.Id)
+            if (id != usuario.IdUsuario)
             {
                 return BadRequest();
             }
@@ -113,7 +113,7 @@ namespace HelpDesk.Api.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!_context.Usuarios.Any(e => e.Id == id))
+                if (!_context.Usuarios.Any(e => e.IdUsuario == id))
                 {
                     return NotFound();
                 }

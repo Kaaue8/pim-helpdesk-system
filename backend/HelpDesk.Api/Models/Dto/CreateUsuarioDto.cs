@@ -17,6 +17,6 @@ namespace HelpDesk.Api.Models.Dto
         [Required, MaxLength(50)]
         public required string Perfil { get; set; } // Adicionado 'required'
 
-        public int SetorIdSetor { get; set; }
+        public int? SetorId { get; set; }
     }
 }
