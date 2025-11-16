@@ -1,4 +1,4 @@
-# Ignorar diretÃ³rios de build e pacotes
+# Ignorar diretórios de build e pacotes
 **/bin/
 **/obj/
 **/node_modules/
@@ -10,12 +10,12 @@
 **/*.vs/
 **/*.vscode/
 
-# Ignorar arquivos de teste e documentaÃ§Ã£o
+# Ignorar arquivos de teste e documentação
 **/test/
 **/tests/
 **/docs/
 **/README.md
 
-# Ignorar arquivos de configuraÃ§Ã£o local
+# Ignorar arquivos de configuração local
 appsettings.Development.json
 appsettings.Local.json

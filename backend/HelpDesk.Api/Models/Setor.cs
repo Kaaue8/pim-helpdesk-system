@@ -1,13 +1,14 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace HelpDesk.Api.Models
 {
-    [Table("Setor")]
+    [Table("Setor")] // ✅ Singular, conforme banco
     public class Setor
     {
         [Key]
-        [Column("ID_Setor")]
+        [Column("ID_Setor")] // ✅ Conforme banco
         public int IdSetor { get; set; }
 
         [Required]
@@ -19,8 +20,8 @@ namespace HelpDesk.Api.Models
 
         public bool Ativo { get; set; } = true;
 
-        // Navegação: Usuários deste setor
-        public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
+        // Propriedade de navegação
+        public ICollection<Usuario>? Usuarios { get; set; }
     }
 }
 

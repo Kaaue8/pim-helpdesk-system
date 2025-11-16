@@ -1,135 +1,148 @@
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HelpDesk.Api.Data;
 using HelpDesk.Api.Models;
+using HelpDesk.Api.Models.Dto;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using BCrypt.Net;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HelpDesk.Api.Controllers
 {
+    [Authorize] // Adicionado para proteger o Controller
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class UsuariosController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly AppDbContext _context;
 
-        public UsuariosController(ApplicationDbContext context)
+        public UsuariosController(AppDbContext context)
         {
             _context = context;
+
+            // Lógica de inicialização de dados de teste removida do construtor
+            // para seguir as boas práticas do ASP.NET Core.
         }
 
+        // GET: api/Usuarios
         [HttpGet]
-        [Authorize(Roles = "Admin")]
-        public async Task<ActionResult<List<Usuario>>> GetUsuarios()
+        public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
         {
-            var usuarios = await _context.Usuarios
-                .Include(u => u.Setor)
-                .OrderBy(u => u.Nome)
-                .ToListAsync();
-
-            // Remover senha da resposta
-            foreach (var usuario in usuarios)
-            {
-                usuario.Senha = string.Empty;
-            }
-
-            return Ok(usuarios);
+            // Não retornar o hash da senha
+            var usuarios = await _context.Usuarios.ToListAsync();
+            usuarios.ForEach(u => u.SenhaHash = string.Empty);
+            return usuarios;
         }
 
+        // GET: api/Usuarios/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Usuario>> GetUsuario(int id)
         {
-            var usuario = await _context.Usuarios
-                .Include(u => u.Setor)
-                .FirstOrDefaultAsync(u => u.IdUsuario == id);
+            var usuario = await _context.Usuarios.FindAsync(id);
 
             if (usuario == null)
             {
-                return NotFound(new { message = "Usuário não encontrado" });
+                return NotFound();
             }
 
-            usuario.Senha = string.Empty; // Não retornar senha
+            // Não retornar o hash da senha
+            usuario.SenhaHash = string.Empty;
 
-            return Ok(usuario);
+            return usuario;
         }
 
+        // POST: api/Usuarios
+        // Agora recebe um DTO para separar a senha do modelo de banco de dados
         [HttpPost]
-        [Authorize(Roles = "Admin")]
-        public async Task<ActionResult<Usuario>> CreateUsuario([FromBody] Usuario usuario)
+        public async Task<ActionResult<Usuario>> PostUsuario(CreateUsuarioDto dto)
         {
+            // 1. Validação do Modelo (ModelState.IsValid)
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            // Verificar se email já existe
-            var emailExiste = await _context.Usuarios.AnyAsync(u => u.Email == usuario.Email);
-            if (emailExiste)
+            // 2. Criação do objeto Usuario a partir do DTO
+            var usuario = new Usuario
             {
-                return BadRequest(new { message = "Email já cadastrado" });
-            }
+                Nome = dto.Nome,
+                Email = dto.Email,
+                Perfil = dto.Perfil,
+                SetorIdSetor = dto.SetorIdSetor,
+                DataCriacao = System.DateTime.UtcNow,
+                SenhaHash = string.Empty // Inicializa o membro requerido
+            };
 
-            usuario.DataCriacao = DateTime.Now;
-            usuario.Ativo = true;
+            // 3. Hashing da Senha (LGPD Compliance)
+            usuario.SenhaHash = BCrypt.Net.BCrypt.HashPassword(dto.Senha);
 
+            // 4. Adiciona o usuário ao contexto e salva no banco de dados
             _context.Usuarios.Add(usuario);
             await _context.SaveChangesAsync();
 
-            usuario.Senha = string.Empty; // Não retornar senha
+            // 5. Retorna o usuário criado com o status 201 Created
+            // Limpa o SenhaHash antes de retornar para evitar exposição
+            usuario.SenhaHash = string.Empty;
 
-            return CreatedAtAction(nameof(GetUsuario), new { id = usuario.IdUsuario }, usuario);
+            return CreatedAtAction(nameof(GetUsuario), new { id = usuario.Id }, usuario);
         }
 
+        // PUT: api/Usuarios/5
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
-        public async Task<ActionResult<Usuario>> UpdateUsuario(int id, [FromBody] Usuario usuarioAtualizado)
+        public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
         {
-            if (!ModelState.IsValid)
+            if (id != usuario.Id)
             {
-                return BadRequest(ModelState);
+                return BadRequest();
             }
 
-            var usuario = await _context.Usuarios.FindAsync(id);
-            if (usuario == null)
+            // Lógica de PUT simplificada:
+            // Se a senha for alterada, ela deve ser hasheada.
+            if (!string.IsNullOrEmpty(usuario.SenhaHash) && usuario.SenhaHash.Length < 60)
             {
-                return NotFound(new { message = "Usuário não encontrado" });
+                usuario.SenhaHash = BCrypt.Net.BCrypt.HashPassword(usuario.SenhaHash);
             }
 
-            usuario.Nome = usuarioAtualizado.Nome;
-            usuario.Email = usuarioAtualizado.Email;
-            usuario.Perfil = usuarioAtualizado.Perfil;
-            usuario.SetorId = usuarioAtualizado.SetorId;
-            usuario.Telefone = usuarioAtualizado.Telefone;
-            usuario.Ativo = usuarioAtualizado.Ativo;
+            _context.Entry(usuario).State = EntityState.Modified;
 
-            // Atualizar senha apenas se fornecida
-            if (!string.IsNullOrEmpty(usuarioAtualizado.Senha))
+            try
             {
-                usuario.Senha = usuarioAtualizado.Senha;
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!_context.Usuarios.Any(e => e.Id == id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
             }
 
-            await _context.SaveChangesAsync();
-
-            usuario.Senha = string.Empty; // Não retornar senha
-
-            return Ok(usuario);
+            // Retorna o status 204 No Content
+            return NoContent();
         }
 
+        // DELETE: api/Usuarios/5
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> DeleteUsuario(int id)
+        public async Task<IActionResult> DeleteUsuario(int id)
         {
             var usuario = await _context.Usuarios.FindAsync(id);
             if (usuario == null)
             {
-                return NotFound(new { message = "Usuário não encontrado" });
+                return NotFound();
             }
 
             _context.Usuarios.Remove(usuario);
             await _context.SaveChangesAsync();
 
+            // Retorna o status 204 No Content
             return NoContent();
         }
+
     }
 }
-

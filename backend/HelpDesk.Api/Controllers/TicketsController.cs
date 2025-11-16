@@ -1,93 +1,243 @@
-using Microsoft.AspNetCore.Authorization;
+﻿// /home/ubuntu/backend/HelpDesk.Api/Controllers/TicketsController.cs
+
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
+using HelpDesk.Api.Data;
 using HelpDesk.Api.Models;
-using HelpDesk.Api.Services;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using HelpDesk.Api.Services; // Adicionado para HoustonService
 
 namespace HelpDesk.Api.Controllers
 {
+    [Authorize] // Protege o Controller
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class TicketsController : ControllerBase
     {
-        private readonly TicketService _ticketService;
+        private readonly AppDbContext _context;
+        private readonly HoustonService _houstonService; // Adicionado para injeção
 
-        public TicketsController(TicketService ticketService)
+        public TicketsController(AppDbContext context, HoustonService houstonService) // Injeção do HoustonService
         {
-            _ticketService = ticketService;
+            _context = context;
+            _houstonService = houstonService;
         }
 
+        // --- Métodos Auxiliares para RBAC ---
+
+        private string GetUserRole()
+        {
+            // O Perfil (Role) é armazenado no ClaimTypes.Role
+            return User.FindFirst(ClaimTypes.Role)?.Value ?? "Usuario";
+        }
+
+        private int GetUserId()
+        {
+            // O ID do usuário é armazenado no ClaimTypes.NameIdentifier
+            var idClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            return int.TryParse(idClaim, out int userId) ? userId : 0;
+        }
+
+        private async Task<int> GetUserSetorId()
+        {
+            var userId = GetUserId();
+            if (userId == 0) return 0;
+
+            var usuario = await _context.Usuarios
+                .AsNoTracking()
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            return usuario?.SetorIdSetor ?? 0;
+        }
+
+        // --- Endpoints ---
+
+        // GET: api/Tickets
         [HttpGet]
-        public async Task<ActionResult<List<Ticket>>> GetTickets()
+        public async Task<ActionResult<IEnumerable<Ticket>>> GetTickets()
         {
-            var usuarioId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
-            var perfil = User.FindFirst(ClaimTypes.Role)?.Value ?? "Usuario";
+            var role = GetUserRole();
+            var userId = GetUserId();
+            var tickets = _context.Tickets.Include(t => t.Usuario).AsQueryable();
 
-            var tickets = await _ticketService.GetTicketsByUsuarioAsync(usuarioId, perfil);
-            return Ok(tickets);
+            switch (role)
+            {
+                case "Admin":
+                    // Admin vê todos os tickets
+                    break;
+
+                case "Admin":
+                    // Admin vê tickets do seu setor
+                    var setorId = await GetUserSetorId();
+                    if (setorId > 0)
+                    {
+                        // Filtra tickets onde o Usuario que abriu pertence ao mesmo setor do Admin
+                        tickets = tickets.Where(t => t.Usuario != null && t.Usuario.SetorIdSetor == setorId);
+                    }
+                    break;
+
+                case "Usuario":
+                    // Usuário comum vê apenas os tickets que ele abriu
+                    tickets = tickets.Where(t => t.UsuarioId == userId);
+                    break;
+
+                default:
+                    // Caso de segurança: se não for reconhecido, não vê nada
+                    return Forbid();
+            }
+
+            return await tickets.ToListAsync();
         }
 
+        // GET: api/Tickets/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Ticket>> GetTicket(int id)
         {
-            var ticket = await _ticketService.GetTicketByIdAsync(id);
+            var ticket = await _context.Tickets
+                .Include(t => t.Usuario)
+                .FirstOrDefaultAsync(t => t.Id == id);
 
             if (ticket == null)
             {
-                return NotFound(new { message = "Ticket não encontrado" });
+                return NotFound();
             }
 
-            return Ok(ticket);
+            // Lógica de Autorização para visualização
+            var role = GetUserRole();
+            var userId = GetUserId();
+
+            if (role == "Usuario" && ticket.UsuarioId != userId)
+            {
+                return Forbid(); // Usuário só pode ver seus próprios tickets
+            }
+
+            if (role == "Admin")
+            {
+                var analistaSetorId = await GetUserSetorId();
+                if (ticket.Usuario?.SetorIdSetor != analistaSetorId)
+                {
+                    // Admin só pode ver tickets do seu setor
+                    return Forbid();
+                }
+            }
+
+            // Admin vê tudo, Admin vê do setor, Usuário vê o seu (já checado)
+            return ticket;
         }
 
+        // POST: api/Tickets
         [HttpPost]
-        public async Task<ActionResult<Ticket>> CreateTicket([FromBody] Ticket ticket)
+        [Authorize(Roles = "Usuario, Admin")] // Apenas Usuário Comum e Admin podem abrir tickets
+        public async Task<ActionResult<Ticket>> PostTicket(Ticket ticket)
         {
-            if (!ModelState.IsValid)
+            var userId = GetUserId();
+            var role = GetUserRole();
+
+            // 1. Força o UsuarioId do ticket a ser o ID do usuário logado (Segurança)
+            if (role == "Usuario")
             {
-                return BadRequest(ModelState);
+                ticket.UsuarioId = userId;
+            }
+            // Se for Admin, o Admin pode abrir um ticket para outro usuário (se o UsuarioId for fornecido)
+            // Se o Admin não fornecer, forçamos para o ID do Admin
+            else if (role == "Admin" && ticket.UsuarioId == 0)
+            {
+                ticket.UsuarioId = userId;
             }
 
-            var usuarioId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
-            ticket.SolicitanteId = usuarioId;
+            // Validação básica: O usuário que abre o ticket deve existir
+            if (!_context.Usuarios.Any(u => u.Id == ticket.UsuarioId))
+            {
+                return BadRequest("O UsuárioId fornecido não existe.");
+            }
 
-            var novoTicket = await _ticketService.CreateTicketAsync(ticket);
+            // Define o status inicial e a data de abertura
+            ticket.Status = "Aberto";
+            ticket.DataAbertura = DateTime.UtcNow;
 
-            return CreatedAtAction(nameof(GetTicket), new { id = novoTicket.IdTicket }, novoTicket);
+            // --- 2. Triagem com a IA (Houston) ---
+            var triageResult = await _houstonService.TriageTicketAsync(ticket.Titulo, ticket.Descricao);
+
+            // 3. Aplicar resultados da triagem ao ticket
+            ticket.Prioridade = triageResult.Prioridade;
+            ticket.SetorRecomendado = triageResult.SetorRecomendado;
+            ticket.ResumoTriagem = triageResult.ResumoTriagem;
+            ticket.SolucaoSugerida = triageResult.SolucaoSugerida;
+
+
+            _context.Tickets.Add(ticket);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetTicket), new { id = ticket.Id }, ticket);
         }
 
+        // PUT: api/Tickets/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<Ticket>> UpdateTicket(int id, [FromBody] Ticket ticket)
+        [Authorize(Roles = "Admin, Admin")] // Apenas Admin e Admin podem atualizar tickets
+        public async Task<IActionResult> PutTicket(int id, Ticket ticket)
         {
-            if (!ModelState.IsValid)
+            if (id != ticket.Id)
             {
-                return BadRequest(ModelState);
+                return BadRequest();
             }
 
-            var ticketAtualizado = await _ticketService.UpdateTicketAsync(id, ticket);
+            var role = GetUserRole();
+            var analistaSetorId = await GetUserSetorId();
 
-            if (ticketAtualizado == null)
+            // Carrega o ticket original para verificar a autorização
+            var existingTicket = await _context.Tickets
+                .Include(t => t.Usuario)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(t => t.Id == id);
+
+            if (existingTicket == null)
             {
-                return NotFound(new { message = "Ticket não encontrado" });
+                return NotFound();
             }
 
-            return Ok(ticketAtualizado);
-        }
-
-        [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> DeleteTicket(int id)
-        {
-            var sucesso = await _ticketService.DeleteTicketAsync(id);
-
-            if (!sucesso)
+            // 1. Verificação de Autorização para Admin
+            if (role == "Admin" && existingTicket.Usuario?.SetorIdSetor != analistaSetorId)
             {
-                return NotFound(new { message = "Ticket não encontrado" });
+                return Forbid(); // Admin só pode atualizar tickets do seu setor
+            }
+
+            // 2. Restrição de campos para Admin
+            if (role == "Admin")
+            {
+                // Admin só pode alterar Status, Prioridade e TecnicoId
+                // O ticket que chega no body (ticket) deve ter os campos não permitidos
+                // iguais aos do ticket existente (existingTicket)
+                if (ticket.Titulo != existingTicket.Titulo || ticket.Descricao != existingTicket.Descricao)
+                {
+                    return BadRequest("Admins só podem alterar Status, Prioridade e Técnico.");
+                }
+            }
+
+            // 3. Aplica a atualização
+            _context.Entry(ticket).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!_context.Tickets.Any(e => e.Id == id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
             }
 
             return NoContent();
         }
     }
 }
-

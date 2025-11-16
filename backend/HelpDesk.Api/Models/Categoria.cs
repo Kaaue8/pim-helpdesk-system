@@ -1,13 +1,14 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace HelpDesk.Api.Models
 {
-    [Table("Categoria")]
+    [Table("Categoria")] // ✅ Singular, conforme banco
     public class Categoria
     {
         [Key]
-        [Column("ID_Categoria")]
+        [Column("ID_Categoria")] // ✅ Conforme banco
         public int IdCategoria { get; set; }
 
         [Required]
@@ -19,8 +20,8 @@ namespace HelpDesk.Api.Models
 
         public bool Ativo { get; set; } = true;
 
-        // Navegação: Tickets desta categoria
-        public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
+        // Propriedade de navegação
+        public ICollection<Ticket>? Tickets { get; set; }
     }
 }
 

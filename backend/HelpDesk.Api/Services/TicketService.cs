@@ -29,7 +29,7 @@ namespace HelpDesk.Api.Services
             {
                 return await GetAllTicketsAsync();
             }
-            else if (perfil == "Analista")
+            else if (perfil == "Admin")
             {
                 return await _context.Tickets
                     .Include(t => t.Solicitante)
@@ -60,7 +60,7 @@ namespace HelpDesk.Api.Services
                 .FirstOrDefaultAsync(t => t.IdTicket == id);
         }
 
-        public async Task<Ticket> CreateTicketAsync(Ticket ticket)
+        public async Task<Ticket> CreateTicketAsync(Ticket ticket, int usuarioId = 0, string ipOrigem = "")
         {
             ticket.DataAbertura = DateTime.Now;
             ticket.DataAtualizacao = DateTime.Now;
@@ -69,16 +69,27 @@ namespace HelpDesk.Api.Services
             _context.Tickets.Add(ticket);
             await _context.SaveChangesAsync();
 
+            // ✅ Registrar histórico
+            if (usuarioId > 0)
+            {
+                await RegistrarHistorico(ticket.IdTicket, usuarioId, "Criado",
+                    $"Ticket criado: {ticket.Titulo}", null, "Aberto", null, ticket.Prioridade, null, null, ipOrigem);
+            }
+
             return await GetTicketByIdAsync(ticket.IdTicket) ?? ticket;
         }
 
-        public async Task<Ticket?> UpdateTicketAsync(int id, Ticket ticketAtualizado)
+        public async Task<Ticket?> UpdateTicketAsync(int id, Ticket ticketAtualizado, int usuarioId = 0, string ipOrigem = "")
         {
             var ticket = await _context.Tickets.FindAsync(id);
             if (ticket == null)
             {
                 return null;
             }
+
+            var statusAnterior = ticket.Status;
+            var prioridadeAnterior = ticket.Prioridade;
+            var responsavelAnteriorId = ticket.ResponsavelId;
 
             ticket.Titulo = ticketAtualizado.Titulo;
             ticket.Descricao = ticketAtualizado.Descricao;
@@ -96,6 +107,31 @@ namespace HelpDesk.Api.Services
 
             await _context.SaveChangesAsync();
 
+            // ✅ Registrar histórico de mudanças
+            if (usuarioId > 0)
+            {
+                if (statusAnterior != ticketAtualizado.Status)
+                {
+                    await RegistrarHistorico(id, usuarioId, "Status Alterado",
+                        $"Status alterado de '{statusAnterior}' para '{ticketAtualizado.Status}'",
+                        statusAnterior, ticketAtualizado.Status, null, null, null, null, ipOrigem);
+                }
+
+                if (prioridadeAnterior != ticketAtualizado.Prioridade)
+                {
+                    await RegistrarHistorico(id, usuarioId, "Prioridade Alterada",
+                        $"Prioridade alterada de '{prioridadeAnterior}' para '{ticketAtualizado.Prioridade}'",
+                        null, null, prioridadeAnterior, ticketAtualizado.Prioridade, null, null, ipOrigem);
+                }
+
+                if (responsavelAnteriorId != ticketAtualizado.ResponsavelId)
+                {
+                    await RegistrarHistorico(id, usuarioId, "Atribuído",
+                        "Ticket foi reatribuído",
+                        null, null, null, null, responsavelAnteriorId, ticketAtualizado.ResponsavelId, ipOrigem);
+                }
+            }
+
             return await GetTicketByIdAsync(id);
         }
 
@@ -111,6 +147,41 @@ namespace HelpDesk.Api.Services
             await _context.SaveChangesAsync();
 
             return true;
+        }
+
+        // ✅ Método para registrar histórico
+        private async Task RegistrarHistorico(int ticketId, int usuarioId, string acao, string descricao,
+            string? statusAnterior, string? statusNovo, string? prioridadeAnterior, string? prioridadeNova,
+            int? responsavelAnteriorId, int? responsavelNovoId, string? ipOrigem)
+        {
+            var historico = new TicketHistorico
+            {
+                TicketId = ticketId,
+                UsuarioId = usuarioId,
+                Acao = acao,
+                Descricao = descricao,
+                StatusAnterior = statusAnterior,
+                StatusNovo = statusNovo,
+                PrioridadeAnterior = prioridadeAnterior,
+                PrioridadeNova = prioridadeNova,
+                ResponsavelAnteriorId = responsavelAnteriorId,
+                ResponsavelNovoId = responsavelNovoId,
+                DataHora = DateTime.Now,
+                IpOrigem = ipOrigem
+            };
+
+            _context.TicketHistoricos.Add(historico);
+            await _context.SaveChangesAsync();
+        }
+
+        // ✅ Obter histórico de um ticket
+        public async Task<List<TicketHistorico>> ObterHistoricoAsync(int ticketId)
+        {
+            return await _context.TicketHistoricos
+                .Where(h => h.TicketId == ticketId)
+                .Include(h => h.Usuario)
+                .OrderByDescending(h => h.DataHora)
+                .ToListAsync();
         }
     }
 }

@@ -1,96 +1,63 @@
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using HelpDesk.Api.Data;
-using HelpDesk.Api.DTOs;
 using HelpDesk.Api.Models;
+using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
 
 namespace HelpDesk.Api.Services
 {
     public class AuthService
     {
-        private readonly ApplicationDbContext _context;
         private readonly IConfiguration _configuration;
 
-        public AuthService(ApplicationDbContext context, IConfiguration configuration)
+        public AuthService(IConfiguration configuration)
         {
-            _context = context;
             _configuration = configuration;
         }
 
-        public async Task<LoginResponse?> LoginAsync(LoginRequest request)
+        // ✅ Método para verificar a senha (TEXTO PLANO - temporário)
+        // TODO: Implementar BCrypt em produção
+        public bool VerifyPassword(string password, string senhaArmazenada)
         {
-            // Buscar usuário por email
-            var usuario = await _context.Usuarios
-                .Include(u => u.Setor)
-                .FirstOrDefaultAsync(u => u.Email == request.Email && u.Ativo);
-
-            if (usuario == null)
-            {
-                return null;
-            }
-
-            // Validar senha (texto plano - ATENÇÃO: Em produção use BCrypt!)
-            if (usuario.Senha != request.Senha)
-            {
-                return null;
-            }
-
-            // Gerar token JWT
-            var token = GenerateJwtToken(usuario);
-
-            return new LoginResponse
-            {
-                Token = token,
-                Usuario = new UsuarioDto
-                {
-                    IdUsuario = usuario.IdUsuario,
-                    Nome = usuario.Nome,
-                    Email = usuario.Email,
-                    Perfil = usuario.Perfil,
-                    SetorId = usuario.SetorId,
-                    SetorNome = usuario.Setor?.Nome,
-                    Telefone = usuario.Telefone,
-                    Ativo = usuario.Ativo
-                }
-            };
+            // Validação em texto plano (compatível com dados atuais)
+            return password == senhaArmazenada;
         }
 
-        private string GenerateJwtToken(Usuario usuario)
+        // ✅ Método para gerar o JWT
+        public string GenerateJwtToken(Usuario usuario)
         {
-            var jwtKey = _configuration["Jwt:Key"];
-            var jwtIssuer = _configuration["Jwt:Issuer"];
-            var jwtAudience = _configuration["Jwt:Audience"];
+            var tokenHandler = new JwtSecurityTokenHandler();
 
+            var jwtKey = _configuration["Jwt:Key"];
             if (string.IsNullOrEmpty(jwtKey))
             {
-                throw new InvalidOperationException("JWT Key não configurada");
+                throw new InvalidOperationException("Jwt:Key não configurado em appsettings.json");
             }
+            var key = Encoding.ASCII.GetBytes(jwtKey);
 
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-            var claims = new[]
+            // Claims (informações do usuário que serão incluídas no token)
+            var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.Sub, usuario.IdUsuario.ToString()),
-                new Claim(JwtRegisteredClaimNames.Email, usuario.Email),
+                new Claim(ClaimTypes.NameIdentifier, usuario.IdUsuario.ToString()),
+                new Claim(ClaimTypes.Email, usuario.Email),
                 new Claim(ClaimTypes.Name, usuario.Nome),
-                new Claim(ClaimTypes.Role, usuario.Perfil),
-                new Claim("SetorId", usuario.SetorId?.ToString() ?? ""),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                new Claim(ClaimTypes.Role, usuario.Perfil) // Admin ou Usuario
             };
 
-            var token = new JwtSecurityToken(
-                issuer: jwtIssuer,
-                audience: jwtAudience,
-                claims: claims,
-                expires: DateTime.Now.AddHours(8),
-                signingCredentials: credentials
-            );
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(claims),
+                Expires = DateTime.UtcNow.AddHours(8), // Token expira em 8 horas
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
+                Issuer = _configuration["Jwt:Issuer"],
+                Audience = _configuration["Jwt:Audience"]
+            };
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
         }
     }
 }

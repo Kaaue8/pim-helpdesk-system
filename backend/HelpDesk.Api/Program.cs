@@ -1,30 +1,30 @@
+using HelpDesk.Api.Data;
+using HelpDesk.Api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using HelpDesk.Api.Data;
-using HelpDesk.Api.Services;
-
 using Microsoft.OpenApi.Models;
+using Microsoft.SemanticKernel.Services;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configura√ß√£o: Garante que as vari√°veis de ambiente sejam lidas
-// O ASP.NET Core 8.0 j√° prioriza vari√°veis de ambiente, mas garantimos a leitura correta.
+// ConfiguraÁ„o: Garante que as vari·veis de ambiente sejam lidas
+// O ASP.NET Core 8.0 j· prioriza vari·veis de ambiente, mas garantimos a leitura correta.
 var configuration = builder.Configuration;
 
-// 1. Configura√ß√£o do Banco de Dados (Lendo da vari√°vel de ambiente ConnectionStrings__DefaultConnection)
+// 1. ConfiguraÁ„o do Banco de Dados (Lendo da vari·vel de ambiente ConnectionStrings__DefaultConnection)
 var connectionString = configuration.GetConnectionString("DefaultConnection");
 if (string.IsNullOrEmpty(connectionString))
 {
-    // Em um ambiente de produ√ß√£o, isso deve ser um erro fatal.
-    // Para o Render, a vari√°vel de ambiente ser√° 'ConnectionStrings__DefaultConnection'.
+    // Em um ambiente de produÁ„o, isso deve ser um erro fatal.
+    // Para o Render, a vari·vel de ambiente ser· 'ConnectionStrings__DefaultConnection'.
     throw new InvalidOperationException("Connection string 'DefaultConnection' not configured. Ensure 'ConnectionStrings__DefaultConnection' environment variable is set.");
 }
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-// 2. Configura√ß√£o do JWT (Lendo das vari√°veis de ambiente Jwt__Key, Jwt__Issuer, Jwt__Audience)
+// 2. ConfiguraÁ„o do JWT (Lendo das vari·veis de ambiente Jwt__Key, Jwt__Issuer, Jwt__Audience)
 var jwtKey = configuration["Jwt:Key"];
 var jwtIssuer = configuration["Jwt:Issuer"];
 var jwtAudience = configuration["Jwt:Audience"];
@@ -53,16 +53,16 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Adicionar servi√ßos ao cont√™iner.
+// Adicionar serviÁos ao contÍiner.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-// Configura√ß√£o do Swagger/OpenAPI
+// ConfiguraÁ„o do Swagger/OpenAPI
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "HelpDesk PIM API", Version = "v1" });
 
-    // Adiciona a seguran√ßa JWT ao Swagger
+    // Adiciona a seguranÁa JWT ao Swagger
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "Insira o token JWT no formato: Bearer {token}",
@@ -88,19 +88,23 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// Adicionar servi√ßos personalizados
+// Adicionar serviÁos personalizados
 builder.Services.AddScoped<AuthService>();
-builder.Services.AddScoped<TicketService>();
+builder.Services.AddScoped<HoustonService>();
 
-// Configura√ß√£o do Semantic Kernel (Lendo da vari√°vel de ambiente OPENAI_API_KEY)
+// ConfiguraÁ„o do Semantic Kernel (Lendo da vari·vel de ambiente OPENAI_API_KEY)
+// Linhas 96-100 (Restauradas)
 var openAiApiKey = configuration["OPENAI_API_KEY"];
 if (string.IsNullOrEmpty(openAiApiKey))
 {
     throw new InvalidOperationException("OPENAI_API_KEY environment variable is not set.");
 }
-builder.Services.AddSingleton<HoustonService>(new HoustonService(openAiApiKey));
 
-// Configura√ß√£o do CORS para permitir acesso do frontend (ajustar conforme o dom√≠nio do Render)
+// Linha 101 (Ajustada para injeÁ„o simples)
+builder.Services.AddSingleton<HoustonService>(); // Sem argumentos no construtor
+
+
+// ConfiguraÁ„o do CORS para permitir acesso do frontend (ajustar conforme o domÌnio do Render)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
@@ -114,7 +118,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configurar o pipeline de requisi√ß√£o HTTP.
+// Configurar o pipeline de requisiÁ„o HTTP.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -131,20 +135,20 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// Aplica as migra√ß√µes do banco de dados automaticamente (opcional, mas √∫til para o primeiro deploy)
+// Aplica as migraÁıes do banco de dados automaticamente (opcional, mas ˙til para o primeiro deploy)
 // Isso garante que o banco de dados seja criado/atualizado no primeiro deploy.
 using (var scope = app.Services.CreateScope())
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     try
     {
         dbContext.Database.Migrate();
     }
     catch (Exception ex)
     {
-        // Logar o erro ou lidar com ele. Para o prop√≥sito do PIM, um log simples √© suficiente.
-        Console.WriteLine($"Erro ao aplicar migra√ß√µes: {ex.Message}");
-        // Em um ambiente real, voc√™ pode querer relan√ßar a exce√ß√£o ou parar a aplica√ß√£o.
+        // Logar o erro ou lidar com ele. Para o propÛsito do PIM, um log simples È suficiente.
+        Console.WriteLine($"Erro ao aplicar migraÁıes: {ex.Message}");
+        // Em um ambiente real, vocÍ pode querer relanÁar a exceÁ„o ou parar a aplicaÁ„o.
     }
 }
 
