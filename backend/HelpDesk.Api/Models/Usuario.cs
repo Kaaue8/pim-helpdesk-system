@@ -1,43 +1,44 @@
-﻿using System;
+﻿// CÓDIGO FINAL, CORRIGIDO COM BASE NO SEU PRINT DO AZURE
+
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
-using HelpDesk.Api.Models;
 
 namespace HelpDesk.Api.Models
 {
-    [Table("Usuarios")]
     public class Usuario
     {
         [Key]
+        [Column("ID_Usuario")] // Corresponde ao que vemos no seu print
         public int Id { get; set; }
 
-        [Required, MaxLength(100)]
-        public string Nome { get; set; } = string.Empty;
+        [Required]
+        [StringLength(100)]
+        public required string Nome { get; set; }
 
-        [Required, MaxLength(150)]
-        public string Email { get; set; } = string.Empty;
+        [Required]
+        [StringLength(150)]
+        public required string Email { get; set; }
 
-        // Armazenará o hash da senha. NUNCA a senha em texto puro!
-        [Required, MaxLength(255)]
-        public string SenhaHash { get; set; } = string.Empty;
+        [Required]
+        [StringLength(255)]
+        public required string SenhaHash { get; set; }
 
-        [Required, MaxLength(50)]
-        public string Perfil { get; set; } = string.Empty;
+        [Required]
+        [StringLength(50)]
+        public required string Perfil { get; set; }
 
-        // Data de criação do registro. Removido o valor padrão dinâmico (DateTime.UtcNow)
+        [Required]
         public DateTime DataCriacao { get; set; }
 
-        // Chave estrangeira para Setor
+        [Required]
+        [Column("ID_Setor")] // A correção final que resolve o erro do log
         public int SetorIdSetor { get; set; }
 
-        [ForeignKey(nameof(SetorIdSetor))]
-        public Setor? Setor { get; set; }
-
-        // Propriedades de navegação (adicionadas '?' para evitar CS8618)
-        public ICollection<Ticket>? TicketsAbertos { get; set; }
-        public ICollection<Ticket>? TicketsAtribuidos { get; set; }
-        public ICollection<LogAuditoria>? LogsAfetados { get; set; }
-        public ICollection<LogAuditoria>? LogsExecutados { get; set; }
+        // Propriedades de navegação para o EF funcionar corretamente
+        public virtual ICollection<LogAuditoria> LogsAfetados { get; set; } = new List<LogAuditoria>();
+        public virtual ICollection<LogAuditoria> LogsExecutados { get; set; } = new List<LogAuditoria>();
+        public virtual ICollection<Ticket> TicketsAbertos { get; set; } = new List<Ticket>();
+        public virtual ICollection<Ticket> TicketsAtribuidos { get; set; } = new List<Ticket>();
     }
 }

@@ -1,16 +1,21 @@
-namespace HelpDesk.Desktop;
+using System;
+using System.Windows.Forms;
 
-static class Program
+namespace HelpDesk.Desktop
 {
-    /// <summary>
-    ///  The main entry point for the application.
-    /// </summary>
-    [STAThread]
-    static void Main()
+    static class Program
     {
-        // To customize application configuration such as set high DPI settings or default font,
-        // see https://aka.ms/applicationconfiguration.
-        ApplicationConfiguration.Initialize();
-        Application.Run(new Form1());
-    }    
+        /// <summary>
+        /// Ponto de entrada principal para o aplicativo.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            // A linha abaixo inicia o FormLogin
+            Application.Run(new FormLogin());
+        }
+    }
 }

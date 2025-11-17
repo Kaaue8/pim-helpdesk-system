@@ -7,82 +7,108 @@ interface AuthContextType {
   userType: UserType;
   userName: string;
   userEmail: string;
-  login: (email: string, password: string ) => { success: boolean; error?: string };
+  token: string | null;
+  login: (email: string, password: string) => Promise<{ success: boolean; error?: string }>;
   logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Dados de teste
-const VALID_USERS = {
-  admin: {
-    email: "ju.vc1999@gmail.com",
-    password: "Testandoapollo456@",
-    name: "Loro José",
-    type: "admin" as UserType,
-  },
-  user: {
-    email: "testeapollo@gmail.com",
-    password: "Testandoapollo456@",
-    name: "Usuário Teste",
-    type: "user" as UserType,
-  },
-};
+const API_BASE_URL = "http://localhost:5079/api";
 
-export function AuthProvider({ children }: { children: React.ReactNode }) {
+export function AuthProvider({ children }: { children: React.ReactNode } ) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userType, setUserType] = useState<UserType>(null);
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
+  const [token, setToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Carregar dados do localStorage ao montar o componente
   useEffect(() => {
     try {
       const savedAuth = localStorage.getItem("auth");
-      if (savedAuth) {
+      const savedToken = localStorage.getItem("token");
+      
+      if (savedAuth && savedToken) {
         const auth = JSON.parse(savedAuth);
         setIsLoggedIn(true);
         setUserType(auth.userType);
         setUserName(auth.userName);
         setUserEmail(auth.userEmail);
+        setToken(savedToken);
       }
     } catch (error) {
       console.error("Erro ao carregar autenticação:", error);
       localStorage.removeItem("auth");
+      localStorage.removeItem("token");
     } finally {
       setIsLoading(false);
     }
   }, []);
 
-  const login = (email: string, password: string) => {
-    // Validar credenciais
-    for (const [key, user] of Object.entries(VALID_USERS)) {
-      if (user.email === email && user.password === password) {
-        setIsLoggedIn(true);
-        setUserType(user.type);
-        setUserName(user.name);
-        setUserEmail(user.email);
+  const login = async (emailParam: string, passwordParam: string) => {
+    try {
+      setIsLoading(true);
 
-        // Salvar no localStorage
-        localStorage.setItem(
-          "auth",
-          JSON.stringify({
-            userType: user.type,
-            userName: user.name,
-            userEmail: user.email,
-          })
-        );
+      const response: Response = await fetch(`${API_BASE_URL}/Login/Authenticate`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: emailParam,
+          Senha: passwordParam, // Corrigido para 'Senha' com 'S' maiúsculo
+        }),
+      });
 
-        return { success: true };
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        return {
+          success: false,
+          error: errorData.message || "Email ou senha incorretos",
+        };
       }
-    }
 
-    // Se credenciais inválidas
-    return {
-      success: false,
-      error: "Email ou senha incorretos",
-    };
+      const data: any = await response.json();
+      const { token: jwtToken, nome, email: emailFromResponse, perfil } = data;
+
+      if (!jwtToken || !emailFromResponse) {
+        return {
+          success: false,
+          error: "Resposta inválida do servidor",
+        };
+      }
+
+      // Lógica corrigida para tratar 'Admin' e 'Analista' como 'admin'
+      const perfilNormalizado = perfil.toLowerCase();
+      const userTypeFromBackend = (perfilNormalizado === "admin" || perfilNormalizado === "analista") ? "admin" : "user";
+
+      setIsLoggedIn(true);
+      setUserType(userTypeFromBackend);
+      setUserName(nome || "Usuário");
+      setUserEmail(emailFromResponse);
+      setToken(jwtToken);
+
+      localStorage.setItem(
+        "auth",
+        JSON.stringify({
+          userType: userTypeFromBackend,
+          userName: nome,
+          userEmail: emailFromResponse,
+        })
+      );
+      localStorage.setItem("token", jwtToken);
+
+      return { success: true };
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+      return {
+        success: false,
+        error: "Erro ao conectar ao servidor. Tente novamente.",
+      };
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const logout = () => {
@@ -90,12 +116,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUserType(null);
     setUserName("");
     setUserEmail("");
+    setToken(null);
     localStorage.removeItem("auth");
+    localStorage.removeItem("token");
   };
 
-  // Não renderizar até carregar o estado do localStorage
   if (isLoading) {
-    return <div>Carregando...</div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Carregando...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -105,6 +139,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         userType,
         userName,
         userEmail,
+        token,
         login,
         logout,
       }}
@@ -114,18 +149,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-// Valor padrão seguro para quando o contexto não está disponível
 const DEFAULT_AUTH: AuthContextType = {
   isLoggedIn: false,
   userType: null,
   userName: "User",
   userEmail: "",
-  login: () => ({ success: false, error: "AuthProvider não disponível" }),
+  token: null,
+  login: async () => ({ success: false, error: "AuthProvider não disponível" }),
   logout: () => {},
 };
 
 export function useAuth() {
   const context = useContext(AuthContext);
-  // Retornar valor padrão em vez de lançar erro
   return context || DEFAULT_AUTH;
 }

@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace HelpDesk.Api.Controllers
 {
-    [Authorize] // Adicionado para proteger o Controller
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsuariosController : ControllerBase
@@ -21,18 +21,15 @@ namespace HelpDesk.Api.Controllers
         public UsuariosController(AppDbContext context)
         {
             _context = context;
-
-            // Lógica de inicialização de dados de teste removida do construtor
-            // para seguir as boas práticas do ASP.NET Core.
         }
 
         // GET: api/Usuarios
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
         {
-            // Não retornar o hash da senha
+            // Por segurança, nunca retornar o hash da senha para o frontend.
             var usuarios = await _context.Usuarios.ToListAsync();
-            usuarios.ForEach(u => u.SenhaHash = string.Empty);
+            usuarios.ForEach(u => u.SenhaHash = string.Empty); // Limpa o campo antes de enviar.
             return usuarios;
         }
 
@@ -47,24 +44,21 @@ namespace HelpDesk.Api.Controllers
                 return NotFound();
             }
 
-            // Não retornar o hash da senha
+            // Também não retorna o hash da senha para um único usuário.
             usuario.SenhaHash = string.Empty;
 
             return usuario;
         }
 
         // POST: api/Usuarios
-        // Agora recebe um DTO para separar a senha do modelo de banco de dados
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario(CreateUsuarioDto dto)
         {
-            // 1. Validação do Modelo (ModelState.IsValid)
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            // 2. Criação do objeto Usuario a partir do DTO
             var usuario = new Usuario
             {
                 Nome = dto.Nome,
@@ -72,44 +66,49 @@ namespace HelpDesk.Api.Controllers
                 Perfil = dto.Perfil,
                 SetorIdSetor = dto.SetorIdSetor,
                 DataCriacao = System.DateTime.UtcNow,
-                SenhaHash = string.Empty // Inicializa o membro requerido
+                SenhaHash = BCrypt.Net.BCrypt.HashPassword(dto.Senha) // Cria o hash da senha
             };
 
-            // 3. Hashing da Senha (LGPD Compliance)
-            usuario.SenhaHash = BCrypt.Net.BCrypt.HashPassword(dto.Senha);
-
-            // 4. Adiciona o usuário ao contexto e salva no banco de dados
             _context.Usuarios.Add(usuario);
             await _context.SaveChangesAsync();
 
-            // 5. Retorna o usuário criado com o status 201 Created
-            // Limpa o SenhaHash antes de retornar para evitar exposição
-            usuario.SenhaHash = string.Empty;
+            usuario.SenhaHash = string.Empty; // Limpa antes de retornar.
 
             return CreatedAtAction(nameof(GetUsuario), new { id = usuario.Id }, usuario);
         }
 
+        // ==================================================================
+        // AQUI ESTÁ O MÉTODO PUT CORRIGIDO
+        // ==================================================================
         // PUT: api/Usuarios/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
+        public async Task<IActionResult> PutUsuario(int id, Usuario usuarioUpdateRequest)
         {
-            if (id != usuario.Id)
+            if (id != usuarioUpdateRequest.Id)
             {
-                return BadRequest();
+                return BadRequest("O ID da URL não corresponde ao ID do usuário.");
             }
 
-            // Lógica de PUT simplificada:
-            // Se a senha for alterada, ela deve ser hasheada.
-            if (!string.IsNullOrEmpty(usuario.SenhaHash) && usuario.SenhaHash.Length < 60)
+            // 1. Busca o usuário existente e completo do banco de dados.
+            var usuarioDoBanco = await _context.Usuarios.FindAsync(id);
+
+            if (usuarioDoBanco == null)
             {
-                usuario.SenhaHash = BCrypt.Net.BCrypt.HashPassword(usuario.SenhaHash);
+                return NotFound("Usuário não encontrado.");
             }
 
-            _context.Entry(usuario).State = EntityState.Modified;
+            // 2. Atualiza APENAS os campos que queremos permitir a edição.
+            //    Ignoramos completamente a senha, mantendo a que já existe no banco.
+            usuarioDoBanco.Nome = usuarioUpdateRequest.Nome;
+            usuarioDoBanco.Email = usuarioUpdateRequest.Email;
+            usuarioDoBanco.Perfil = usuarioUpdateRequest.Perfil;
+            usuarioDoBanco.SetorIdSetor = usuarioUpdateRequest.SetorIdSetor;
 
+            // 3. O Entity Framework agora é inteligente o suficiente para saber
+            //    exatamente quais campos mudaram e só atualizará eles.
             try
             {
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); // Salva as alterações reais no banco.
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -123,8 +122,7 @@ namespace HelpDesk.Api.Controllers
                 }
             }
 
-            // Retorna o status 204 No Content
-            return NoContent();
+            return NoContent(); // Retorna sucesso.
         }
 
         // DELETE: api/Usuarios/5
@@ -140,9 +138,7 @@ namespace HelpDesk.Api.Controllers
             _context.Usuarios.Remove(usuario);
             await _context.SaveChangesAsync();
 
-            // Retorna o status 204 No Content
             return NoContent();
         }
-
     }
 }

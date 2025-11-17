@@ -28,7 +28,7 @@ export default function Login() {
     }
   }, [isLoggedIn, setLocation]);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoginError("");
 
@@ -42,7 +42,7 @@ export default function Login() {
       return;
     }
 
-    const result = login(email, password);
+    const result = await login(email, password);
     if (!result.success) {
       setLoginError(result.error || "Erro ao fazer login");
     }

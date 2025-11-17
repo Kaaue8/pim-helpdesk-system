@@ -1,10 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>57bbba61-eea6-45f0-8793-db4c174ebb57</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
