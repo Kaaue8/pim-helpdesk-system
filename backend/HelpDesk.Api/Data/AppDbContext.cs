@@ -1,158 +1,207 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using HelpDesk.Api.Models;
 using BCrypt.Net;
-using System; // Adicionado para DateTime
+using System;
 
 namespace HelpDesk.Api.Data
 {
+    /// <summary>
+    /// Contexto do banco de dados - AppDbContext
+    /// ✅ CORRIGIDO para refletir o schema real do Azure SQL Database
+    /// </summary>
     public class AppDbContext : DbContext
     {
-        // Adicionado para suprimir o erro de modelo não determinístico
+        // Suprime avisos de modelo não determinístico
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.ConfigureWarnings(w => w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning));
+            optionsBuilder.ConfigureWarnings(w => 
+                w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning));
         }
-        // 1. CONSTRUTOR SEM PARÂMETROS (Para o Add-Migration)
+
+        // 1. CONSTRUTOR SEM PARÂMETROS (Para migrations)
         public AppDbContext()
         {
         }
 
-        // 2. CONSTRUTOR COM PARÂMETROS (Para a Aplicação)
+        // 2. CONSTRUTOR COM PARÂMETROS (Para a aplicação)
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
 
-        // 3. DBSETS (As tabelas)
+        // 3. DBSETS (Tabelas do banco de dados)
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Setor> Setores { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<LogAuditoria> LogsAuditoria { get; set; }
+        public DbSet<TicketHistorico> TicketHistorico { get; set; }
 
-        // 4. ONMODELCREATING (Configurações avançadas e Data Seeding)
+        // 4. ONMODELCREATING (Configurações de relacionamentos e seed data)
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // --- Configuração de Relacionamentos (Para desambiguar avisos do EF Core) ---
+            // ========================================
+            // CONFIGURAÇÃO DE RELACIONAMENTOS
+            // ========================================
 
-            // Relacionamentos LogAuditoria <-> Usuario (Múltiplos relacionamentos)
+            // Relacionamento: LogAuditoria -> Usuario (UsuarioAfetado)
             modelBuilder.Entity<LogAuditoria>()
                 .HasOne(l => l.UsuarioAfetado)
-                .WithMany(u => u.LogsAfetados) // Propriedade de navegação no Usuario.cs
+                .WithMany(u => u.LogsAfetados)
                 .HasForeignKey(l => l.IdUsuarioAfetado)
                 .OnDelete(DeleteBehavior.Restrict); // Evita exclusão em cascata
 
+            // Relacionamento: LogAuditoria -> Usuario (UsuarioExecutor)
             modelBuilder.Entity<LogAuditoria>()
                 .HasOne(l => l.UsuarioExecutor)
-                .WithMany(u => u.LogsExecutados) // Propriedade de navegação no Usuario.cs
+                .WithMany(u => u.LogsExecutados)
                 .HasForeignKey(l => l.IdUsuarioExecutor)
                 .OnDelete(DeleteBehavior.Restrict); // Evita exclusão em cascata
 
-            // Relacionamentos Ticket <-> Usuario (Múltiplos relacionamentos)
+            // Relacionamento: Ticket -> Usuario (Solicitante)
             modelBuilder.Entity<Ticket>()
-                .HasOne(t => t.Usuario) // O usuário que abriu o ticket
-                .WithMany(u => u.TicketsAbertos) // Propriedade de navegação no Usuario.cs
-                .HasForeignKey(t => t.UsuarioId)
+                .HasOne(t => t.Solicitante)
+                .WithMany(u => u.TicketsAbertos)
+                .HasForeignKey(t => t.SolicitanteId)
                 .OnDelete(DeleteBehavior.Restrict); // Evita exclusão em cascata
 
+            // Relacionamento: Ticket -> Usuario (Responsavel)
             modelBuilder.Entity<Ticket>()
-                .HasOne(t => t.Tecnico) // O técnico que atende o ticket
-                .WithMany(u => u.TicketsAtribuidos) // Propriedade de navegação no Usuario.cs
-                .HasForeignKey(t => t.TecnicoId)
+                .HasOne(t => t.Responsavel)
+                .WithMany(u => u.TicketsAtribuidos)
+                .HasForeignKey(t => t.ResponsavelId)
                 .OnDelete(DeleteBehavior.Restrict); // Evita exclusão em cascata
 
-            // --- Fim da Configuração de Relacionamentos ---
+            // Relacionamento: Ticket -> Categoria
+            modelBuilder.Entity<Ticket>()
+                .HasOne(t => t.Categoria)
+                .WithMany(c => c.Tickets)
+                .HasForeignKey(t => t.CategoriaId)
+                .OnDelete(DeleteBehavior.SetNull); // Se categoria for deletada, FK vira NULL
 
-            // --- Data Seeding (Dados Iniciais) ---
+            // Relacionamento: Usuario -> Setor
+            modelBuilder.Entity<Usuario>()
+                .HasOne(u => u.Setor)
+                .WithMany(s => s.Usuarios)
+                .HasForeignKey(u => u.SetorId)
+                .OnDelete(DeleteBehavior.Restrict); // Evita exclusão em cascata
 
-            // 1. Setores
+            // Relacionamento: TicketHistorico -> Ticket
+            modelBuilder.Entity<TicketHistorico>()
+                .HasOne(h => h.Ticket)
+                .WithMany(t => t.Historico)
+                .HasForeignKey(h => h.TicketId)
+                .OnDelete(DeleteBehavior.Cascade); // Se ticket for deletado, histórico também é
+
+            // Relacionamento: TicketHistorico -> Usuario
+            modelBuilder.Entity<TicketHistorico>()
+                .HasOne(h => h.Usuario)
+                .WithMany()
+                .HasForeignKey(h => h.UsuarioId)
+                .OnDelete(DeleteBehavior.Restrict); // Evita exclusão em cascata
+
+            // ========================================
+            // DATA SEEDING (Dados Iniciais)
+            // ========================================
+
+            // 1. SETORES
+            // ✅ Corrigido: usando propriedade "Nome" em vez de "NomeSetor"
             modelBuilder.Entity<Setor>().HasData(
-                new Setor { IdSetor = 1, NomeSetor = "Financeiro" },
-                new Setor { IdSetor = 2, NomeSetor = "TI" },
-                new Setor { IdSetor = 3, NomeSetor = "RH" },
-                new Setor { IdSetor = 4, NomeSetor = "Administrativo" }
+                new Setor { IdSetor = 1, Nome = "Financeiro", Descricao = "Setor Financeiro", Ativo = true },
+                new Setor { IdSetor = 2, Nome = "TI", Descricao = "Tecnologia da Informação", Ativo = true },
+                new Setor { IdSetor = 3, Nome = "RH", Descricao = "Recursos Humanos", Ativo = true },
+                new Setor { IdSetor = 4, Nome = "Administrativo", Descricao = "Setor Administrativo", Ativo = true }
             );
 
-            // 2. Categorias
+            // 2. CATEGORIAS
+            // ✅ Corrigido: usando propriedade "Nome" em vez de "NomeCategoria"
             modelBuilder.Entity<Categoria>().HasData(
-                new Categoria { IdCategoria = 1, NomeCategoria = "Hardware" },
-                new Categoria { IdCategoria = 2, NomeCategoria = "Software" },
-                new Categoria { IdCategoria = 3, NomeCategoria = "Acesso" },
-                new Categoria { IdCategoria = 4, NomeCategoria = "Rede" },
-                new Categoria { IdCategoria = 5, NomeCategoria = "Sistema" }
+                new Categoria { IdCategoria = 1, Nome = "Hardware", Descricao = "Problemas de hardware", Ativo = true },
+                new Categoria { IdCategoria = 2, Nome = "Software", Descricao = "Problemas de software", Ativo = true },
+                new Categoria { IdCategoria = 3, Nome = "Acesso", Descricao = "Problemas de acesso", Ativo = true },
+                new Categoria { IdCategoria = 4, Nome = "Rede", Descricao = "Problemas de rede", Ativo = true },
+                new Categoria { IdCategoria = 5, Nome = "Sistema", Descricao = "Problemas de sistema", Ativo = true }
             );
 
-            // 3. Usuários (Todos com a senha "123456" hasheada)
+            // 3. USUÁRIOS
+            // ✅ Corrigido: usando "IdUsuario" em vez de "Id" e "SetorId" em vez de "SetorIdSetor"
+            // Senha padrão para todos: "123456"
             string senhaHash = BCrypt.Net.BCrypt.HashPassword("123456");
 
-            // Usando uma data estática para evitar o erro de modelo não determinístico
+            // Data estática para evitar erro de modelo não determinístico
             var dataEstatica = new DateTime(2025, 1, 1, 10, 0, 0, DateTimeKind.Utc);
 
             modelBuilder.Entity<Usuario>().HasData(
-                // Analista 1
+                // Administrador 1
                 new Usuario
                 {
-                    Id = 1,
+                    IdUsuario = 1,
                     Nome = "Kaue",
                     Email = "kaue@empresa.com",
                     SenhaHash = senhaHash,
-                    Perfil = "Analista",
-                    DataCriacao = dataEstatica.AddDays(-10), // Data estática
-                    SetorIdSetor = 1 // Financeiro
+                    Perfil = "Admin",
+                    DataCriacao = dataEstatica.AddDays(-10),
+                    SetorId = 1, // Financeiro
+                    Ativo = true
                 },
-                // Analista 2
+                // Administrador 2
                 new Usuario
                 {
-                    Id = 2,
+                    IdUsuario = 2,
                     Nome = "Julia Castro",
                     Email = "julia.castro@empresa.com",
                     SenhaHash = senhaHash,
-                    Perfil = "Analista",
-                    DataCriacao = dataEstatica.AddDays(-9), // Data estática
-                    SetorIdSetor = 1 // Financeiro
+                    Perfil = "Admin",
+                    DataCriacao = dataEstatica.AddDays(-9),
+                    SetorId = 1, // Financeiro
+                    Ativo = true
                 },
-                // Usuario Comum 1
+                // Usuário Comum 1
                 new Usuario
                 {
-                    Id = 3,
+                    IdUsuario = 3,
                     Nome = "Vinicius Wayna",
                     Email = "vinicius.wayna@empresa.com",
                     SenhaHash = senhaHash,
                     Perfil = "Usuario",
-                    DataCriacao = dataEstatica.AddDays(-8), // Data estática
-                    SetorIdSetor = 3 // RH
+                    DataCriacao = dataEstatica.AddDays(-8),
+                    SetorId = 3, // RH
+                    Ativo = true
                 },
-                // Admin
+                // Administrador 3
                 new Usuario
                 {
-                    Id = 6,
+                    IdUsuario = 6,
                     Nome = "Vinicius Macedo",
                     Email = "vinicius.macedo@empresa.com",
                     SenhaHash = senhaHash,
                     Perfil = "Admin",
-                    DataCriacao = dataEstatica.AddDays(-7), // Data estática
-                    SetorIdSetor = 4 // Administrativo
+                    DataCriacao = dataEstatica.AddDays(-7),
+                    SetorId = 4, // Administrativo
+                    Ativo = true
                 },
-                // Usuario Comum 2
+                // Usuário Comum 2
                 new Usuario
                 {
-                    Id = 7,
+                    IdUsuario = 7,
                     Nome = "Irineu Julio",
                     Email = "irineu.julio@empresa.com",
                     SenhaHash = senhaHash,
                     Perfil = "Usuario",
-                    DataCriacao = dataEstatica.AddDays(-6), // Data estática
-                    SetorIdSetor = 2 // TI
+                    DataCriacao = dataEstatica.AddDays(-6),
+                    SetorId = 2, // TI
+                    Ativo = true
                 },
-                // Usuario Comum 3
+                // Usuário Comum 3
                 new Usuario
                 {
-                    Id = 8,
-                    Nome = "Samuel NObRe",
+                    IdUsuario = 8,
+                    Nome = "Samuel Nobre",
                     Email = "samuel.nobre@empresa.com",
                     SenhaHash = senhaHash,
                     Perfil = "Usuario",
-                    DataCriacao = dataEstatica.AddDays(-5), // Data estática
-                    SetorIdSetor = 3 // RH
+                    DataCriacao = dataEstatica.AddDays(-5),
+                    SetorId = 3, // RH
+                    Ativo = true
                 }
             );
 
@@ -160,3 +209,4 @@ namespace HelpDesk.Api.Data
         }
     }
 }
+
