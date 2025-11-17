@@ -34,7 +34,6 @@ namespace HelpDesk.Api.Data
         public DbSet<Setor> Setores { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<LogAuditoria> LogsAuditoria { get; set; }
-        public DbSet<TicketHistorico> TicketHistorico { get; set; }
 
         // 4. ONMODELCREATING (Configurações de relacionamentos e seed data)
         protected override void OnModelCreating(ModelBuilder modelBuilder)
