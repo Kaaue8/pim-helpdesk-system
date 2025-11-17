@@ -11,9 +11,9 @@ namespace HelpDesk.Api.Controllers
     [Authorize]
     public class SetoresController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly AppDbContext _context;
 
-        public SetoresController(ApplicationDbContext context)
+        public SetoresController(AppDbContext context)
         {
             _context = context;
         }

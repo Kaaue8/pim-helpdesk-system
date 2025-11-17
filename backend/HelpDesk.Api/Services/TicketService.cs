@@ -6,9 +6,9 @@ namespace HelpDesk.Api.Services
 {
     public class TicketService
     {
-        private readonly ApplicationDbContext _context;
+        private readonly AppDbContext _context;
 
-        public TicketService(ApplicationDbContext context)
+        public TicketService(AppDbContext context)
         {
             _context = context;
         }

@@ -12,10 +12,10 @@ namespace HelpDesk.Api.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly AppDbContext _context;
         private readonly AuthService _authService;
 
-        public LoginController(ApplicationDbContext context, AuthService authService)
+        public LoginController(AppDbContext context, AuthService authService)
         {
             _context = context;
             _authService = authService;
