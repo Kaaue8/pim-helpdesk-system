@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E28C8AB3-35C1-E2D3-42CA-263828C5E549}|HelpDesk.Api.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\backend\\helpdesk.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{E28C8AB3-35C1-E2D3-42CA-263828C5E549}|HelpDesk.Api.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E28C8AB3-35C1-E2D3-42CA-263828C5E549}|HelpDesk.Api.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\backend\\helpdesk.api\\services\\houstonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E28C8AB3-35C1-E2D3-42CA-263828C5E549}|HelpDesk.Api.csproj|solutionrelative:services\\houstonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E28C8AB3-35C1-E2D3-42CA-263828C5E549}|HelpDesk.Api.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\backend\\helpdesk.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E28C8AB3-35C1-E2D3-42CA-263828C5E549}|HelpDesk.Api.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E28C8AB3-35C1-E2D3-42CA-263828C5E549}|HelpDesk.Api.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\backend\\helpdesk.api\\.dockerignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{E28C8AB3-35C1-E2D3-42CA-263828C5E549}|HelpDesk.Api.csproj|solutionrelative:.dockerignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E28C8AB3-35C1-E2D3-42CA-263828C5E549}|HelpDesk.Api.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\backend\\helpdesk.api\\controllers\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,6 +17,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{E28C8AB3-35C1-E2D3-42CA-263828C5E549}|HelpDesk.Api.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\backend\\helpdesk.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{E28C8AB3-35C1-E2D3-42CA-263828C5E549}|HelpDesk.Api.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E28C8AB3-35C1-E2D3-42CA-263828C5E549}|HelpDesk.Api.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\backend\\helpdesk.api\\services\\houstonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E28C8AB3-35C1-E2D3-42CA-263828C5E549}|HelpDesk.Api.csproj|solutionrelative:services\\houstonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E28C8AB3-35C1-E2D3-42CA-263828C5E549}|HelpDesk.Api.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\backend\\helpdesk.api\\models\\triageresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -78,95 +70,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": ".dockerignore",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\.dockerignore",
-              "RelativeDocumentMoniker": ".dockerignore",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\.dockerignore",
-              "RelativeToolTip": ".dockerignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-11-14T05:59:40.321Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Dockerfile",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Dockerfile",
-              "RelativeDocumentMoniker": "Dockerfile",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Dockerfile",
-              "RelativeToolTip": "Dockerfile",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAUwB4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-11-14T05:58:14.299Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "HoustonService.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Services\\HoustonService.cs",
-              "RelativeDocumentMoniker": "Services\\HoustonService.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Services\\HoustonService.cs",
-              "RelativeToolTip": "Services\\HoustonService.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAuwBIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T05:38:32.558Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "TriageResult.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Models\\TriageResult.cs",
-              "RelativeDocumentMoniker": "Models\\TriageResult.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Models\\TriageResult.cs",
-              "RelativeToolTip": "Models\\TriageResult.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAADgvwcAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T05:38:32.562Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Ticket.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Models\\Ticket.cs",
-              "RelativeDocumentMoniker": "Models\\Ticket.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Models\\Ticket.cs",
-              "RelativeToolTip": "Models\\Ticket.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAYwAcAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T05:38:32.565Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAYwGUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T05:38:32.568Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -179,6 +87,55 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "HoustonService.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Services\\HoustonService.cs",
+              "RelativeDocumentMoniker": "Services\\HoustonService.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Services\\HoustonService.cs",
+              "RelativeToolTip": "Services\\HoustonService.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAqwFwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T05:38:32.558Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TriageResult.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Models\\TriageResult.cs",
+              "RelativeDocumentMoniker": "Models\\TriageResult.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Models\\TriageResult.cs",
+              "RelativeToolTip": "Models\\TriageResult.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAADgvwcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T05:38:32.562Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Ticket.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Models\\Ticket.cs",
+              "RelativeDocumentMoniker": "Models\\Ticket.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Models\\Ticket.cs",
+              "RelativeToolTip": "Models\\Ticket.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAYwAcAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T05:38:32.565Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAiwG4AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T05:38:32.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "TicketsController.cs",
               "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Controllers\\TicketsController.cs",
               "RelativeDocumentMoniker": "Controllers\\TicketsController.cs",
@@ -190,7 +147,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 9,
               "Title": "CreateUsuarioDto.cs",
               "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Models\\Dto\\CreateUsuarioDto.cs",
               "RelativeDocumentMoniker": "Models\\Dto\\CreateUsuarioDto.cs",
@@ -202,7 +159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 11,
               "Title": "Categoria.cs",
               "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Models\\Categoria.cs",
               "RelativeDocumentMoniker": "Models\\Categoria.cs",
@@ -214,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "Services\\AuthService.cs",
@@ -226,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
@@ -238,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Models\\Usuario.cs",
               "RelativeDocumentMoniker": "Models\\Usuario.cs",
@@ -250,7 +207,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 12,
               "Title": "Setor.cs",
               "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Models\\Setor.cs",
               "RelativeDocumentMoniker": "Models\\Setor.cs",
@@ -262,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 10,
               "Title": "LogAuditoria.cs",
               "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Models\\LogAuditoria.cs",
               "RelativeDocumentMoniker": "Models\\LogAuditoria.cs",
@@ -274,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 13,
               "Title": "UsuariosController.cs",
               "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Controllers\\UsuariosController.cs",
               "RelativeDocumentMoniker": "Controllers\\UsuariosController.cs",
@@ -286,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 14,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\backend\\HelpDesk.Api\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "Controllers\\DashboardController.cs",
@@ -295,6 +252,10 @@
               "ViewState": "AgIAACwAAAAAAAAAAAAiwD8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-14T05:38:32.693Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }
