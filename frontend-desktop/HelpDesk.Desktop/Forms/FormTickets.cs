@@ -53,7 +53,7 @@ namespace HelpDesk.Desktop.Forms
             // Filtro por status
             if (cmbFiltroStatus.SelectedIndex > 0)
             {
-                string statusSelecionado = cmbFiltroStatus.SelectedItem?.ToString() ?? "";
+                string statusSelecionado = cmbFiltroStatus.SelectedItem.ToString()!;
                 ticketsFiltrados = ticketsFiltrados.Where(t => t.Status == statusSelecionado);
             }
 

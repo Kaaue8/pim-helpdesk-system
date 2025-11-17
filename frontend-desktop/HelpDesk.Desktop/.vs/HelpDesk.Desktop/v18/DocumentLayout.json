@@ -3,48 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\utils\\appconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:utils\\appconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\service\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:service\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formlogin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formlogin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\helpdesk.desktop.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:helpdesk.desktop.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\utils\\appstyles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:utils\\appstyles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formhistorico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formhistorico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formtickets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formtickets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formhistorico.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formhistorico.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formhistorico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formhistorico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formcategorias.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formcategorias.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formcategorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -55,46 +19,6 @@
       "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formcategorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formcategorias.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formcategorias.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formusuarios.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formusuarios.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formnovoticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formnovoticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formnovoticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formnovoticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formnovoticket.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formnovoticket.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formtickets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formtickets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formtickets.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formtickets.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formdashboard.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formdashboard.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -103,16 +27,68 @@
       "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formhistorico.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formhistorico.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formhistorico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formhistorico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formlogin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formlogin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formnovoticket.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formnovoticket.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formnovoticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formnovoticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formtickets.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formtickets.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formtickets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formtickets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formusuarios.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formusuarios.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\triagemia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:models\\triagemia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\tickethistorico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:models\\tickethistorico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\solucaocomum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:models\\solucaocomum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\setor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:models\\setor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\palavrachave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -123,28 +99,52 @@
       "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:models\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\tickethistorico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:models\\tickethistorico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\setor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:models\\setor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\service\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:service\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\utils\\appconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:utils\\appconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\utils\\appstyles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:utils\\appstyles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formtickets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formtickets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formhistorico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formhistorico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formnovoticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formnovoticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\repos\\kaaue8\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D717255-29E4-A6DD-3BC0-3A2639332695}|HelpDesk.Desktop.csproj|solutionrelative:forms\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -158,174 +158,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FormLogin.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.cs",
-              "RelativeDocumentMoniker": "Forms\\FormLogin.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.cs [Projeto]",
-              "RelativeToolTip": "Forms\\FormLogin.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:41:37.051Z",
-              "EditorCaption": " [Projeto]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AppStyles.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Utils\\AppStyles.cs",
-              "RelativeDocumentMoniker": "Utils\\AppStyles.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Utils\\AppStyles.cs",
-              "RelativeToolTip": "Utils\\AppStyles.cs",
-              "ViewState": "AgIAAAsBAAAAAAAAAAAAwB0BAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:09:13.237Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "HelpDesk.Desktop",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj",
-              "RelativeDocumentMoniker": "HelpDesk.Desktop.csproj",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj",
-              "RelativeToolTip": "HelpDesk.Desktop.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-17T01:26:47.538Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AppConfig.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Utils\\AppConfig.cs",
-              "RelativeDocumentMoniker": "Utils\\AppConfig.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Utils\\AppConfig.cs",
-              "RelativeToolTip": "Utils\\AppConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:09:27.232Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ApiService.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Service\\ApiService.cs",
-              "RelativeDocumentMoniker": "Service\\ApiService.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Service\\ApiService.cs",
-              "RelativeToolTip": "Service\\ApiService.cs",
-              "ViewState": "AgIAAFoBAAAAAAAAAAAUwGsBAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:05:20.539Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormLogin.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.cs",
-              "RelativeDocumentMoniker": "Forms\\FormLogin.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.cs",
-              "RelativeToolTip": "Forms\\FormLogin.cs",
-              "ViewState": "AgIAANIAAAAAAAAAAAAiwOgAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:41:42.231Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "FormLogin.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.Designer.cs",
-              "RelativeDocumentMoniker": "Forms\\FormLogin.Designer.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.Designer.cs",
-              "RelativeToolTip": "Forms\\FormLogin.Designer.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAwBwAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:42:12.928Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FormHistorico.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.cs",
-              "RelativeDocumentMoniker": "Forms\\FormHistorico.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.cs",
-              "RelativeToolTip": "Forms\\FormHistorico.cs",
-              "ViewState": "AgIAAI8AAAAAAAAAAAAIwKoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T03:03:07.344Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "FormTickets.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.cs",
-              "RelativeDocumentMoniker": "Forms\\FormTickets.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.cs",
-              "RelativeToolTip": "Forms\\FormTickets.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAiwDkAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:53:47.239Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "FormHistorico.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.cs",
-              "RelativeDocumentMoniker": "Forms\\FormHistorico.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.cs [Projeto]",
-              "RelativeToolTip": "Forms\\FormHistorico.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T03:03:04.137Z",
-              "EditorCaption": " [Projeto]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "FormHistorico.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.Designer.cs",
-              "RelativeDocumentMoniker": "Forms\\FormHistorico.Designer.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.Designer.cs",
-              "RelativeToolTip": "Forms\\FormHistorico.Designer.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAkwHAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T03:03:22.408Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "FormCategorias.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategorias.Designer.cs",
-              "RelativeDocumentMoniker": "Forms\\FormCategorias.Designer.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategorias.Designer.cs",
-              "RelativeToolTip": "Forms\\FormCategorias.Designer.cs",
-              "ViewState": "AgIAAKEAAAAAAAAAAAAkwLIAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:57:59.191Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "FormCategorias.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategorias.cs",
-              "RelativeDocumentMoniker": "Forms\\FormCategorias.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategorias.cs",
-              "RelativeToolTip": "Forms\\FormCategorias.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAkwI0AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:57:45.419Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
               "Title": "FormCategorias.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategorias.cs",
               "RelativeDocumentMoniker": "Forms\\FormCategorias.cs",
@@ -337,33 +170,396 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 2,
+              "Title": "FormCategorias.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategorias.cs",
+              "RelativeDocumentMoniker": "Forms\\FormCategorias.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategorias.cs",
+              "RelativeToolTip": "Forms\\FormCategorias.cs",
+              "ViewState": "AgIAAIMAAAAAAAAAAAAUwI4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T02:57:45.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormCategorias.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategorias.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\FormCategorias.Designer.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategorias.Designer.cs",
+              "RelativeToolTip": "Forms\\FormCategorias.Designer.cs",
+              "ViewState": "AgIAAKYAAAAAAAAAAAAUwLIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T02:57:59.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HelpDesk.Desktop",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj",
+              "RelativeDocumentMoniker": "HelpDesk.Desktop.csproj",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj",
+              "RelativeToolTip": "HelpDesk.Desktop.csproj",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-17T01:26:47.538Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormDashboard.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\FormDashboard.Designer.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.Designer.cs",
+              "RelativeToolTip": "Forms\\FormDashboard.Designer.cs",
+              "ViewState": "AgIAAM8AAAAAAAAAAAAUwNgAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T02:46:53.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormDashboard.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.cs",
+              "RelativeDocumentMoniker": "Forms\\FormDashboard.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.cs",
+              "RelativeToolTip": "Forms\\FormDashboard.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAYwBsAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T02:46:36.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FormHistorico.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\FormHistorico.Designer.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.Designer.cs",
+              "RelativeToolTip": "Forms\\FormHistorico.Designer.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAUwG0AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T03:03:22.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FormHistorico.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.cs",
+              "RelativeDocumentMoniker": "Forms\\FormHistorico.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.cs",
+              "RelativeToolTip": "Forms\\FormHistorico.cs",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAIwJUAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T03:03:07.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FormLogin.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\FormLogin.Designer.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.Designer.cs",
+              "RelativeToolTip": "Forms\\FormLogin.Designer.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAIwBsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T02:42:12.928Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FormLogin.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.cs",
+              "RelativeDocumentMoniker": "Forms\\FormLogin.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.cs",
+              "RelativeToolTip": "Forms\\FormLogin.cs",
+              "ViewState": "AgIAADMBAAAAAAAAAAAAADwBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T02:41:42.231Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FormNovoTicket.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\FormNovoTicket.Designer.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.Designer.cs",
+              "RelativeToolTip": "Forms\\FormNovoTicket.Designer.cs",
+              "ViewState": "AgIAAOwAAAAAAAAAAAAUwPcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T02:55:58.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FormNovoTicket.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.cs",
+              "RelativeDocumentMoniker": "Forms\\FormNovoTicket.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.cs",
+              "RelativeToolTip": "Forms\\FormNovoTicket.cs",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAUwJEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T02:55:45.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "FormTickets.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\FormTickets.Designer.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.Designer.cs",
+              "RelativeToolTip": "Forms\\FormTickets.Designer.cs",
+              "ViewState": "AgIAAN8AAAAAAAAAAAAUwOgAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T02:54:47.293Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "FormTickets.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.cs",
+              "RelativeDocumentMoniker": "Forms\\FormTickets.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.cs",
+              "RelativeToolTip": "Forms\\FormTickets.cs",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAIwKQAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T02:53:47.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "FormUsuarios.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormUsuarios.Designer.cs",
               "RelativeDocumentMoniker": "Forms\\FormUsuarios.Designer.cs",
               "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormUsuarios.Designer.cs",
               "RelativeToolTip": "Forms\\FormUsuarios.Designer.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAkwHgAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAUwHYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T02:57:04.076Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "FormUsuarios.cs",
               "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormUsuarios.cs",
               "RelativeDocumentMoniker": "Forms\\FormUsuarios.cs",
               "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormUsuarios.cs",
               "RelativeToolTip": "Forms\\FormUsuarios.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAkwFQAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAUwFQAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T02:56:50.538Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Usuario.cs",
+              "RelativeToolTip": "Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T01:03:07.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "TriagemIA.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\TriagemIA.cs",
+              "RelativeDocumentMoniker": "Models\\TriagemIA.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\TriagemIA.cs",
+              "RelativeToolTip": "Models\\TriagemIA.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAA2wB8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T01:04:48.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "TicketHistorico.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\TicketHistorico.cs",
+              "RelativeDocumentMoniker": "Models\\TicketHistorico.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\TicketHistorico.cs",
+              "RelativeToolTip": "Models\\TicketHistorico.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAQwAgAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T01:04:09.616Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Ticket.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Ticket.cs",
+              "RelativeDocumentMoniker": "Models\\Ticket.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Ticket.cs",
+              "RelativeToolTip": "Models\\Ticket.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAcwAwAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T01:03:26.388Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "SolucaoComum.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\SolucaoComum.cs",
+              "RelativeDocumentMoniker": "Models\\SolucaoComum.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\SolucaoComum.cs",
+              "RelativeToolTip": "Models\\SolucaoComum.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAswDAAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T01:04:35.473Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Setor.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Setor.cs",
+              "RelativeDocumentMoniker": "Models\\Setor.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Setor.cs",
+              "RelativeToolTip": "Models\\Setor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T01:03:50.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "PalavraChave.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\PalavraChave.cs",
+              "RelativeDocumentMoniker": "Models\\PalavraChave.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\PalavraChave.cs",
+              "RelativeToolTip": "Models\\PalavraChave.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA4wAwAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T01:04:25.806Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "LoginResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\LoginResponse.cs",
+              "RelativeDocumentMoniker": "Models\\LoginResponse.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\LoginResponse.cs",
+              "RelativeToolTip": "Models\\LoginResponse.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAuwAsAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T01:05:02.542Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Categoria.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Categoria.cs",
+              "RelativeDocumentMoniker": "Models\\Categoria.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Categoria.cs",
+              "RelativeToolTip": "Models\\Categoria.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T01:03:42.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ApiService.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Service\\ApiService.cs",
+              "RelativeDocumentMoniker": "Service\\ApiService.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Service\\ApiService.cs",
+              "RelativeToolTip": "Service\\ApiService.cs",
+              "ViewState": "AgIAAGEBAAAAAAAAAAAIwGsBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T01:05:20.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Service\\AuthService.cs",
+              "RelativeDocumentMoniker": "Service\\AuthService.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Service\\AuthService.cs",
+              "RelativeToolTip": "Service\\AuthService.cs",
+              "ViewState": "AgIAAJ8AAAAAAAAAAAAUwKUAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T01:05:34.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "AppConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Utils\\AppConfig.cs",
+              "RelativeDocumentMoniker": "Utils\\AppConfig.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Utils\\AppConfig.cs",
+              "RelativeToolTip": "Utils\\AppConfig.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAswBgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T01:09:27.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "AppStyles.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Utils\\AppStyles.cs",
+              "RelativeDocumentMoniker": "Utils\\AppStyles.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Utils\\AppStyles.cs",
+              "RelativeToolTip": "Utils\\AppStyles.cs",
+              "ViewState": "AgIAABQBAAAAAAAAAAAUwB0BAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T01:09:13.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAowAwAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T01:27:32.407Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "FormLogin.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.cs",
+              "RelativeDocumentMoniker": "Forms\\FormLogin.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.cs [Projeto]",
+              "RelativeToolTip": "Forms\\FormLogin.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T02:41:37.051Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
               "Title": "FormUsuarios.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormUsuarios.cs",
               "RelativeDocumentMoniker": "Forms\\FormUsuarios.cs",
@@ -375,58 +571,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "FormNovoTicket.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.Designer.cs",
-              "RelativeDocumentMoniker": "Forms\\FormNovoTicket.Designer.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.Designer.cs",
-              "RelativeToolTip": "Forms\\FormNovoTicket.Designer.cs",
-              "ViewState": "AgIAAOcAAAAAAAAAAAAkwPcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:55:58.097Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "FormNovoTicket.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.cs",
-              "RelativeDocumentMoniker": "Forms\\FormNovoTicket.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.cs",
-              "RelativeToolTip": "Forms\\FormNovoTicket.cs",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAswI4AAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:55:45.636Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "FormNovoTicket.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.cs",
-              "RelativeDocumentMoniker": "Forms\\FormNovoTicket.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.cs [Projeto]",
-              "RelativeToolTip": "Forms\\FormNovoTicket.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:55:42.331Z",
-              "EditorCaption": " [Projeto]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "FormTickets.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.Designer.cs",
-              "RelativeDocumentMoniker": "Forms\\FormTickets.Designer.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.Designer.cs",
-              "RelativeToolTip": "Forms\\FormTickets.Designer.cs",
-              "ViewState": "AgIAAOYAAAAAAAAAAAAkwOwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:54:47.293Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 32,
               "Title": "FormTickets.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.cs",
               "RelativeDocumentMoniker": "Forms\\FormTickets.cs",
@@ -438,7 +583,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 33,
+              "Title": "FormHistorico.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.cs",
+              "RelativeDocumentMoniker": "Forms\\FormHistorico.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.cs [Projeto]",
+              "RelativeToolTip": "Forms\\FormHistorico.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T03:03:04.137Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "FormNovoTicket.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.cs",
+              "RelativeDocumentMoniker": "Forms\\FormNovoTicket.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.cs [Projeto]",
+              "RelativeToolTip": "Forms\\FormNovoTicket.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T02:55:42.331Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
               "Title": "FormDashboard.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.cs",
               "RelativeDocumentMoniker": "Forms\\FormDashboard.cs",
@@ -447,175 +616,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T02:46:33.552Z",
               "EditorCaption": " [Projeto]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "FormDashboard.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.Designer.cs",
-              "RelativeDocumentMoniker": "Forms\\FormDashboard.Designer.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.Designer.cs",
-              "RelativeToolTip": "Forms\\FormDashboard.Designer.cs",
-              "ViewState": "AgIAANYAAAAAAAAAAAAkwNwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:46:53.382Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "FormDashboard.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.cs",
-              "RelativeDocumentMoniker": "Forms\\FormDashboard.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.cs",
-              "RelativeToolTip": "Forms\\FormDashboard.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAwwGUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:46:36.354Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "TriagemIA.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\TriagemIA.cs",
-              "RelativeDocumentMoniker": "Models\\TriagemIA.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\TriagemIA.cs",
-              "RelativeToolTip": "Models\\TriagemIA.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAA7wCAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:04:48.681Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Service\\AuthService.cs",
-              "RelativeDocumentMoniker": "Service\\AuthService.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Service\\AuthService.cs",
-              "RelativeToolTip": "Service\\AuthService.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAwwDcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:05:34.752Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "SolucaoComum.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\SolucaoComum.cs",
-              "RelativeDocumentMoniker": "Models\\SolucaoComum.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\SolucaoComum.cs",
-              "RelativeToolTip": "Models\\SolucaoComum.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAswDwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:04:35.473Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "PalavraChave.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\PalavraChave.cs",
-              "RelativeDocumentMoniker": "Models\\PalavraChave.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\PalavraChave.cs",
-              "RelativeToolTip": "Models\\PalavraChave.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAA9wA8AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:04:25.806Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "LoginResponse.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\LoginResponse.cs",
-              "RelativeDocumentMoniker": "Models\\LoginResponse.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\LoginResponse.cs",
-              "RelativeToolTip": "Models\\LoginResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAgwA4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:05:02.542Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "TicketHistorico.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\TicketHistorico.cs",
-              "RelativeDocumentMoniker": "Models\\TicketHistorico.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\TicketHistorico.cs",
-              "RelativeToolTip": "Models\\TicketHistorico.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAQwAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:04:09.616Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "Setor.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Setor.cs",
-              "RelativeDocumentMoniker": "Models\\Setor.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Setor.cs",
-              "RelativeToolTip": "Models\\Setor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:03:50.933Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Categoria.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Categoria.cs",
-              "RelativeDocumentMoniker": "Models\\Categoria.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Categoria.cs",
-              "RelativeToolTip": "Models\\Categoria.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:03:42.5Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "Ticket.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Ticket.cs",
-              "RelativeDocumentMoniker": "Models\\Ticket.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Ticket.cs",
-              "RelativeToolTip": "Models\\Ticket.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAA9wBEAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:03:26.388Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Usuario.cs",
-              "RelativeDocumentMoniker": "Models\\Usuario.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Usuario.cs",
-              "RelativeToolTip": "Models\\Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:03:07.797Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Caio\\source\\repos\\Kaaue8\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAYwBAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:27:32.407Z",
-              "EditorCaption": ""
             }
           ]
         }
