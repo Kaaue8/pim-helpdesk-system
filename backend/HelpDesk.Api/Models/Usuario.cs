@@ -40,5 +40,9 @@ namespace HelpDesk.Api.Models
         public virtual ICollection<LogAuditoria> LogsExecutados { get; set; } = new List<LogAuditoria>();
         public virtual ICollection<Ticket> TicketsAbertos { get; set; } = new List<Ticket>();
         public virtual ICollection<Ticket> TicketsAtribuidos { get; set; } = new List<Ticket>();
+
+        [ForeignKey(nameof(SetorIdSetor))]
+            public virtual Setor? Setor { get; set; }
+
     }
 }

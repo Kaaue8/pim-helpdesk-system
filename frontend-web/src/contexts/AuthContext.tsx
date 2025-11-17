@@ -2,12 +2,14 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 
 export type UserType = "admin" | "user" | null;
 
+// CORREÇÃO 1: Adicionado 'isLoading' à interface
 interface AuthContextType {
   isLoggedIn: boolean;
   userType: UserType;
   userName: string;
   userEmail: string;
   token: string | null;
+  isLoading: boolean; // Adicionado para que outros componentes saibam o estado de carregamento
   login: (email: string, password: string) => Promise<{ success: boolean; error?: string }>;
   logout: () => void;
 }
@@ -16,13 +18,13 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const API_BASE_URL = "http://localhost:5079/api";
 
-export function AuthProvider({ children }: { children: React.ReactNode } ) {
+export function AuthProvider({ children }: { children: React.ReactNode }  ) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userType, setUserType] = useState<UserType>(null);
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [token, setToken] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true); // Esta variável já existia, agora vamos exportá-la
 
   useEffect(() => {
     try {
@@ -57,7 +59,7 @@ export function AuthProvider({ children }: { children: React.ReactNode } ) {
         },
         body: JSON.stringify({
           email: emailParam,
-          Senha: passwordParam, // Corrigido para 'Senha' com 'S' maiúsculo
+          Senha: passwordParam,
         }),
       });
 
@@ -79,7 +81,6 @@ export function AuthProvider({ children }: { children: React.ReactNode } ) {
         };
       }
 
-      // Lógica corrigida para tratar 'Admin' e 'Analista' como 'admin'
       const perfilNormalizado = perfil.toLowerCase();
       const userTypeFromBackend = (perfilNormalizado === "admin" || perfilNormalizado === "analista") ? "admin" : "user";
 
@@ -134,12 +135,14 @@ export function AuthProvider({ children }: { children: React.ReactNode } ) {
 
   return (
     <AuthContext.Provider
+      // CORREÇÃO 2: Adicionado 'isLoading' ao objeto de valor compartilhado
       value={{
         isLoggedIn,
         userType,
         userName,
         userEmail,
         token,
+        isLoading, // Agora 'isLoading' é acessível por qualquer componente que use 'useAuth'
         login,
         logout,
       }}
@@ -149,12 +152,14 @@ export function AuthProvider({ children }: { children: React.ReactNode } ) {
   );
 }
 
+// CORREÇÃO 3: Adicionado 'isLoading' ao objeto padrão
 const DEFAULT_AUTH: AuthContextType = {
   isLoggedIn: false,
   userType: null,
   userName: "User",
   userEmail: "",
   token: null,
+  isLoading: true, // Inicia como 'true' por segurança
   login: async () => ({ success: false, error: "AuthProvider não disponível" }),
   logout: () => {},
 };

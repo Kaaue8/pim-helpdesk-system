@@ -2,8 +2,14 @@ import Layout from "@/components/Layout";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext"; 
+import { useNavigate } from "react-router-dom"; 
+import { toast } from "sonner"; 
 
 export default function CreateTicket() {
+  const { token } = useAuth();
+  const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false); // Desabilita o botão durante o envio
   const [formData, setFormData] = useState({
     title: "",
     category: "",
@@ -12,10 +18,51 @@ export default function CreateTicket() {
     attachment: null as string | null,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Formulário enviado:", formData);
-    alert("Chamado criado com sucesso!");
+  if (!token) {
+    toast.error("Sua sessão expirou. Por favor, faça login novamente.");
+    return;
+  }
+
+  setIsSubmitting(true);
+
+  // Objeto que será enviado para a API
+  const ticketData = {
+    titulo: formData.title,
+    descricao: formData.description,
+    prioridade: formData.priority,
+    // Status inicial é sempre 'Aberto'
+    status: "Aberto", 
+    // O ID do solicitante virá do token no backend, não precisamos enviar
+  };
+
+  try {
+    const response = await fetch('http://localhost:5079/api/Tickets', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify(ticketData ),
+    });
+
+    if (!response.ok) {
+      
+      const errorResult = await response.json().catch(() => null);
+      throw new Error(errorResult?.message || "Falha ao criar o chamado.");
+    }
+
+    toast.success("Chamado criado com sucesso!");
+    
+    // Após o sucesso, redireciona o usuário para a fila de chamados para ver o ticket novo
+    navigate("/fila-chamados");
+
+  } catch (error) {
+    toast.error((error as Error).message);
+  } finally {
+    setIsSubmitting(false);
+  }
   };
 
   const handleChange = (
@@ -197,8 +244,9 @@ export default function CreateTicket() {
               <Button
                 type="submit"
                 className="bg-purple-600 hover:bg-purple-700 text-white flex-1"
+                disabled={isSubmitting} 
               >
-                Enviar Chamado
+                {isSubmitting ? "Enviando..." : "Enviar Chamado"}
               </Button>
               <Button
                 type="button"

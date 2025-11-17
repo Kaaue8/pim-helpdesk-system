@@ -1,5 +1,4 @@
-﻿// /home/ubuntu/backend/HelpDesk.Api/Controllers/TicketsController.cs
-
+﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HelpDesk.Api.Data;
@@ -10,11 +9,12 @@ using System.Collections.Generic;
 using System;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
-using HelpDesk.Api.Services; // Adicionado para HoustonService
+using HelpDesk.Api.Services;
+using HelpDesk.Api.Dtos;
 
 namespace HelpDesk.Api.Controllers
 {
-    [Authorize] // Protege o Controller
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class TicketsController : ControllerBase

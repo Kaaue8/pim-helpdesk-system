@@ -1,10 +1,13 @@
-﻿using HelpDesk.Api.Models;
+﻿// ARQUIVO: HoustonService.cs (VERSÃO FINAL E CORRIGIDA)
+
+using HelpDesk.Api.Models;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using Microsoft.SemanticKernel.ChatCompletion;
+using Microsoft.Extensions.Configuration; // 1. ADICIONE ESTE 'using'
 
 namespace HelpDesk.Api.Services
 {
@@ -12,22 +15,30 @@ namespace HelpDesk.Api.Services
     {
         private readonly Kernel _kernel;
 
-        public HoustonService()
+        // 2. O CONSTRUTOR AGORA RECEBE IConfiguration
+        public HoustonService(IConfiguration configuration)
         {
-            // 1. Inicialização do Kernel
-            string apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY") ?? throw new InvalidOperationException("OPENAI_API_KEY não configurada.");
+            // 3. LÊ A CHAVE DA FORMA CORRETA (de appsettings.json ou user-secrets)
+            string apiKey = configuration["OPENAI_API_KEY"];
 
-            // Usando a sintaxe mais robusta para a criação do Kernel
+            // 4. VERIFICA SE A CHAVE FOI ENCONTRADA
+            if (string.IsNullOrEmpty(apiKey))
+            {
+                throw new InvalidOperationException("A chave OPENAI_API_KEY não foi encontrada nas configurações.");
+            }
+
+            // O resto da sua lógica de inicialização permanece o mesmo
             _kernel = Kernel.CreateBuilder()
                 .AddOpenAIChatCompletion(
-                    modelId: "gpt-4o-mini", // Modelo que suporta JSON
+                    modelId: "gpt-4o-mini",
                     apiKey: apiKey)
                 .Build();
         }
 
+        // 5. TODO O RESTO DO SEU CÓDIGO (TriageTicketAsync) PERMANECE EXATAMENTE IGUAL.
+        // Não precisa mudar nada aqui.
         public async Task<TriageResult> TriageTicketAsync(string title, string description)
         {
-            // 2. Definir o prompt do sistema para instruir a IA
             string systemPrompt = $@"Você é o assistente de triagem de chamados 'Houston'. Sua função é analisar o título e a descrição de um ticket e retornar um objeto JSON com a prioridade, o setor responsável, um resumo da triagem e uma sugestão de solução.
 
 Regras:
@@ -41,11 +52,8 @@ Regras:
     ""solucao_sugerida"": ""string (Sugestão de solução para o analista)""
 }}";
 
-            // 3. Definir a mensagem do usuário (o ticket)
             string userMessage = $"Título do Ticket: {title}\nDescrição do Ticket: {description}";
 
-            // 4. Configurar a requisição para forçar a saída JSON
-            // Usamos PromptExecutionSettings para a configuração genérica
             var executionSettings = new PromptExecutionSettings
             {
                 ExtensionData = new Dictionary<string, object>
@@ -56,14 +64,12 @@ Regras:
 
             try
             {
-                // 5. Chamar o modelo (CORREÇÃO: Usando KernelArguments para passar as configurações)
                 var result = await _kernel.InvokePromptAsync(
                     $"{systemPrompt}\n\nTicket: {userMessage}",
-                    new KernelArguments(executionSettings)); // Passa as configurações como KernelArguments
+                    new KernelArguments(executionSettings));
 
                 string jsonResponse = result.GetValue<string>() ?? string.Empty;
 
-                // 6. Processar a resposta da IA
                 var triageResult = JsonSerializer.Deserialize<TriageResult>(jsonResponse, new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
@@ -79,7 +85,6 @@ Regras:
             }
             catch (Exception ex)
             {
-                // Em caso de qualquer erro (API, rede, etc.), retorna um resultado padrão
                 return new TriageResult
                 {
                     Prioridade = "Média",

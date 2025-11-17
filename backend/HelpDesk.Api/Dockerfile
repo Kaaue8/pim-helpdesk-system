@@ -1,30 +1,30 @@
-# Use a imagem base do SDK do .NET para construir a aplicação
+# Use a imagem base do SDK do .NET para construir a aplicaï¿½ï¿½o
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /src
+WORKDIR /srcz
 
-# Copia o arquivo de projeto e restaura as dependências
-# O caminho é relativo ao Root Directory do Render (backend/HelpDesk.Api)
+# Copia o arquivo de projeto e restaura as dependï¿½ncias
+# O caminho ï¿½ relativo ao Root Directory do Render (backend/HelpDesk.Api)
 COPY ["HelpDesk.Api.csproj", "./"]
 RUN dotnet restore "HelpDesk.Api.csproj"
 
-# Copia o restante dos arquivos do projeto e constrói
+# Copia o restante dos arquivos do projeto e constrï¿½i
 COPY . .
-# O WORKDIR é o diretório raiz do projeto dentro do contêiner
+# O WORKDIR ï¿½ o diretï¿½rio raiz do projeto dentro do contï¿½iner
 WORKDIR "/src"
 RUN dotnet build "HelpDesk.Api.csproj" -c Release -o /app/build
 
-# Publica a aplicação
+# Publica a aplicaï¿½ï¿½o
 FROM build AS publish
 RUN dotnet publish "HelpDesk.Api.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
-# Use a imagem de runtime do .NET para rodar a aplicação
+# Use a imagem de runtime do .NET para rodar a aplicaï¿½ï¿½o
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
-# Define a porta de escuta para 8080, que é o padrão do Render
+# Define a porta de escuta para 8080, que ï¿½ o padrï¿½o do Render
 ENV ASPNETCORE_URLS=http://+:8080
 EXPOSE 8080
 
-# Define o ponto de entrada da aplicação
+# Define o ponto de entrada da aplicaï¿½ï¿½o
 ENTRYPOINT ["dotnet", "HelpDesk.Api.dll"]
