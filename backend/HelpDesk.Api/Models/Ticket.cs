@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace HelpDesk.Api.Models
 {
-    [Table("Ticket")] // ✅ Singular, conforme banco
+    [Table("Tickets")] // ✅ Plural, conforme banco
     public class Ticket
     {
         [Key]
@@ -39,7 +39,7 @@ namespace HelpDesk.Api.Models
         public Usuario? Responsavel { get; set; }
 
         // ✅ Categoria
-        [Column("CategoriaId")]
+        [Column("ID_Categoria")]
         public int? CategoriaId { get; set; }
 
         [ForeignKey(nameof(CategoriaId))]

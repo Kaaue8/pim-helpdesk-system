@@ -11,13 +11,13 @@ namespace HelpDesk.Api.Models
         [Column("ID_Historico")]
         public int IdHistorico { get; set; }
 
-        [Column("TicketId")]
+        [Column("ID_Ticket")]
         public int TicketId { get; set; }
 
         [ForeignKey(nameof(TicketId))]
         public Ticket? Ticket { get; set; }
 
-        [Column("UsuarioId")]
+        [Column("ID_Usuario")]
         public int UsuarioId { get; set; }
 
         [ForeignKey(nameof(UsuarioId))]

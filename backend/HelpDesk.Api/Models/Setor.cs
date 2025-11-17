@@ -4,15 +4,16 @@ using System.Collections.Generic;
 
 namespace HelpDesk.Api.Models
 {
-    [Table("Setor")] // ✅ Singular, conforme banco
+    [Table("Setores")] // ✅ Plural, conforme banco
     public class Setor
     {
         [Key]
-        [Column("ID_Setor")] // ✅ Conforme banco
+        [Column("id_setor")] // ✅ Conforme banco (snake_case)
         public int IdSetor { get; set; }
 
         [Required]
         [MaxLength(50)]
+        [Column("nome_setor")]
         public string Nome { get; set; } = string.Empty;
 
         [MaxLength(200)]

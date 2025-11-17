@@ -66,19 +66,19 @@ namespace HelpDesk.Api.Data
 
             // 1. Setores
             modelBuilder.Entity<Setor>().HasData(
-                new Setor { IdSetor = 1, NomeSetor = "Financeiro" },
-                new Setor { IdSetor = 2, NomeSetor = "TI" },
-                new Setor { IdSetor = 3, NomeSetor = "RH" },
-                new Setor { IdSetor = 4, NomeSetor = "Administrativo" }
+                new Setor { IdSetor = 1, Nome = "Financeiro" },
+                new Setor { IdSetor = 2, Nome = "TI" },
+                new Setor { IdSetor = 3, Nome = "RH" },
+                new Setor { IdSetor = 4, Nome = "Administrativo" }
             );
 
             // 2. Categorias
             modelBuilder.Entity<Categoria>().HasData(
-                new Categoria { IdCategoria = 1, NomeCategoria = "Hardware" },
-                new Categoria { IdCategoria = 2, NomeCategoria = "Software" },
-                new Categoria { IdCategoria = 3, NomeCategoria = "Acesso" },
-                new Categoria { IdCategoria = 4, NomeCategoria = "Rede" },
-                new Categoria { IdCategoria = 5, NomeCategoria = "Sistema" }
+                new Categoria { IdCategoria = 1, Nome = "Hardware" },
+                new Categoria { IdCategoria = 2, Nome = "Software" },
+                new Categoria { IdCategoria = 3, Nome = "Acesso" },
+                new Categoria { IdCategoria = 4, Nome = "Rede" },
+                new Categoria { IdCategoria = 5, Nome = "Sistema" }
             );
 
             // 3. Usuários (Todos com a senha "123456" hasheada)
@@ -91,68 +91,68 @@ namespace HelpDesk.Api.Data
                 // Admin 1
                 new Usuario
                 {
-                    Id = 1,
+                    IdUsuario = 1,
                     Nome = "Kaue",
                     Email = "kaue@empresa.com",
                     SenhaHash = senhaHash,
                     Perfil = "Admin",
                     DataCriacao = dataEstatica.AddDays(-10), // Data estática
-                    SetorIdSetor = 1 // Financeiro
+                    SetorId = 1 // Financeiro
                 },
                 // Admin 2
                 new Usuario
                 {
-                    Id = 2,
+                    IdUsuario = 2,
                     Nome = "Julia Castro",
                     Email = "julia.castro@empresa.com",
                     SenhaHash = senhaHash,
                     Perfil = "Admin",
                     DataCriacao = dataEstatica.AddDays(-9), // Data estática
-                    SetorIdSetor = 1 // Financeiro
+                    SetorId = 1 // Financeiro
                 },
                 // Usuario Comum 1
                 new Usuario
                 {
-                    Id = 3,
+                    IdUsuario = 3,
                     Nome = "Vinicius Wayna",
                     Email = "vinicius.wayna@empresa.com",
                     SenhaHash = senhaHash,
                     Perfil = "Usuario",
                     DataCriacao = dataEstatica.AddDays(-8), // Data estática
-                    SetorIdSetor = 3 // RH
+                    SetorId = 3 // RH
                 },
                 // Admin
                 new Usuario
                 {
-                    Id = 6,
+                    IdUsuario = 6,
                     Nome = "Vinicius Macedo",
                     Email = "vinicius.macedo@empresa.com",
                     SenhaHash = senhaHash,
                     Perfil = "Admin",
                     DataCriacao = dataEstatica.AddDays(-7), // Data estática
-                    SetorIdSetor = 4 // Administrativo
+                    SetorId = 4 // Administrativo
                 },
                 // Usuario Comum 2
                 new Usuario
                 {
-                    Id = 7,
+                    IdUsuario = 7,
                     Nome = "Irineu Julio",
                     Email = "irineu.julio@empresa.com",
                     SenhaHash = senhaHash,
                     Perfil = "Usuario",
                     DataCriacao = dataEstatica.AddDays(-6), // Data estática
-                    SetorIdSetor = 2 // TI
+                    SetorId = 2 // TI
                 },
                 // Usuario Comum 3
                 new Usuario
                 {
-                    Id = 8,
+                    IdUsuario = 8,
                     Nome = "Samuel NObRe",
                     Email = "samuel.nobre@empresa.com",
                     SenhaHash = senhaHash,
                     Perfil = "Usuario",
                     DataCriacao = dataEstatica.AddDays(-5), // Data estática
-                    SetorIdSetor = 3 // RH
+                    SetorId = 3 // RH
                 }
             );
 

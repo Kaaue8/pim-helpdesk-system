@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace HelpDesk.Api.Models
 {
-    [Table("Usuario")] // ✅ Singular, conforme banco
+        [Table("Usuarios")] // ✅ Plural, conforme banco
     public class Usuario
     {
         [Key]
@@ -29,7 +29,7 @@ namespace HelpDesk.Api.Models
         public DateTime DataCriacao { get; set; }
 
         // ✅ Chave estrangeira correta
-        [Column("SetorId")]
+        [Column("ID_Setor")]
         public int? SetorId { get; set; }
 
         [ForeignKey(nameof(SetorId))]
