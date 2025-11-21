@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HelpDesk.Api.Data;
 using HelpDesk.Api.Models;
@@ -59,11 +58,11 @@ namespace HelpDesk.Api.Controllers
 
         // GET: api/Tickets
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Ticket>>> GetTickets()
+        public async Task<ActionResult<IEnumerable<object>>> GetTickets()
         {
             var role = GetUserRole();
             var userId = GetUserId();
-            var tickets = _context.Tickets.Include(t => t.Usuario).AsQueryable();
+            var query = _context.Tickets.AsQueryable();
 
             switch (role)
             {
@@ -77,13 +76,13 @@ namespace HelpDesk.Api.Controllers
                     if (setorId > 0)
                     {
                         // Filtra tickets onde o Usuario que abriu pertence ao mesmo setor do Analista
-                        tickets = tickets.Where(t => t.Usuario != null && t.Usuario.SetorIdSetor == setorId);
+                        query = query.Where(t => t.Usuario != null && t.Usuario.SetorIdSetor == setorId);
                     }
                     break;
 
                 case "Usuario":
                     // Usuário comum vê apenas os tickets que ele abriu
-                    tickets = tickets.Where(t => t.UsuarioId == userId);
+                    query = query.Where(t => t.UsuarioId == userId);
                     break;
 
                 default:
@@ -91,15 +90,37 @@ namespace HelpDesk.Api.Controllers
                     return Forbid();
             }
 
-            return await tickets.ToListAsync();
+            // ✅ CORREÇÃO: Retorna dados necessários + técnico responsável
+            var tickets = await query
+                .Select(t => new
+                {
+                    t.Id,
+                    t.Titulo,
+                    t.Descricao,
+                    t.Status,
+                    t.Prioridade,
+                    t.DataAbertura,
+                    t.DataFechamento,
+                    t.SetorRecomendado,
+                    t.ResumoTriagem,
+                    t.SolucaoSugerida,
+                    SolicitanteNome = t.Usuario.Nome,
+                    SolicitanteEmail = t.Usuario.Email,
+                    TecnicoNome = t.Tecnico != null ? t.Tecnico.Nome : null,  // ✅ NOVO: Técnico responsável
+                    TecnicoId = t.TecnicoId  // ✅ NOVO: ID do técnico
+                })
+                .ToListAsync();
+
+            return Ok(tickets);
         }
 
         // GET: api/Tickets/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Ticket>> GetTicket(int id)
+        public async Task<ActionResult<object>> GetTicket(int id)
         {
             var ticket = await _context.Tickets
                 .Include(t => t.Usuario)
+                .Include(t => t.Tecnico)  // ✅ NOVO: Inclui o técnico
                 .FirstOrDefaultAsync(t => t.Id == id);
 
             if (ticket == null)
@@ -126,8 +147,26 @@ namespace HelpDesk.Api.Controllers
                 }
             }
 
-            // Admin vê tudo, Analista vê do setor, Usuário vê o seu (já checado)
-            return ticket;
+            // ✅ CORREÇÃO: Retorna dados necessários + técnico responsável
+            var result = new
+            {
+                ticket.Id,
+                ticket.Titulo,
+                ticket.Descricao,
+                ticket.Status,
+                ticket.Prioridade,
+                ticket.DataAbertura,
+                ticket.DataFechamento,
+                ticket.SetorRecomendado,
+                ticket.ResumoTriagem,
+                ticket.SolucaoSugerida,
+                SolicitanteNome = ticket.Usuario?.Nome,
+                SolicitanteEmail = ticket.Usuario?.Email,
+                TecnicoNome = ticket.Tecnico?.Nome,  // ✅ NOVO: Técnico responsável
+                TecnicoId = ticket.TecnicoId  // ✅ NOVO: ID do técnico
+            };
+
+            return Ok(result);
         }
 
         // POST: api/Tickets
