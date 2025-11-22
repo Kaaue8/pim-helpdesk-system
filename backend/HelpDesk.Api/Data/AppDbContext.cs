@@ -26,8 +26,10 @@ namespace HelpDesk.Api.Data
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Setor> Setores { get; set; }
-        public DbSet<Categoria> Categorias { get; set; }
         public DbSet<LogAuditoria> LogsAuditoria { get; set; }
+        public DbSet<CategoriasChamados> CategoriasChamados { get; set; }
+
+
 
         // 4. ONMODELCREATING (Configurações avançadas e Data Seeding)
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -72,13 +74,13 @@ namespace HelpDesk.Api.Data
                 new Setor { IdSetor = 4, NomeSetor = "Administrativo" }
             );
 
-            // 2. Categorias
-            modelBuilder.Entity<Categoria>().HasData(
-                new Categoria { IdCategoria = 1, NomeCategoria = "Hardware" },
-                new Categoria { IdCategoria = 2, NomeCategoria = "Software" },
-                new Categoria { IdCategoria = 3, NomeCategoria = "Acesso" },
-                new Categoria { IdCategoria = 4, NomeCategoria = "Rede" },
-                new Categoria { IdCategoria = 5, NomeCategoria = "Sistema" }
+            // 2. Categorias (CORRIGIDO: Categoria -> CategoriasChamados)
+            modelBuilder.Entity<CategoriasChamados>().HasData(
+                new CategoriasChamados { IdCategoria = 1, Categoria = "Hardware", SLA = "4h", Nivel = "Baixo", Prioridade = "Normal" },
+                new CategoriasChamados { IdCategoria = 2, Categoria = "Software", SLA = "8h", Nivel = "Médio", Prioridade = "Normal" },
+                new CategoriasChamados { IdCategoria = 3, Categoria = "Acesso", SLA = "2h", Nivel = "Alto", Prioridade = "Alta" },
+                new CategoriasChamados { IdCategoria = 4, Categoria = "Rede", SLA = "1h", Nivel = "Alto", Prioridade = "Crítica" },
+                new CategoriasChamados { IdCategoria = 5, Categoria = "Sistema", SLA = "4h", Nivel = "Médio", Prioridade = "Alta" }
             );
 
             // 3. Usuários (Todos com a senha "123456" hasheada)
@@ -147,7 +149,7 @@ namespace HelpDesk.Api.Data
                 new Usuario
                 {
                     Id = 8,
-                    Nome = "Samuel NObRe",
+                    Nome = "Samuel Nobre",
                     Email = "samuel.nobre@empresa.com",
                     SenhaHash = senhaHash,
                     Perfil = "Usuario",

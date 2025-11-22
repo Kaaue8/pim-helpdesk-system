@@ -6,6 +6,8 @@
   import { useAuth } from "@/contexts/AuthContext";
   import { toast } from "sonner";
   import CriarChamadoModal from "@/components/CriarChamadoModal";
+  import { apiCall } from '@/lib/api';
+
 
   // Interfaces para tradução dos dados do backend
   interface TicketBackend {
@@ -67,9 +69,10 @@
         setIsLoading(true);
         try {
           const [chamadosResponse, usuariosResponse] = await Promise.all([
-            fetch('http://localhost:5079/api/Tickets', { headers: { 'Authorization': `Bearer ${token}` } }  ),
-            fetch('http://localhost:5079/api/Usuarios', { headers: { 'Authorization': `Bearer ${token}` } }  )
+            apiCall('/Tickets'),
+            apiCall('/Usuarios')
           ]);
+
 
           if (!chamadosResponse.ok || !usuariosResponse.ok) {
             throw new Error('Falha na comunicação com o servidor.');
@@ -81,7 +84,7 @@
             return {
               id: `CH-${String(ticket.id).padStart(4, '0')}`,
               tipo: ticket.titulo,
-              tecnico: ticket.tecnico?.nome || "Não atribuído",
+              tecnico: "Não atribuído",
               prioridade: ticket.prioridade,
               sla: "4h", // Mockado
               status: ticket.status,
