@@ -4,9 +4,6 @@ using HelpDesk.Api.Data;
 using HelpDesk.Api.Models;
 using HelpDesk.Api.Models.Dto;
 using HelpDesk.Api.Services;
-using System.Threading.Tasks;
-using BCrypt.Net;
-using System.ComponentModel.DataAnnotations;
 
 namespace HelpDesk.Api.Controllers
 {
@@ -23,76 +20,58 @@ namespace HelpDesk.Api.Controllers
             _authService = authService;
         }
 
-        // DTO para Login (apenas Email e Senha)
-        public class LoginDto
-        {
-            [Required, EmailAddress]
-            public required string Email { get; set; }
-
-            [Required]
-            public required string Senha { get; set; }
-        }
-
-        // POST: api/Login/Register
-        // Usa o CreateUsuarioDto para criar um novo usuário
+        // ============================================================
+        // REGISTRO
+        // ============================================================
         [HttpPost("Register")]
-        public async Task<ActionResult<Usuario>> Register(CreateUsuarioDto dto)
+        public async Task<ActionResult<object>> Register(CreateUsuarioDto dto)
         {
-            // 1. Validação de Email Único
             if (await _context.Usuarios.AnyAsync(u => u.Email == dto.Email))
-            {
-                return BadRequest("O email fornecido já está em uso.");
-            }
+                return BadRequest(new { success = false, message = "O email fornecido já está em uso." });
 
-            // 2. Criação do objeto Usuario a partir do DTO
             var usuario = new Usuario
             {
                 Nome = dto.Nome,
                 Email = dto.Email,
-                Perfil = dto.Perfil,
+                Perfil = dto.Perfil.ToLower(),
                 SetorIdSetor = dto.SetorIdSetor,
-                DataCriacao = System.DateTime.UtcNow,
-                SenhaHash = string.Empty // Inicializa o membro requerido
+                DataCriacao = DateTime.UtcNow,
+                SenhaHash = BCrypt.Net.BCrypt.HashPassword(dto.Senha)
             };
 
-            // 3. Hashing da Senha (LGPD Compliance)
-            usuario.SenhaHash = BCrypt.Net.BCrypt.HashPassword(dto.Senha);
-
-            // 4. Adiciona o usuário ao contexto e salva no banco de dados
             _context.Usuarios.Add(usuario);
             await _context.SaveChangesAsync();
 
-            // 5. Retorna o usuário criado (sem o hash)
-            usuario.SenhaHash = string.Empty;
-
-            return CreatedAtAction(nameof(Register), new { id = usuario.Id }, usuario);
+            return Ok(new
+            {
+                success = true,
+                data = new
+                {
+                    id = usuario.Id,
+                    nome = usuario.Nome,
+                    email = usuario.Email,
+                    role = usuario.Perfil
+                }
+            });
         }
 
-        // POST: api/Login/Authenticate
-        // Autentica o usuário e retorna o JWT
+        // ============================================================
+        // LOGIN
+        // ============================================================
         [HttpPost("Authenticate")]
         public async Task<ActionResult<object>> Authenticate(LoginDto dto)
         {
-            // 1. Busca o usuário pelo email
-            var usuario = await _context.Usuarios
-                .FirstOrDefaultAsync(u => u.Email == dto.Email);
+            var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email == dto.Email);
 
             if (usuario == null)
-            {
-                return Unauthorized(new { message = "Email ou senha inválidos." });
-            }
+                return Unauthorized(new { success = false, message = "Email ou senha inválidos." });
 
-            // 2. Verifica a senha usando o AuthService (BCrypt)
             if (!_authService.VerifyPassword(dto.Senha, usuario.SenhaHash))
-            {
-                return Unauthorized(new { message = "Email ou senha inválidos." });
-            }
+                return Unauthorized(new { success = false, message = "Email ou senha inválidos." });
 
-            // 3. Gera o Token JWT
             var token = _authService.GenerateJwtToken(usuario);
 
-            // 4. Retorna o Token e informações básicas do usuário
-            return Ok(new
+            return Ok(new LoginResponseDto
             {
                 Token = token,
                 UsuarioId = usuario.Id,

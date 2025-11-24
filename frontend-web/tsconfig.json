@@ -1,19 +1,27 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "lib": ["esnext", "dom", "dom.iterable"],
-    "jsx": "preserve",
-    "esModuleInterop": true,
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
-    // "allowImportingTsExtensions": true, // REMOVIDA: Opção não suportada
-    "moduleResolution": "node", // CORRIGIDO: Usando "node" em vez de "bundler"
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "types": ["vite/client"],
+
     "baseUrl": ".",
-    "types": ["node", "vite/client"],
     "paths": {
-      "@/*": ["./src/*"],
-      "@shared/*": ["../shared/*"] // CORRIGIDO: Caminho para a pasta shared
+      "@/*": ["src/*"],
+      "@shared/*": ["../shared/*"],
+      "@assets/*": ["attached_assets/*"]
     }
   },
-  "include": ["src", "../shared"], // CORRIGIDO: Caminho para a pasta shared
-  "exclude": ["node_modules", "build", "dist", "**/*.test.ts"]
+
+  "include": ["src", "vite-env.d.ts", "../shared"],
+  "exclude": ["dist", "node_modules", "build"]
 }

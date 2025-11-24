@@ -3,11 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using HelpDesk.Api.Data;
 using HelpDesk.Api.Models;
 using HelpDesk.Api.Models.Dto;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using BCrypt.Net;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace HelpDesk.Api.Controllers
 {
@@ -23,41 +20,88 @@ namespace HelpDesk.Api.Controllers
             _context = context;
         }
 
-        // GET: api/Usuarios
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
+        // ============================================================
+        // PERFIL DO USUÁRIO LOGADO
+        // ============================================================
+        [HttpGet("me")]
+        public async Task<ActionResult<object>> GetMe()
         {
-            // Por segurança, nunca retornar o hash da senha para o frontend.
-            var usuarios = await _context.Usuarios.ToListAsync();
-            usuarios.ForEach(u => u.SenhaHash = string.Empty); // Limpa o campo antes de enviar.
-            return usuarios;
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (userId == null)
+                return Unauthorized(new { success = false, message = "Token inválido." });
+
+            var usuario = await _context.Usuarios.FindAsync(int.Parse(userId));
+
+            return Ok(new
+            {
+                success = true,
+                data = new
+                {
+                    id = usuario.Id,
+                    nome = usuario.Nome,
+                    email = usuario.Email,
+                    role = usuario.Perfil
+                }
+            });
         }
 
-        // GET: api/Usuarios/5
+        // ============================================================
+        // GET TODOS
+        // ============================================================
+        [HttpGet]
+        public async Task<ActionResult<object>> GetUsuarios()
+        {
+            var usuarios = await _context.Usuarios.ToListAsync();
+
+            return Ok(new
+            {
+                success = true,
+                data = usuarios.Select(u => new
+                {
+                    id = u.Id,
+                    nome = u.Nome,
+                    email = u.Email,
+                    role = u.Perfil,
+                    setorIdSetor = u.SetorIdSetor,
+                    dataCriacao = u.DataCriacao
+                })
+            });
+        }
+
+        // ============================================================
+        // GET POR ID
+        // ============================================================
         [HttpGet("{id}")]
-        public async Task<ActionResult<Usuario>> GetUsuario(int id)
+        public async Task<ActionResult<object>> GetUsuario(int id)
         {
             var usuario = await _context.Usuarios.FindAsync(id);
 
             if (usuario == null)
+                return NotFound(new { success = false, message = "Usuário não encontrado." });
+
+            return Ok(new
             {
-                return NotFound();
-            }
-
-            // Também não retorna o hash da senha para um único usuário.
-            usuario.SenhaHash = string.Empty;
-
-            return usuario;
+                success = true,
+                data = new
+                {
+                    id = usuario.Id,
+                    nome = usuario.Nome,
+                    email = usuario.Email,
+                    role = usuario.Perfil,
+                    setorIdSetor = usuario.SetorIdSetor
+                }
+            });
         }
 
-        // POST: api/Usuarios
+        // ============================================================
+        // POST
+        // ============================================================
         [HttpPost]
-        public async Task<ActionResult<Usuario>> PostUsuario(CreateUsuarioDto dto)
+        public async Task<ActionResult<object>> PostUsuario(CreateUsuarioDto dto)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            if (await _context.Usuarios.AnyAsync(u => u.Email == dto.Email))
+                return BadRequest(new { success = false, message = "Email já está em uso." });
 
             var usuario = new Usuario
             {
@@ -65,80 +109,65 @@ namespace HelpDesk.Api.Controllers
                 Email = dto.Email,
                 Perfil = dto.Perfil,
                 SetorIdSetor = dto.SetorIdSetor,
-                DataCriacao = System.DateTime.UtcNow,
-                SenhaHash = BCrypt.Net.BCrypt.HashPassword(dto.Senha) // Cria o hash da senha
+                DataCriacao = DateTime.UtcNow,
+                SenhaHash = BCrypt.Net.BCrypt.HashPassword(dto.Senha)
             };
 
             _context.Usuarios.Add(usuario);
             await _context.SaveChangesAsync();
 
-            usuario.SenhaHash = string.Empty; // Limpa antes de retornar.
-
-            return CreatedAtAction(nameof(GetUsuario), new { id = usuario.Id }, usuario);
+            return Ok(new
+            {
+                success = true,
+                data = new
+                {
+                    id = usuario.Id,
+                    nome = usuario.Nome,
+                    email = usuario.Email,
+                    role = usuario.Perfil
+                }
+            });
         }
 
-        // ==================================================================
-        // AQUI ESTÁ O MÉTODO PUT CORRIGIDO
-        // ==================================================================
-        // PUT: api/Usuarios/5
+        // ============================================================
+        // PUT
+        // ============================================================
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUsuario(int id, Usuario usuarioUpdateRequest)
-        {
-            if (id != usuarioUpdateRequest.Id)
-            {
-                return BadRequest("O ID da URL não corresponde ao ID do usuário.");
-            }
-
-            // 1. Busca o usuário existente e completo do banco de dados.
-            var usuarioDoBanco = await _context.Usuarios.FindAsync(id);
-
-            if (usuarioDoBanco == null)
-            {
-                return NotFound("Usuário não encontrado.");
-            }
-
-            // 2. Atualiza APENAS os campos que queremos permitir a edição.
-            //    Ignoramos completamente a senha, mantendo a que já existe no banco.
-            usuarioDoBanco.Nome = usuarioUpdateRequest.Nome;
-            usuarioDoBanco.Email = usuarioUpdateRequest.Email;
-            usuarioDoBanco.Perfil = usuarioUpdateRequest.Perfil;
-            usuarioDoBanco.SetorIdSetor = usuarioUpdateRequest.SetorIdSetor;
-
-            // 3. O Entity Framework agora é inteligente o suficiente para saber
-            //    exatamente quais campos mudaram e só atualizará eles.
-            try
-            {
-                await _context.SaveChangesAsync(); // Salva as alterações reais no banco.
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!_context.Usuarios.Any(e => e.Id == id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent(); // Retorna sucesso.
-        }
-
-        // DELETE: api/Usuarios/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUsuario(int id)
+        public async Task<ActionResult<object>> PutUsuario(int id, UpdateUsuarioDto dto)
         {
             var usuario = await _context.Usuarios.FindAsync(id);
+
             if (usuario == null)
-            {
-                return NotFound();
-            }
+                return NotFound(new { success = false, message = "Usuário não encontrado." });
+
+            usuario.Nome = dto.Nome;
+            usuario.Email = dto.Email;
+            usuario.Perfil = dto.Perfil;
+            usuario.SetorIdSetor = dto.SetorIdSetor;
+
+            if (!string.IsNullOrWhiteSpace(dto.SenhaHash))
+                usuario.SenhaHash = BCrypt.Net.BCrypt.HashPassword(dto.SenhaHash);
+
+            await _context.SaveChangesAsync();
+
+            return Ok(new { success = true, message = "Usuário atualizado com sucesso." });
+        }
+
+        // ============================================================
+        // DELETE
+        // ============================================================
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<object>> DeleteUsuario(int id)
+        {
+            var usuario = await _context.Usuarios.FindAsync(id);
+
+            if (usuario == null)
+                return NotFound(new { success = false, message = "Usuário não encontrado." });
 
             _context.Usuarios.Remove(usuario);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(new { success = true, message = "Usuário removido com sucesso." });
         }
     }
 }

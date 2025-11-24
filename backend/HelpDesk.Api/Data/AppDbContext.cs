@@ -1,162 +1,73 @@
 using Microsoft.EntityFrameworkCore;
 using HelpDesk.Api.Models;
-using BCrypt.Net;
-using System; // Adicionado para DateTime
 
 namespace HelpDesk.Api.Data
 {
     public class AppDbContext : DbContext
     {
-        // Adicionado para suprimir o erro de modelo não determinístico
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.ConfigureWarnings(w => w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning));
-        }
-        // 1. CONSTRUTOR SEM PARÂMETROS (Para o Add-Migration)
-        public AppDbContext()
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+            : base(options)
         {
         }
 
-        // 2. CONSTRUTOR COM PARÂMETROS (Para a Aplicação)
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-        {
-        }
-
-        // 3. DBSETS (As tabelas)
+        // ========================
+        //       DBSETS
+        // ========================
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Setor> Setores { get; set; }
         public DbSet<LogAuditoria> LogsAuditoria { get; set; }
         public DbSet<CategoriasChamados> CategoriasChamados { get; set; }
 
-
-
-        // 4. ONMODELCREATING (Configurações avançadas e Data Seeding)
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // --- Configuração de Relacionamentos (Para desambiguar avisos do EF Core) ---
+            // ============================================================
+            // Relacionamentos LogAuditoria <-> Usuario (Afetado / Executor)
+            // ============================================================
 
-            // Relacionamentos LogAuditoria <-> Usuario (Múltiplos relacionamentos)
             modelBuilder.Entity<LogAuditoria>()
                 .HasOne(l => l.UsuarioAfetado)
-                .WithMany(u => u.LogsAfetados) // Propriedade de navegação no Usuario.cs
+                .WithMany(u => u.LogsAfetados)
                 .HasForeignKey(l => l.IdUsuarioAfetado)
-                .OnDelete(DeleteBehavior.Restrict); // Evita exclusão em cascata
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<LogAuditoria>()
                 .HasOne(l => l.UsuarioExecutor)
-                .WithMany(u => u.LogsExecutados) // Propriedade de navegação no Usuario.cs
+                .WithMany(u => u.LogsExecutados)
                 .HasForeignKey(l => l.IdUsuarioExecutor)
-                .OnDelete(DeleteBehavior.Restrict); // Evita exclusão em cascata
+                .OnDelete(DeleteBehavior.Restrict);
 
-            // Relacionamentos Ticket <-> Usuario (Múltiplos relacionamentos)
+            // ============================================================
+            // Relacionamento Ticket <-> Usuario (Solicitante)
+            // ============================================================
+
             modelBuilder.Entity<Ticket>()
-                .HasOne(t => t.Usuario) // O usuário que abriu o ticket
-                .WithMany(u => u.TicketsAbertos) // Propriedade de navegação no Usuario.cs
+                .HasOne(t => t.Usuario)
+                .WithMany(u => u.TicketsAbertos)
                 .HasForeignKey(t => t.UsuarioId)
-                .OnDelete(DeleteBehavior.Restrict); // Evita exclusão em cascata
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // ============================================================
+            // Relacionamento Ticket <-> Usuario (Técnico Responsável)
+            // ============================================================
 
             modelBuilder.Entity<Ticket>()
-                .HasOne(t => t.Tecnico) // O técnico que atende o ticket
-                .WithMany(u => u.TicketsAtribuidos) // Propriedade de navegação no Usuario.cs
+                .HasOne(t => t.Tecnico)
+                .WithMany(u => u.TicketsAtribuidos)
                 .HasForeignKey(t => t.TecnicoId)
-                .OnDelete(DeleteBehavior.Restrict); // Evita exclusão em cascata
+                .OnDelete(DeleteBehavior.Restrict);
 
-            // --- Fim da Configuração de Relacionamentos ---
+            // ============================================================
+            // Relacionamento Setor <-> Usuario
+            // ============================================================
 
-            // --- Data Seeding (Dados Iniciais) ---
+            modelBuilder.Entity<Usuario>()
+                .HasOne(u => u.Setor)
+                .WithMany(s => s.Usuarios)
+                .HasForeignKey(u => u.SetorIdSetor)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            // 1. Setores
-            modelBuilder.Entity<Setor>().HasData(
-                new Setor { IdSetor = 1, NomeSetor = "Financeiro" },
-                new Setor { IdSetor = 2, NomeSetor = "TI" },
-                new Setor { IdSetor = 3, NomeSetor = "RH" },
-                new Setor { IdSetor = 4, NomeSetor = "Administrativo" }
-            );
-
-            // 2. Categorias (CORRIGIDO: Categoria -> CategoriasChamados)
-            modelBuilder.Entity<CategoriasChamados>().HasData(
-                new CategoriasChamados { IdCategoria = 1, Categoria = "Hardware", SLA = "4h", Nivel = "Baixo", Prioridade = "Normal" },
-                new CategoriasChamados { IdCategoria = 2, Categoria = "Software", SLA = "8h", Nivel = "Médio", Prioridade = "Normal" },
-                new CategoriasChamados { IdCategoria = 3, Categoria = "Acesso", SLA = "2h", Nivel = "Alto", Prioridade = "Alta" },
-                new CategoriasChamados { IdCategoria = 4, Categoria = "Rede", SLA = "1h", Nivel = "Alto", Prioridade = "Crítica" },
-                new CategoriasChamados { IdCategoria = 5, Categoria = "Sistema", SLA = "4h", Nivel = "Médio", Prioridade = "Alta" }
-            );
-
-            // 3. Usuários (Todos com a senha "123456" hasheada)
-            string senhaHash = BCrypt.Net.BCrypt.HashPassword("123456");
-
-            // Usando uma data estática para evitar o erro de modelo não determinístico
-            var dataEstatica = new DateTime(2025, 1, 1, 10, 0, 0, DateTimeKind.Utc);
-
-            modelBuilder.Entity<Usuario>().HasData(
-                // Analista 1
-                new Usuario
-                {
-                    Id = 1,
-                    Nome = "Kaue",
-                    Email = "kaue@empresa.com",
-                    SenhaHash = senhaHash,
-                    Perfil = "Analista",
-                    DataCriacao = dataEstatica.AddDays(-10), // Data estática
-                    SetorIdSetor = 1 // Financeiro
-                },
-                // Analista 2
-                new Usuario
-                {
-                    Id = 2,
-                    Nome = "Julia Castro",
-                    Email = "julia.castro@empresa.com",
-                    SenhaHash = senhaHash,
-                    Perfil = "Analista",
-                    DataCriacao = dataEstatica.AddDays(-9), // Data estática
-                    SetorIdSetor = 1 // Financeiro
-                },
-                // Usuario Comum 1
-                new Usuario
-                {
-                    Id = 3,
-                    Nome = "Vinicius Wayna",
-                    Email = "vinicius.wayna@empresa.com",
-                    SenhaHash = senhaHash,
-                    Perfil = "Usuario",
-                    DataCriacao = dataEstatica.AddDays(-8), // Data estática
-                    SetorIdSetor = 3 // RH
-                },
-                // Admin
-                new Usuario
-                {
-                    Id = 6,
-                    Nome = "Vinicius Macedo",
-                    Email = "vinicius.macedo@empresa.com",
-                    SenhaHash = senhaHash,
-                    Perfil = "Admin",
-                    DataCriacao = dataEstatica.AddDays(-7), // Data estática
-                    SetorIdSetor = 4 // Administrativo
-                },
-                // Usuario Comum 2
-                new Usuario
-                {
-                    Id = 7,
-                    Nome = "Irineu Julio",
-                    Email = "irineu.julio@empresa.com",
-                    SenhaHash = senhaHash,
-                    Perfil = "Usuario",
-                    DataCriacao = dataEstatica.AddDays(-6), // Data estática
-                    SetorIdSetor = 2 // TI
-                },
-                // Usuario Comum 3
-                new Usuario
-                {
-                    Id = 8,
-                    Nome = "Samuel Nobre",
-                    Email = "samuel.nobre@empresa.com",
-                    SenhaHash = senhaHash,
-                    Perfil = "Usuario",
-                    DataCriacao = dataEstatica.AddDays(-5), // Data estática
-                    SetorIdSetor = 3 // RH
-                }
-            );
+            // Nenhum seed é incluído — pois o banco Azure já possui dados reais
 
             base.OnModelCreating(modelBuilder);
         }
