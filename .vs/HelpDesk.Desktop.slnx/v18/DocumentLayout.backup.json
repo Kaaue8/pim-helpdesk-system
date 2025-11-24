@@ -1,22 +1,158 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Juju\\Desktop\\pim-helpdesk-system\\",
+  "WorkspaceRootPath": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\juju\\desktop\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\juju\\desktop\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\formfilachamados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\formfilachamados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\utils\\appconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\utils\\appconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\juju\\desktop\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\formgestaousuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\formgestaousuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\juju\\desktop\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\formgestaousuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\formgestaousuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formnovoticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formnovoticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formhistorico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formhistorico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formcategoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formcategoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\authresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\models\\authresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\authresponsemodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\models\\authresponsemodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formlogin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formlogin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\utils\\appstyles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\utils\\appstyles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formdashboard.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formdashboard.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\helpdesk.desktop.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\helpdesk.desktop.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formusuarios.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formusuarios.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formtickets.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formtickets.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formtickets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formtickets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formtickets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formtickets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formnovoticket.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formnovoticket.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formnovoticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formnovoticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formhistorico.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formhistorico.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formhistorico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formhistorico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formcategoria.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formcategoria.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\forms\\formcategoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\forms\\formcategoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\triagemia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\models\\triagemia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\tickethistorico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\models\\tickethistorico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\solucaocomum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\models\\solucaocomum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\setor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\models\\setor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\palavrachave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\models\\palavrachave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\models\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\models\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|c:\\users\\caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\helpdesk.desktop\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E78FD56-3006-50DE-85FB-B0967B39AFB3}|frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj|solutionrelative:frontend-desktop\\helpdesk.desktop\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +162,473 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FormDashboard.cs",
-              "DocumentMoniker": "C:\\Users\\Juju\\Desktop\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\FormDashboard.cs",
-              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\FormDashboard.cs",
-              "ToolTip": "C:\\Users\\Juju\\Desktop\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\FormDashboard.cs",
-              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\FormDashboard.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "FormLogin.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T06:37:44.543Z",
+              "WhenOpened": "2025-11-22T20:34:11.677Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FormCategoria.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategoria.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategoria.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategoria.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategoria.cs",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAcwJEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:34:00.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormHistorico.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.cs",
+              "ViewState": "AgIAAKYAAAAAAAAAAAAcwKoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:39:47.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormNovoTicket.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAowHAAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:41:11.407Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FormFilaChamados.cs",
-              "DocumentMoniker": "C:\\Users\\Juju\\Desktop\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\FormFilaChamados.cs",
-              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\FormFilaChamados.cs",
-              "ToolTip": "C:\\Users\\Juju\\Desktop\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\FormFilaChamados.cs",
-              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\FormFilaChamados.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "AppConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Utils\\AppConfig.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Utils\\AppConfig.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Utils\\AppConfig.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Utils\\AppConfig.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA5wB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T06:37:38.475Z",
+              "WhenOpened": "2025-11-21T18:22:33.741Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormGestaoUsuarios.cs",
-              "DocumentMoniker": "C:\\Users\\Juju\\Desktop\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\FormGestaoUsuarios.cs",
-              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\FormGestaoUsuarios.cs",
-              "ToolTip": "C:\\Users\\Juju\\Desktop\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\FormGestaoUsuarios.cs",
-              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\FormGestaoUsuarios.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Program.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Program.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Program.cs*",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Program.cs*",
+              "ViewState": "AgIAAAEAAAAAAAAAAADwvxIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T06:37:31.002Z",
+              "WhenOpened": "2025-11-21T18:21:51.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Categoria.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Categoria.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Models\\Categoria.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Categoria.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Models\\Categoria.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:27:27.458Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "FormGestaoUsuarios.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\Juju\\Desktop\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\FormGestaoUsuarios.cs",
-              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\FormGestaoUsuarios.cs",
-              "ToolTip": "C:\\Users\\Juju\\Desktop\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\FormGestaoUsuarios.cs [Projeto]",
-              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\FormGestaoUsuarios.cs [Projeto]",
+              "Title": "ApiService.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Services\\ApiService.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Services\\ApiService.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Services\\ApiService.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Services\\ApiService.cs",
+              "ViewState": "AgIAAJIAAAAAAAAAAAAAwKAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T06:37:28.261Z",
+              "WhenOpened": "2025-11-21T18:24:06.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AuthResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\AuthResponse.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Models\\AuthResponse.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\AuthResponse.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Models\\AuthResponse.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAiwA0AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T22:52:04.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FormLogin.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.Designer.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.Designer.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.Designer.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.Designer.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwCgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T20:34:23.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FormLogin.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.cs [Projeto]",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormLogin.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T20:34:00.968Z",
               "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AuthResponseModal.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\AuthResponseModal.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Models\\AuthResponseModal.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\AuthResponseModal.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Models\\AuthResponseModal.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:25:41.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AppStyles.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Utils\\AppStyles.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Utils\\AppStyles.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Utils\\AppStyles.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Utils\\AppStyles.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:22:56.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "FormUsuarios.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormUsuarios.Designer.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormUsuarios.Designer.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormUsuarios.Designer.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormUsuarios.Designer.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAswHQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:43:14.99Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "FormUsuarios.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormUsuarios.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormUsuarios.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormUsuarios.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormUsuarios.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAswFkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:43:06.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "HelpDesk.Desktop.csproj",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\HelpDesk.Desktop.csproj",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAUwBEAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-21T18:19:25.666Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "FormDashboard.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:36:07.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "FormDashboard.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.Designer.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.Designer.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.Designer.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.Designer.cs",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAcwJMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:37:34.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "FormUsuarios.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormUsuarios.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormUsuarios.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormUsuarios.cs [Projeto]",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormUsuarios.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:42:58.63Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "FormTickets.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.Designer.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.Designer.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.Designer.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.Designer.cs",
+              "ViewState": "AgIAANYAAAAAAAAAAAAuwOYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:42:08.65Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "FormTickets.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.cs",
+              "ViewState": "AgIAAJMAAAAAAAAAAAAkwKgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:41:58.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "FormTickets.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.cs [Projeto]",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormTickets.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:41:44.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "FormNovoTicket.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.Designer.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.Designer.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.Designer.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.Designer.cs",
+              "ViewState": "AgIAAOMAAAAAAAAAAAAuwPkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:41:22.935Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "FormNovoTicket.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.cs [Projeto]",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormNovoTicket.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:41:05.359Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "FormHistorico.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.Designer.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.Designer.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.Designer.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.Designer.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAswHIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:39:56.981Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "FormHistorico.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.cs [Projeto]",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormHistorico.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:39:36.588Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "FormDashboard.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.cs [Projeto]*",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormDashboard.cs [Projeto]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:35:58.705Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "FormCategoria.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategoria.Designer.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategoria.Designer.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategoria.Designer.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategoria.Designer.cs",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAAuwLMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:34:19.63Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "FormCategoria.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategoria.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategoria.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategoria.cs [Projeto]",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Forms\\FormCategoria.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:33:37.123Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Usuario.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:30:58.151Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "TriagemIA.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\TriagemIA.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Models\\TriagemIA.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\TriagemIA.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Models\\TriagemIA.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAA7wCcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:30:36.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "TicketHistorico.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\TicketHistorico.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Models\\TicketHistorico.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\TicketHistorico.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Models\\TicketHistorico.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:30:13.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Ticket.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Ticket.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Models\\Ticket.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Ticket.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Models\\Ticket.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA7wA8AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:29:40.392Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "SolucaoComum.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\SolucaoComum.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Models\\SolucaoComum.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\SolucaoComum.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Models\\SolucaoComum.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAswDwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:29:21.87Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Setor.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Setor.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Models\\Setor.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\Setor.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Models\\Setor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:29:01.011Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "PalavraChave.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\PalavraChave.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Models\\PalavraChave.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\PalavraChave.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Models\\PalavraChave.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA7wBoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:28:46.144Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "LoginResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\LoginResponse.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Models\\LoginResponse.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Models\\LoginResponse.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Models\\LoginResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:28:03.989Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "frontend-desktop\\HelpDesk.Desktop\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\Caio\\source\\novo repos\\pim-helpdesk-system\\frontend-desktop\\HelpDesk.Desktop\\Services\\AuthService.cs",
+              "RelativeToolTip": "frontend-desktop\\HelpDesk.Desktop\\Services\\AuthService.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAA7wDcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T18:24:31.722Z"
             }
           ]
         }
