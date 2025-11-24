@@ -19,13 +19,15 @@ builder.Services.AddControllers()
     });
 
 // ============================================================
-// 2. DATABASE (AZURE SQL ou local via .Development.json)
+// 2. DATABASE (Azure SQL / Local SQL)
 // ============================================================
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(connectionString));
+{
+    options.UseSqlServer(connectionString);
+});
 
 // ============================================================
 // 3. DEPENDENCY INJECTION
@@ -44,8 +46,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend", policy =>
     {
         policy.WithOrigins(
-            "http://localhost:5173",    // Front local
-            "https://seu-frontend.onrender.com" // Front deploy
+            "http://localhost:5173",               // Front local
+            "https://seu-frontend.onrender.com"    // Render front
         )
         .AllowAnyHeader()
         .AllowAnyMethod()
@@ -100,8 +102,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// HTTPS é forçado automaticamente no Render
-// app.UseHttpsRedirection();
+// app.UseHttpsRedirection();  // Render cuida disso automaticamente
 
 app.UseCors("AllowFrontend");
 

@@ -1,7 +1,7 @@
+using HelpDesk.Api.Data;
+using HelpDesk.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using HelpDesk.Api.Models;
-using HelpDesk.Api.Data;
 
 namespace HelpDesk.Api.Controllers
 {
@@ -16,136 +16,76 @@ namespace HelpDesk.Api.Controllers
             _context = context;
         }
 
-        // ============================================================
         // GET: api/CategoriasChamados
-        // ============================================================
         [HttpGet]
-        public async Task<ActionResult<object>> GetCategorias()
+        public async Task<IActionResult> GetCategorias()
         {
-            try
-            {
-                var categorias = await _context.CategoriasChamados
-                    .OrderBy(c => c.Categoria)
-                    .ToListAsync();
-
-                var resultado = categorias.Select(c => new
+            var categorias = await _context.CategoriasChamados
+                .Select(c => new
                 {
-                    id = c.Id,
+                    id = c.IdCategoria,
                     categoria = c.Categoria,
-                    descricao = c.Descricao
-                });
+                    sla = c.SLA,
+                    nivel = c.Nivel,
+                    prioridade = c.Prioridade,
+                    palavrasChave = c.PalavrasChave,
+                    termosNegativos = c.TermosNegativos,
+                    exemploDescricao = c.ExemploDescricao,
+                    sugestaoSolucao = c.SugestaoSolucao,
+                    passosSolucao = c.PassosSolucao,
+                    artigoBaseConhecimento = c.ArtigoBaseConhecimento
+                })
+                .ToListAsync();
 
-                return Ok(new { success = true, data = resultado });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = "Erro ao buscar categorias", error = ex.Message });
-            }
+            return Ok(new { success = true, data = categorias });
         }
 
-        // ============================================================
-        // GET: api/CategoriasChamados/{id}
-        // ============================================================
+        // GET: api/CategoriasChamados/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<object>> GetCategoria(int id)
+        public async Task<IActionResult> GetCategoria(int id)
         {
-            try
-            {
-                var categoria = await _context.CategoriasChamados.FindAsync(id);
-
-                if (categoria == null)
-                {
-                    return NotFound(new { success = false, message = "Categoria não encontrada" });
-                }
-
-                return Ok(new
-                {
-                    success = true,
-                    data = new
-                    {
-                        id = categoria.Id,
-                        categoria = categoria.Categoria,
-                        descricao = categoria.Descricao
-                    }
-                });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = "Erro ao buscar categoria", error = ex.Message });
-            }
-        }
-
-        // ============================================================
-        // POST: api/CategoriasChamados
-        // ============================================================
-        [HttpPost]
-        public async Task<ActionResult<object>> PostCategoria(CategoriasChamados dto)
-        {
-            try
-            {
-                var categoria = new CategoriasChamados
-                {
-                    Categoria = dto.Categoria,
-                    Descricao = dto.Descricao
-                };
-
-                _context.CategoriasChamados.Add(categoria);
-                await _context.SaveChangesAsync();
-
-                return Ok(new
-                {
-                    success = true,
-                    data = new
-                    {
-                        id = categoria.Id,
-                        categoria = categoria.Categoria,
-                        descricao = categoria.Descricao
-                    }
-                });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = "Erro ao criar categoria", error = ex.Message });
-            }
-        }
-
-        // ============================================================
-        // PUT: api/CategoriasChamados/{id}
-        // ============================================================
-        [HttpPut("{id}")]
-        public async Task<ActionResult<object>> PutCategoria(int id, CategoriasChamados dto)
-        {
-            if (id != dto.Id)
-                return BadRequest(new { success = false, message = "O ID da URL não corresponde ao ID enviado." });
-
             var categoria = await _context.CategoriasChamados.FindAsync(id);
-
             if (categoria == null)
                 return NotFound(new { success = false, message = "Categoria não encontrada." });
 
-            categoria.Categoria = dto.Categoria;
-            categoria.Descricao = dto.Descricao;
-
-            await _context.SaveChangesAsync();
-
-            return Ok(new { success = true, message = "Categoria atualizada com sucesso." });
+            return Ok(new { success = true, data = categoria });
         }
 
-        // ============================================================
-        // DELETE: api/CategoriasChamados/{id}
-        // ============================================================
+        // POST: api/CategoriasChamados
+        [HttpPost]
+        public async Task<IActionResult> CreateCategoria(CategoriasChamados model)
+        {
+            _context.CategoriasChamados.Add(model);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { success = true, data = model });
+        }
+
+        // PUT: api/CategoriasChamados/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateCategoria(int id, CategoriasChamados model)
+        {
+            if (id != model.IdCategoria)
+                return BadRequest(new { success = false, message = "ID inválido." });
+
+            _context.Entry(model).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return Ok(new { success = true });
+        }
+
+        // DELETE: api/CategoriasChamados/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<object>> DeleteCategoria(int id)
+        public async Task<IActionResult> DeleteCategoria(int id)
         {
             var categoria = await _context.CategoriasChamados.FindAsync(id);
-
             if (categoria == null)
                 return NotFound(new { success = false, message = "Categoria não encontrada." });
 
             _context.CategoriasChamados.Remove(categoria);
             await _context.SaveChangesAsync();
 
-            return Ok(new { success = true, message = "Categoria removida com sucesso." });
+            return Ok(new { success = true });
         }
     }
 }
