@@ -61,7 +61,9 @@ namespace HelpDesk.Api.Controllers
         [HttpPost("Authenticate")]
         public async Task<ActionResult<object>> Authenticate(LoginDto dto)
         {
-            var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email == dto.Email);
+            var usuario = await _context.Usuarios
+                .Include(u => u.Setor)
+                .FirstOrDefaultAsync(u => u.Email == dto.Email);
 
             if (usuario == null)
                 return Unauthorized(new { success = false, message = "Email ou senha inválidos." });
@@ -77,7 +79,11 @@ namespace HelpDesk.Api.Controllers
                 UsuarioId = usuario.Id,
                 Nome = usuario.Nome,
                 Email = usuario.Email,
-                Perfil = usuario.Perfil
+                Perfil = usuario.Perfil,
+
+                // Dados do setor do usuário
+                SetorId = usuario.SetorIdSetor,
+                NomeSetor = usuario.Setor?.NomeSetor
             });
         }
     }
