@@ -25,8 +25,6 @@ export default defineConfig({
     port: 3000,
     strictPort: false,
     host: true,
-    // ❌ remove allowedHosts — não existe no Vite 6
-    // allowedHosts: [...],  <-- DELETADO
     fs: {
       strict: true,
       deny: ["**/.*"],
