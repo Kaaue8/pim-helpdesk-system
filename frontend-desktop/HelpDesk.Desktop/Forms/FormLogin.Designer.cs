@@ -1,6 +1,6 @@
-﻿namespace HelpDesk.Desktop
+﻿namespace HelpDesk.Desktop.Forms
 {
-    partial class FormGestaoUsuarios
+    partial class FormLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FormLogin
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FormGestaoUsuarios";
+            this.ClientSize = new System.Drawing.Size(1300, 800);
+            this.Name = "FormLogin";
+            this.Text = "HelpDesk - Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.ResumeLayout(false);
         }
 
         #endregion

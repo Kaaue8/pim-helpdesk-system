@@ -1,9 +1,10 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
+using HelpDesk.Desktop.Forms;
 
 namespace HelpDesk.Desktop
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
@@ -13,8 +14,6 @@ namespace HelpDesk.Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            // A linha abaixo inicia o FormLogin
             Application.Run(new FormLogin());
         }
     }
