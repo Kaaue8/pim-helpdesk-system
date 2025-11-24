@@ -1,5 +1,4 @@
-﻿// /home/ubuntu/backend/HelpDesk.Api/Models/Setor.cs
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
 
@@ -15,9 +14,9 @@ namespace HelpDesk.Api.Models
         [Required]
         [MaxLength(50)]
         [Column("nome_setor")]
-        public required string NomeSetor { get; set; } // Adicionado 'required'
+        public required string NomeSetor { get; set; }
 
-        // Propriedade de navegação para listar os usuários deste setor
-        public ICollection<Usuario>? Usuarios { get; set; } // Adicionado '?' para ICollection
+        // Lista de usuários vinculados a este setor
+        public ICollection<Usuario>? Usuarios { get; set; }
     }
 }

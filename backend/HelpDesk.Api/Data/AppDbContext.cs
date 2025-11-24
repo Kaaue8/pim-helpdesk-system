@@ -22,9 +22,8 @@ namespace HelpDesk.Api.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // ============================================================
-            // Relacionamentos LogAuditoria <-> Usuario (Afetado / Executor)
+            // LogAuditoria <-> Usuario (Afetado / Executor)
             // ============================================================
-
             modelBuilder.Entity<LogAuditoria>()
                 .HasOne(l => l.UsuarioAfetado)
                 .WithMany(u => u.LogsAfetados)
@@ -38,9 +37,8 @@ namespace HelpDesk.Api.Data
                 .OnDelete(DeleteBehavior.Restrict);
 
             // ============================================================
-            // Relacionamento Ticket <-> Usuario (Solicitante)
+            // Ticket <-> Usuario (Solicitante)
             // ============================================================
-
             modelBuilder.Entity<Ticket>()
                 .HasOne(t => t.Usuario)
                 .WithMany(u => u.TicketsAbertos)
@@ -48,9 +46,8 @@ namespace HelpDesk.Api.Data
                 .OnDelete(DeleteBehavior.Restrict);
 
             // ============================================================
-            // Relacionamento Ticket <-> Usuario (Técnico Responsável)
+            // Ticket <-> Usuario (Técnico)
             // ============================================================
-
             modelBuilder.Entity<Ticket>()
                 .HasOne(t => t.Tecnico)
                 .WithMany(u => u.TicketsAtribuidos)
@@ -58,16 +55,14 @@ namespace HelpDesk.Api.Data
                 .OnDelete(DeleteBehavior.Restrict);
 
             // ============================================================
-            // Relacionamento Setor <-> Usuario
+            // Setor <-> Usuario
             // ============================================================
-
             modelBuilder.Entity<Usuario>()
                 .HasOne(u => u.Setor)
                 .WithMany(s => s.Usuarios)
                 .HasForeignKey(u => u.SetorIdSetor)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            // Nenhum seed é incluído — pois o banco Azure já possui dados reais
+                .IsRequired(false)                      // Navegação pode ser null
+                .OnDelete(DeleteBehavior.Restrict);     // Evita deleções em cascata
 
             base.OnModelCreating(modelBuilder);
         }
