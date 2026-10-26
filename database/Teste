@@ -1,0 +1,413 @@
+/* =====================================================================
+   PIM IV - Sistema de Chamados (Help Desk)
+   Script SQL Server CORRIGIDO E COMENTADO PARA ESTUDO
+   ---------------------------------------------------------------------
+   O que mudou em relacao ao original:
+   - Script re-executavel (nao quebra se rodar duas vezes)
+   - GO separando os lotes (CREATE PROCEDURE/TRIGGER exigem isso)
+   - Datas no formato seguro 'YYYY-MM-DDTHH:MM:SS' (independe do idioma)
+   - Usuarios inseridos UMA vez so (sem violar a chave primaria)
+   - 'Media' sem acento no CHECK (evita problema de codificacao)
+   - Procedure renomeada: sp_ -> usp_ (sp_ e reservado ao sistema)
+   - Trigger de auditoria usando SESSION_CONTEXT
+   - LGPD: CPF criptografado, consentimento, auditoria completa,
+           view mascarada, perfis de permissao
+   - IA: SolucoesIA ligada a categoria, com palavras-chave e contador
+   ===================================================================== */
+
+
+/* ---------------------------------------------------------------------
+   1) BANCO DE DADOS
+   DB_ID retorna NULL se o banco nao existe; so cria se for o caso.
+   --------------------------------------------------------------------- */
+IF DB_ID('pim') IS NULL
+    CREATE DATABASE pim;
+GO
+
+USE pim;
+GO
+
+
+/* ---------------------------------------------------------------------
+   2) TABELAS
+   IF OBJECT_ID(...) IS NULL  ->  so cria se a tabela ainda nao existe.
+   A ordem importa: tabelas referenciadas (FK) vem antes das que referenciam.
+   --------------------------------------------------------------------- */
+
+-- SETORES (tabela de apoio)
+IF OBJECT_ID('dbo.Setores', 'U') IS NULL
+CREATE TABLE dbo.Setores (
+    id_setor    INT IDENTITY(1,1) PRIMARY KEY,
+    nome_setor  VARCHAR(50) NOT NULL UNIQUE
+);
+
+-- CATEGORIAS (tabela de apoio)
+IF OBJECT_ID('dbo.Categorias', 'U') IS NULL
+CREATE TABLE dbo.Categorias (
+    id_categoria    INT IDENTITY(1,1) PRIMARY KEY,
+    nome_categoria  VARCHAR(50) NOT NULL UNIQUE
+);
+
+-- USUARIOS
+-- 'senha' guarda apenas o HASH, nunca a senha pura.
+-- 'cpf_criptografado' guarda o CPF ja criptografado pela aplicacao (LGPD).
+-- 'ativo' = exclusao logica: desativa em vez de apagar (LGPD).
+IF OBJECT_ID('dbo.Usuarios', 'U') IS NULL
+CREATE TABLE dbo.Usuarios (
+    id_usuario         INT IDENTITY(1,1) PRIMARY KEY,
+    nome               VARCHAR(50)  NOT NULL,
+    email              VARCHAR(100) NOT NULL UNIQUE,
+    telefone           VARCHAR(15)  NOT NULL,
+    senha              VARCHAR(255) NOT NULL,
+    cpf_criptografado  VARBINARY(256) NULL,
+    id_setor           INT          NOT NULL,
+    perfil             VARCHAR(20)  NOT NULL
+        CONSTRAINT CK_Usuarios_perfil CHECK (perfil IN ('Usuario', 'Analista', 'Admin')),
+    data_cadastro      DATETIME     NOT NULL CONSTRAINT DF_Usuarios_data DEFAULT GETDATE(),
+    ativo              BIT          NOT NULL CONSTRAINT DF_Usuarios_ativo DEFAULT 1,
+    CONSTRAINT FK_Usuarios_Setores FOREIGN KEY (id_setor) REFERENCES dbo.Setores(id_setor)
+);
+
+-- CONSENTIMENTOS (LGPD): registra o aceite do termo de uso/privacidade
+IF OBJECT_ID('dbo.Consentimentos', 'U') IS NULL
+CREATE TABLE dbo.Consentimentos (
+    id_consentimento  INT IDENTITY(1,1) PRIMARY KEY,
+    id_usuario        INT          NOT NULL,
+    versao_termo      VARCHAR(10)  NOT NULL,            -- ex.: '1.0'
+    aceito            BIT          NOT NULL,
+    data_aceite       DATETIME     NOT NULL CONSTRAINT DF_Consent_data DEFAULT GETDATE(),
+    ip_origem         VARCHAR(50)  NULL,
+    CONSTRAINT FK_Consent_Usuarios FOREIGN KEY (id_usuario) REFERENCES dbo.Usuarios(id_usuario)
+);
+
+-- CHAMADOS (tabela central)
+-- Duas FKs para Usuarios: quem abriu (id_usuario) e quem atende (id_analista).
+-- O CHECK final impede um chamado 'Encerrado' sem data de fechamento.
+IF OBJECT_ID('dbo.Chamados', 'U') IS NULL
+CREATE TABLE dbo.Chamados (
+    id_chamado             INT IDENTITY(1,1) PRIMARY KEY,
+    id_usuario             INT          NOT NULL,
+    id_analista            INT          NULL,
+    titulo                 VARCHAR(100) NOT NULL,
+    descricao              VARCHAR(500) NOT NULL,
+    id_categoria           INT          NOT NULL,
+    prioridade             VARCHAR(10)  NOT NULL
+        CONSTRAINT CK_Chamados_prioridade CHECK (prioridade IN ('Baixa', 'Media', 'Alta')),
+    status                 VARCHAR(20)  NOT NULL
+        CONSTRAINT CK_Chamados_status CHECK (status IN ('Aberto', 'Em analise', 'Aguardando Resposta', 'Encerrado')),
+    data_abertura          DATETIME     NOT NULL CONSTRAINT DF_Chamados_abertura DEFAULT GETDATE(),
+    data_fechamento        DATETIME     NULL,
+    solucao_informada      VARCHAR(500) NULL,
+    avaliacao_atendimento  INT          NULL
+        CONSTRAINT CK_Chamados_avaliacao CHECK (avaliacao_atendimento BETWEEN 1 AND 5),
+    CONSTRAINT FK_Chamados_Usuario   FOREIGN KEY (id_usuario)   REFERENCES dbo.Usuarios(id_usuario),
+    CONSTRAINT FK_Chamados_Analista  FOREIGN KEY (id_analista)  REFERENCES dbo.Usuarios(id_usuario),
+    CONSTRAINT FK_Chamados_Categoria FOREIGN KEY (id_categoria) REFERENCES dbo.Categorias(id_categoria),
+    CONSTRAINT CK_Chamados_fechamento
+        CHECK (status <> 'Encerrado' OR data_fechamento IS NOT NULL)
+);
+
+-- SOLUCOESIA (base da IA simulada e da FAQ dinamica)
+-- id_categoria: permite filtrar sugestoes por categoria do chamado.
+-- palavras_chave: usadas pela IA para casar o texto do chamado com a solucao.
+-- qtd_utilizacoes: contador para ordenar a FAQ pelas solucoes mais usadas.
+IF OBJECT_ID('dbo.SolucoesIA', 'U') IS NULL
+CREATE TABLE dbo.SolucoesIA (
+    id_solucao          INT IDENTITY(1,1) PRIMARY KEY,
+    id_categoria        INT          NULL,
+    descricao_problema  VARCHAR(500) NOT NULL,
+    palavras_chave      VARCHAR(200) NULL,
+    solucao_sugerida    VARCHAR(500) NOT NULL,
+    qtd_utilizacoes     INT          NOT NULL CONSTRAINT DF_SolIA_qtd DEFAULT 0,
+    data_criacao        DATETIME     NOT NULL CONSTRAINT DF_SolIA_data DEFAULT GETDATE(),
+    CONSTRAINT FK_SolIA_Categoria FOREIGN KEY (id_categoria) REFERENCES dbo.Categorias(id_categoria)
+);
+
+-- LOGSAUDITORIA (LGPD)
+-- Usuario afetado e executor aceitam NULL: assim da para registrar, por
+-- exemplo, uma tentativa de login com e-mail que nao existe.
+-- registro_id + detalhes dizem QUAL registro mudou e O QUE mudou.
+IF OBJECT_ID('dbo.LogsAuditoria', 'U') IS NULL
+CREATE TABLE dbo.LogsAuditoria (
+    id_log               INT IDENTITY(1,1) PRIMARY KEY,
+    id_usuario_afetado   INT           NULL,
+    id_usuario_executor  INT           NULL,
+    acao                 VARCHAR(100)  NOT NULL,
+    tabela_afetada       VARCHAR(100)  NULL,
+    registro_id          INT           NULL,
+    detalhes             NVARCHAR(500) NULL,
+    data_hora            DATETIME      NOT NULL CONSTRAINT DF_Logs_data DEFAULT GETDATE(),
+    ip_origem            VARCHAR(50)   NULL,
+    CONSTRAINT FK_Logs_Afetado  FOREIGN KEY (id_usuario_afetado)  REFERENCES dbo.Usuarios(id_usuario),
+    CONSTRAINT FK_Logs_Executor FOREIGN KEY (id_usuario_executor) REFERENCES dbo.Usuarios(id_usuario)
+);
+GO
+
+
+/* ---------------------------------------------------------------------
+   3) DADOS INICIAIS (SEED)
+   Cada bloco so roda se a tabela estiver vazia (IF NOT EXISTS).
+   IDENTITY_INSERT ON permite informar o id manualmente; sempre desligue
+   logo depois (so uma tabela por sessao pode estar ligada).
+   --------------------------------------------------------------------- */
+
+-- SETORES
+IF NOT EXISTS (SELECT 1 FROM dbo.Setores)
+BEGIN
+    SET IDENTITY_INSERT dbo.Setores ON;
+    INSERT INTO dbo.Setores (id_setor, nome_setor) VALUES
+    (1, 'TI'),
+    (2, 'RH'),
+    (3, 'Administrativo'),
+    (4, 'Financeiro'),
+    (5, 'Comercial');
+    SET IDENTITY_INSERT dbo.Setores OFF;
+END
+
+-- CATEGORIAS
+IF NOT EXISTS (SELECT 1 FROM dbo.Categorias)
+BEGIN
+    SET IDENTITY_INSERT dbo.Categorias ON;
+    INSERT INTO dbo.Categorias (id_categoria, nome_categoria) VALUES
+    (1, 'Acesso'),
+    (2, 'Sistema'),
+    (3, 'Rede'),
+    (4, 'Hardware'),
+    (5, 'Software');
+    SET IDENTITY_INSERT dbo.Categorias OFF;
+END
+
+-- USUARIOS
+-- ATENCAO: SHA-256 sem salt serve APENAS como dado de teste. Todos os
+-- usuarios abaixo tem a mesma senha ('senha123') e, por isso, o mesmo hash.
+-- Em producao, a aplicacao C# deve gerar o hash com BCrypt/Argon2/PBKDF2
+-- (com salt) e gravar so o resultado.
+IF NOT EXISTS (SELECT 1 FROM dbo.Usuarios)
+BEGIN
+    SET IDENTITY_INSERT dbo.Usuarios ON;
+    INSERT INTO dbo.Usuarios (id_usuario, nome, email, telefone, senha, id_setor, perfil, data_cadastro, ativo) VALUES
+    (1, 'Bruno Pereira',   'bruno.pereira@gmail.com',  '11986546372', CONVERT(VARCHAR(64), HASHBYTES('SHA2_256', 'senha123'), 2), 1, 'Usuario',  '2025-01-01T10:00:00', 1),
+    (2, 'Ana Luisa',       'ana.lulu23@gmail.com',     '11998765432', CONVERT(VARCHAR(64), HASHBYTES('SHA2_256', 'senha123'), 2), 2, 'Usuario',  '2025-01-01T10:05:00', 1),
+    (3, 'Pedro Reis',      'pedro532@gmail.com',       '11976548934', CONVERT(VARCHAR(64), HASHBYTES('SHA2_256', 'senha123'), 2), 1, 'Analista', '2025-01-02T10:30:00', 1),
+    (4, 'Fernanda Correa', 'fefecorrea02@gmail.com',   '11943210987', CONVERT(VARCHAR(64), HASHBYTES('SHA2_256', 'senha123'), 2), 3, 'Admin',    '2025-01-03T11:00:00', 1),
+    (5, 'Carlos Mendes',   'mendes319@gmail.com',      '11976534254', CONVERT(VARCHAR(64), HASHBYTES('SHA2_256', 'senha123'), 2), 4, 'Usuario',  '2025-01-04T11:40:00', 1),
+    -- telefone corrigido: antes repetia o da Fernanda Correa (id 4)
+    (6, 'Fernanda Costa',  'fernanda.costa@gmail.com', '11932109876', CONVERT(VARCHAR(64), HASHBYTES('SHA2_256', 'senha123'), 2), 1, 'Analista', '2025-01-05T10:00:00', 1);
+    SET IDENTITY_INSERT dbo.Usuarios OFF;
+END
+
+-- CHAMADOS
+-- O chamado 4 ja entra Encerrado com solucao, avaliacao e data de fechamento
+-- (por causa do CHECK CK_Chamados_fechamento). Por isso nao precisa mais do UPDATE separado.
+IF NOT EXISTS (SELECT 1 FROM dbo.Chamados)
+BEGIN
+    SET IDENTITY_INSERT dbo.Chamados ON;
+    INSERT INTO dbo.Chamados
+        (id_chamado, id_usuario, id_analista, titulo, descricao, id_categoria,
+         prioridade, status, data_abertura, data_fechamento, solucao_informada, avaliacao_atendimento)
+    VALUES
+    (1, 1, 3,    'Problema de Login no Sistema', 'Nao consigo acessar o sistema.',                           1, 'Alta',  'Aberto',     '2025-10-23T10:40:00', NULL, NULL, NULL),
+    (2, 2, 3,    'Lentidao no sistema do RH',    'Nao funciona o comando do sistema do RH.',                 2, 'Media', 'Em analise', '2025-10-27T14:30:00', NULL, NULL, NULL),
+    (3, 1, NULL, 'Rede sem fio nao conecta',     'Meu computador nao conecta com a rede da empresa.',        3, 'Alta',  'Aberto',     '2025-11-12T08:42:00', NULL, NULL, NULL),
+    (4, 5, 6,    'Impressora nao imprime',       'A impressora do setor financeiro nao esta respondendo.',   4, 'Media', 'Encerrado',  '2025-10-14T16:36:00',
+        '2025-10-15T10:30:00', 'Problema resolvido apos reinicializacao do servidor de impressao.', 5);
+    SET IDENTITY_INSERT dbo.Chamados OFF;
+END
+
+-- SOLUCOES DA IA
+IF NOT EXISTS (SELECT 1 FROM dbo.SolucoesIA)
+BEGIN
+    SET IDENTITY_INSERT dbo.SolucoesIA ON;
+    INSERT INTO dbo.SolucoesIA (id_solucao, id_categoria, descricao_problema, palavras_chave, solucao_sugerida) VALUES
+    (1, 1, 'Nao consigo acessar o sistema', 'acesso,login,entrar,senha,credenciais',
+        'Verifique suas credenciais de login e tente novamente. Se o problema persistir, entre em contato com o suporte.'),
+    (2, 2, 'Sistema lento', 'lento,lentidao,travando,demora',
+        'Verifique a conexao com a internet e reinicie o aplicativo. Se a lentidao persistir, pode ser um problema de servidor.'),
+    (3, 4, 'Impressora nao funciona', 'impressora,imprimir,impressao',
+        'Verifique se a impressora esta ligada e conectada a rede. Tente reiniciar a impressora e o computador.'),
+    (4, 1, 'Esqueci minha senha', 'esqueci,senha,redefinir,recuperar',
+        'Clique em "Esqueci minha senha" na tela de login e siga as instrucoes enviadas para seu e-mail cadastrado.'),
+    (5, 5, 'Erro ao salvar arquivo', 'salvar,arquivo,gravar,disco,permissao',
+        'Verifique se ha espaco disponivel no disco e se voce tem permissoes de escrita na pasta de destino.');
+    SET IDENTITY_INSERT dbo.SolucoesIA OFF;
+END
+GO
+
+
+/* ---------------------------------------------------------------------
+   4) PROCEDURE DE LOG
+   usp_ (e nao sp_): o prefixo sp_ e reservado ao sistema e faz o SQL Server
+   procurar primeiro no banco master.
+   CREATE OR ALTER: cria ou atualiza, permitindo rodar o script varias vezes.
+   Precisa ser a primeira instrucao do lote (por isso o GO antes).
+   --------------------------------------------------------------------- */
+CREATE OR ALTER PROCEDURE dbo.usp_RegistrarLog
+    @p_id_usuario_afetado  INT           = NULL,
+    @p_id_usuario_executor INT           = NULL,
+    @p_acao                VARCHAR(100),
+    @p_tabela_afetada      VARCHAR(100)  = NULL,
+    @p_registro_id         INT           = NULL,
+    @p_detalhes            NVARCHAR(500) = NULL,
+    @p_ip_origem           VARCHAR(50)   = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO dbo.LogsAuditoria
+        (id_usuario_afetado, id_usuario_executor, acao, tabela_afetada, registro_id, detalhes, ip_origem)
+    VALUES
+        (@p_id_usuario_afetado, @p_id_usuario_executor, @p_acao, @p_tabela_afetada, @p_registro_id, @p_detalhes, @p_ip_origem);
+END
+GO
+
+
+/* ---------------------------------------------------------------------
+   5) TRIGGER DE AUDITORIA DE CHAMADOS
+   Como o banco sabe QUEM (usuario da aplicacao) fez a alteracao?
+   A API, ao abrir a conexao, executa:
+       EXEC sp_set_session_context @key = N'id_usuario', @value = 5;
+       EXEC sp_set_session_context @key = N'ip_origem',  @value = '192.168.0.10';
+   O trigger le esses valores com SESSION_CONTEXT().
+   Vantagem: registra QUALQUER alteracao, inclusive as feitas direto no banco.
+   'inserted' = linhas depois do UPDATE; 'deleted' = linhas antes do UPDATE.
+   --------------------------------------------------------------------- */
+CREATE OR ALTER TRIGGER dbo.trg_Chamados_Auditoria
+ON dbo.Chamados
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @executor INT         = TRY_CAST(SESSION_CONTEXT(N'id_usuario') AS INT);
+    DECLARE @ip       VARCHAR(50) = TRY_CAST(SESSION_CONTEXT(N'ip_origem')  AS VARCHAR(50));
+
+    INSERT INTO dbo.LogsAuditoria
+        (id_usuario_afetado, id_usuario_executor, acao, tabela_afetada, registro_id, detalhes, ip_origem)
+    SELECT
+        i.id_usuario,
+        @executor,
+        'UPDATE_CHAMADO',
+        'Chamados',
+        i.id_chamado,
+        CONCAT('status: ', d.status, ' -> ', i.status,
+               '; analista: ', ISNULL(CAST(d.id_analista AS VARCHAR(10)), '-'),
+               ' -> ',         ISNULL(CAST(i.id_analista AS VARCHAR(10)), '-')),
+        @ip
+    FROM inserted i
+    JOIN deleted  d ON d.id_chamado = i.id_chamado
+    WHERE d.status <> i.status
+       OR ISNULL(d.id_analista, 0) <> ISNULL(i.id_analista, 0)
+       OR ISNULL(d.solucao_informada, '') <> ISNULL(i.solucao_informada, '');
+END
+GO
+
+
+/* ---------------------------------------------------------------------
+   6) VIEW COM DADOS MASCARADOS (LGPD)
+   Telas e relatorios devem ler desta view, e nao da tabela Usuarios.
+   Ex.: bruno.pereira@gmail.com -> b***@gmail.com | 11986546372 -> (11) *****-6372
+   --------------------------------------------------------------------- */
+CREATE OR ALTER VIEW dbo.vw_UsuariosMascarados
+AS
+SELECT
+    id_usuario,
+    nome,
+    LEFT(email, 1) + '***' + SUBSTRING(email, CHARINDEX('@', email), LEN(email)) AS email_mascarado,
+    '(' + LEFT(telefone, 2) + ') *****-' + RIGHT(telefone, 4)                    AS telefone_mascarado,
+    id_setor,
+    perfil,
+    ativo
+FROM dbo.Usuarios;
+GO
+
+
+/* ---------------------------------------------------------------------
+   7) PERFIS E PERMISSOES (LGPD: principio do menor privilegio)
+   Cada perfil acessa so o necessario. Ninguem apaga logs.
+   --------------------------------------------------------------------- */
+IF DATABASE_PRINCIPAL_ID('role_usuario')  IS NULL CREATE ROLE role_usuario;
+IF DATABASE_PRINCIPAL_ID('role_analista') IS NULL CREATE ROLE role_analista;
+IF DATABASE_PRINCIPAL_ID('role_admin')    IS NULL CREATE ROLE role_admin;
+GO
+
+-- Usuario comum: abre e consulta chamados; ve usuarios apenas pela view mascarada
+GRANT SELECT, INSERT ON dbo.Chamados               TO role_usuario;
+GRANT SELECT         ON dbo.vw_UsuariosMascarados  TO role_usuario;
+GRANT SELECT         ON dbo.Categorias             TO role_usuario;
+GRANT SELECT         ON dbo.Setores                TO role_usuario;
+GRANT SELECT         ON dbo.SolucoesIA             TO role_usuario;
+GRANT INSERT         ON dbo.Consentimentos         TO role_usuario;
+
+-- Analista: tambem atualiza chamados e consulta a base da IA
+GRANT SELECT, INSERT, UPDATE ON dbo.Chamados       TO role_analista;
+GRANT SELECT, UPDATE         ON dbo.SolucoesIA     TO role_analista;
+GRANT SELECT ON dbo.vw_UsuariosMascarados          TO role_analista;
+GRANT SELECT ON dbo.Categorias                     TO role_analista;
+GRANT SELECT ON dbo.Setores                        TO role_analista;
+
+-- Admin: gerencia usuarios, consulta logs; NAO pode apagar nem alterar logs
+GRANT SELECT, INSERT, UPDATE ON dbo.Usuarios       TO role_admin;
+GRANT SELECT, INSERT, UPDATE ON dbo.Chamados       TO role_admin;
+GRANT SELECT ON dbo.LogsAuditoria                  TO role_admin;
+GRANT SELECT ON dbo.Consentimentos                 TO role_admin;
+GRANT EXECUTE ON dbo.usp_RegistrarLog              TO role_admin, role_analista, role_usuario;
+DENY  DELETE, UPDATE ON dbo.LogsAuditoria          TO role_admin;
+GO
+
+
+/* ---------------------------------------------------------------------
+   8) CONFERENCIA (rode para validar o resultado)
+   --------------------------------------------------------------------- */
+SELECT * FROM dbo.Setores;
+SELECT * FROM dbo.Categorias;
+SELECT * FROM dbo.vw_UsuariosMascarados;
+SELECT * FROM dbo.Chamados;
+SELECT * FROM dbo.SolucoesIA;
+GO
+
+
+/* ---------------------------------------------------------------------
+   9) EXEMPLOS DE USO (descomente para testar)
+   --------------------------------------------------------------------- */
+
+/* -- 9.1 Atualizar um chamado e gerar log automatico pelo trigger
+EXEC sp_set_session_context @key = N'id_usuario', @value = 3;
+EXEC sp_set_session_context @key = N'ip_origem',  @value = '192.168.0.10';
+
+UPDATE dbo.Chamados
+SET status = 'Em analise', id_analista = 3
+WHERE id_chamado = 3;
+
+SELECT * FROM dbo.LogsAuditoria ORDER BY id_log DESC;
+*/
+
+/* -- 9.2 Encerrar um chamado (data_fechamento e obrigatoria pelo CHECK)
+UPDATE dbo.Chamados
+SET status = 'Encerrado',
+    data_fechamento = GETDATE(),
+    solucao_informada = 'Credenciais redefinidas.'
+WHERE id_chamado = 1;
+*/
+
+/* -- 9.3 Registrar login falho (usuario inexistente) via procedure
+EXEC dbo.usp_RegistrarLog
+     @p_acao = 'LOGIN_FALHO',
+     @p_tabela_afetada = 'Usuarios',
+     @p_detalhes = N'E-mail nao cadastrado: x@teste.com',
+     @p_ip_origem = '192.168.0.55';
+*/
+
+/* -- 9.4 Registrar consentimento (LGPD)
+INSERT INTO dbo.Consentimentos (id_usuario, versao_termo, aceito, ip_origem)
+VALUES (1, '1.0', 1, '192.168.0.10');
+*/
+
+/* -- 9.5 FAQ dinamica: solucoes mais usadas
+SELECT TOP 5 descricao_problema, solucao_sugerida, qtd_utilizacoes
+FROM dbo.SolucoesIA
+ORDER BY qtd_utilizacoes DESC;
+*/
+
+/* -- 9.6 Exclusao logica (nunca DELETE): desativa o usuario
+UPDATE dbo.Usuarios SET ativo = 0 WHERE id_usuario = 5;
+*/
